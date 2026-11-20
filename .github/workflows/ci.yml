@@ -16,8 +16,8 @@ jobs:
   web:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
@@ -46,8 +46,8 @@ jobs:
     env:
       DATABASE_URL: postgres://weitblick:weitblick@localhost:5432/weitblick
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
@@ -55,4 +55,5 @@ jobs:
       - run: npm --workspace server run typecheck
       - run: npm --workspace server run build
       - run: npm --workspace server run migration:run
-      - run: npm --workspace server run test -- --runInBand
+      - run: npx jest --runInBand
+        working-directory: server
