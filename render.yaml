@@ -1,0 +1,59 @@
+
+services:
+  - type: web
+    name: stegwerk
+    runtime: docker
+    plan: free
+    region: frankfurt
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+
+      - key: DATABASE_URL
+        sync: false
+
+      - key: DATABASE_CA_CERT
+        sync: false
+
+      - key: JWT_SECRET
+        generateValue: true
+
+      - key: MAIL_ENCRYPTION_KEY
+        generateValue: true
+
+      - key: TOTP_ENCRYPTION_KEY
+        generateValue: true
+
+      - key: WEB_ORIGIN
+        sync: false
+
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        value: 587
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: MAIL_FROM
+        sync: false
+
+      - key: LEGAL_COMPANY_NAME
+        sync: false
+      - key: LEGAL_STREET
+        sync: false
+      - key: LEGAL_POSTAL_CODE
+        sync: false
+      - key: LEGAL_CITY
+        sync: false
+      - key: LEGAL_EMAIL
+        sync: false
+
+databases:
+  - name: weitblick-db
+    plan: free
+    postgresMajorVersion: '16'

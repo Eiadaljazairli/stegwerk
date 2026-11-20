@@ -1,0 +1,3625 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AbmeldungEintrag {
+  email: String!
+  id: ID!
+  thema: String!
+  zeitpunkt: DateTime!
+}
+
+type AbsenderPruefung {
+  ampel: String!
+  dmarc: String!
+  domain: String!
+  geprueftAm: DateTime!
+  hinweise: [String!]!
+  spf: String!
+}
+
+input AcceptInvitationInput {
+  token: String!
+}
+
+input AddMailSperreInput {
+  eintrag: String!
+}
+
+type Ankuendigung {
+  bis: DateTime!
+  createdAt: DateTime!
+  id: ID!
+  text: String!
+  von: DateTime!
+  wartung: Boolean!
+}
+
+input AnkuendigungInput {
+  bis: DateTime!
+  text: String!
+  von: DateTime!
+  wartung: Boolean!
+}
+
+type AnmeldeVerknuepfung {
+  anbieter: String!
+  createdAt: DateTime!
+  email: String
+  zuletztAm: DateTime
+}
+
+type ApiKey {
+  anzeige: String!
+  createdAt: DateTime!
+  createdById: ID
+  createdByName: String
+  expiresAt: DateTime
+  id: ID!
+  kennung: String!
+  lastUsedAt: DateTime
+  name: String!
+  permissions: [String!]!
+  revokedAt: DateTime
+  schreibmodus: String!
+  workspaceId: ID!
+}
+
+type Appointment {
+  allDay: Boolean!
+  attendeeSummary: String!
+  attendees: [AppointmentAttendee!]!
+  cancelledAt: DateTime
+  company: Company
+  companyId: ID
+  contact: Contact
+  contactId: ID
+  createdAt: DateTime!
+  createdById: ID!
+  deal: Deal
+  dealId: ID
+  description: String
+  eingeladenAm: DateTime
+  endDate: String!
+  endTime: String!
+  endsAt: DateTime!
+  geschwaerzt: Boolean!
+  id: ID!
+  location: String
+  minutes: Int!
+  occurrenceOn: String
+  ownerId: ID!
+  ownerName: String!
+  privat: Boolean!
+  quelle: String!
+  recurrence: String
+  recurrenceText: String
+  remindMinutesBefore: Int
+  serieDatum: String
+  serieId: ID
+  seriesId: ID!
+  skippedDates: [String!]!
+  startDate: String!
+  startTime: String!
+  startsAt: DateTime!
+  title: String!
+  updatedAt: DateTime!
+  videoLink: String
+  workspaceId: ID!
+}
+
+type AppointmentAttendee {
+  appointmentId: ID!
+  contact: Contact
+  contactId: ID
+  createdAt: DateTime!
+  email: String
+  id: ID!
+  name: String!
+  status: AttendeeStatus!
+  statusLabel: String!
+  userId: ID
+  workspaceId: ID!
+}
+
+input AppointmentAttendeeInput {
+  contactId: ID
+  email: String
+  name: String
+  status: AttendeeStatus
+  userId: ID
+}
+
+type AppointmentConflict {
+  appointment: Appointment!
+  minutes: Int!
+}
+
+enum AppointmentScope {
+  FOLLOWING
+  ONE
+  SERIES
+}
+
+type Attachment {
+  companyId: ID
+  contactId: ID
+  createdAt: DateTime!
+  dealId: ID
+  id: ID!
+  invoiceId: ID
+  mimeType: String!
+  name: String!
+  noteId: ID
+  quoteId: ID
+  sizeBytes: Int!
+  taskId: ID
+  uploadedBy: User
+  uploadedById: ID
+  workspaceId: ID!
+}
+
+enum AttendeeStatus {
+  ACCEPTED
+  DECLINED
+  NEEDS_ACTION
+  TENTATIVE
+}
+
+enum AuditAction {
+  CREATED
+  DELETED
+  RESTORED
+  UPDATED
+}
+
+type AuditLogEntry {
+  action: AuditAction!
+  actorId: ID
+  actorName: String!
+  changes: String
+  createdAt: DateTime!
+  entityId: ID!
+  entityType: String!
+  herkunft: String
+  id: ID!
+  requestId: String
+  summary: String
+  workspaceId: ID!
+}
+
+input AuftragsbestaetigungInput {
+  angebotId: ID!
+  closingText: String
+  introText: String
+  liefertermin: String
+}
+
+enum AusfuehrungStatus {
+  ABGEBROCHEN
+  FEHLER
+  GEPLANT
+  LAEUFT
+  OK
+  UEBERSPRUNGEN
+}
+
+type Auswertung {
+  abschlussquote: Float
+  betraegeVerborgen: Boolean!
+  bis: String!
+  durchschnittTage: Float
+  durchschnittWert: Float
+  gewonnenAnzahl: Int!
+  gewonnenSumme: Float!
+  monate: [AuswertungMonat!]!
+  neueGeschaefte: Int!
+  verkaeufer: [AuswertungVerkaeufer!]!
+  verlorenAnzahl: Int!
+  verlorenSumme: Float!
+  verlustgruende: [AuswertungGrund!]!
+  verweildauer: [AuswertungVerweildauer!]!
+  von: String!
+}
+
+type AuswertungGrund {
+  anzahl: Int!
+  grund: String!
+  summe: Float!
+}
+
+type AuswertungMonat {
+  gewonnenAnzahl: Int!
+  gewonnenSumme: Float!
+  monat: String!
+  verlorenAnzahl: Int!
+  verlorenSumme: Float!
+}
+
+type AuswertungVerkaeufer {
+  gewonnenAnzahl: Int!
+  gewonnenSumme: Float!
+  name: String!
+  offenAnzahl: Int!
+  offenSumme: Float!
+  ownerId: ID
+  quote: Float
+  verlorenAnzahl: Int!
+}
+
+type AuswertungVerweildauer {
+  anzahl: Int!
+  phase: String!
+  tage: Float!
+}
+
+type AuthPayload {
+  angemeldetBleiben: Boolean!
+  refreshToken: String!
+  token: String!
+  user: User!
+  workspace: Workspace!
+}
+
+type Automation {
+  aktion: AutomationAktion!
+  aktiv: Boolean!
+  art: String
+  ausloeser: AutomationAusloeser!
+  bedingungen: [AutomationBedingung!]!
+  createdAt: DateTime!
+  eingangEingerichtet: Boolean!
+  eingangSigniert: Boolean!
+  faelligInTagen: Int
+  feldKey: String
+  feldWert: String
+  id: ID!
+  mailAn: AutomationMailAn
+  mailText: String
+  naechsterLauf: DateTime
+  name: String!
+  phase: String
+  reihumUserIds: [ID!]!
+  ruhendTage: Int
+  schritte: [AutomationSchrittAnsicht!]!
+  titel: String
+  updatedAt: DateTime!
+  verzoegerungTage: Int!
+  vorlageId: ID
+  zeitplan: AutomationZeitplan
+  zustaendigUserId: ID
+}
+
+enum AutomationAktion {
+  ANLEGEN_ODER_AKTUALISIEREN
+  AUFGABE_ANLEGEN
+  DATENSAETZE_SUCHEN
+  FELD_SETZEN
+  HTTP_ANFRAGE
+  KANAL_NACHRICHT
+  MAIL_SENDEN
+  NOTIZ_ANLEGEN
+  TERMIN_ANLEGEN
+  VERANTWORTLICH_REIHUM
+}
+
+type AutomationAusfuehrung {
+  automationId: ID!
+  createdAt: DateTime!
+  erledigtAm: DateTime
+  faelligAm: DateTime!
+  grund: String
+  id: ID!
+  schritte: [AutomationLaufSchritt!]!
+  status: AusfuehrungStatus!
+  testlauf: Boolean!
+  zielArt: String!
+  zielId: ID
+}
+
+enum AutomationAusloeser {
+  FIRMA_ANGELEGT
+  FIRMA_GEAENDERT
+  GESCHAEFT_ANGELEGT
+  GESCHAEFT_GEAENDERT
+  GESCHAEFT_RUHEND
+  KONTAKT_ANGELEGT
+  KONTAKT_GEAENDERT
+  MANUELL
+  PHASE_GEAENDERT
+  WEBFORMULAR_EINGANG
+  WEBHOOK_EINGANG
+  ZEITPLAN
+}
+
+type AutomationBedingung {
+  key: String!
+  operator: CustomFieldFilterOperator!
+  value: String
+}
+
+input AutomationBedingungInput {
+  key: String!
+  operator: CustomFieldFilterOperator!
+  value: String
+}
+
+type AutomationEingang {
+  geheimnis: String
+  url: String!
+}
+
+input AutomationInput {
+  aktion: AutomationAktion!
+  aktiv: Boolean
+  art: String
+  ausloeser: AutomationAusloeser!
+  bedingungen: [AutomationBedingungInput!]
+  faelligInTagen: Int
+  feldKey: String
+  feldWert: String
+  httpHeader: [AutomationKopfInput!]
+  httpMethode: String
+  httpRumpf: String
+  httpUrl: String
+  kanalDienst: String
+  kanalLink: Boolean
+  kanalText: String
+  kanalUrl: String
+  mailAlsEntwurf: Boolean
+  mailAn: AutomationMailAn
+  mailText: String
+  name: String!
+  phase: String
+  reihumUserIds: [ID!]
+  ruhendTage: Int
+  suchArt: String
+  suchFeld: String
+  suchVergleich: CustomFieldFilterOperator
+  suchWert: String
+  terminDauer: Int
+  terminInTagen: Int
+  terminOrt: String
+  terminUhrzeit: String
+  titel: String
+  upsertArt: String
+  upsertWerte: [AutomationWertInput!]
+  verzoegerungTage: Int
+  vorlageId: ID
+  weitereSchritte: [AutomationSchrittInput!]
+  zeitplan: AutomationZeitplanInput
+  zielSchritt: Int
+  zustaendigUserId: ID
+}
+
+type AutomationKnopf {
+  id: ID!
+  name: String!
+}
+
+input AutomationKopfInput {
+  name: String!
+  wert: String
+}
+
+type AutomationLaufSchritt {
+  aktion: AutomationAktion!
+  ausgabe: String!
+  eingabe: String!
+  grund: String
+  nr: Int!
+  status: AusfuehrungStatus!
+}
+
+enum AutomationMailAn {
+  HAUPTKONTAKT
+  VERANTWORTLICH
+}
+
+enum AutomationRhythmus {
+  MONATLICH
+  TAEGLICH
+  WOECHENTLICH
+}
+
+type AutomationSchrittAnsicht {
+  aktion: AutomationAktion!
+  faelligInTagen: Int
+  feldKey: String
+  feldWert: String
+  httpKoepfe: [String!]!
+  httpMethode: String
+  httpRumpf: String
+  httpUrl: String
+  kanalDienst: String
+  kanalLink: Boolean!
+  kanalText: String
+  kanalUrlAnzeige: String
+  mailAlsEntwurf: Boolean!
+  mailAn: AutomationMailAn
+  mailText: String
+  reihumUserIds: [ID!]!
+  suchArt: String
+  suchFeld: String
+  suchVergleich: CustomFieldFilterOperator
+  suchWert: String
+  terminDauer: Int
+  terminInTagen: Int
+  terminOrt: String
+  terminUhrzeit: String
+  titel: String
+  upsertArt: String
+  upsertWerte: [AutomationWert!]!
+  vorlageId: ID
+  zielSchritt: Int
+  zustaendigUserId: ID
+}
+
+input AutomationSchrittInput {
+  aktion: AutomationAktion!
+  faelligInTagen: Int
+  feldKey: String
+  feldWert: String
+  httpHeader: [AutomationKopfInput!]
+  httpMethode: String
+  httpRumpf: String
+  httpUrl: String
+  kanalDienst: String
+  kanalLink: Boolean
+  kanalText: String
+  kanalUrl: String
+  mailAlsEntwurf: Boolean
+  mailAn: AutomationMailAn
+  mailText: String
+  reihumUserIds: [ID!]
+  suchArt: String
+  suchFeld: String
+  suchVergleich: CustomFieldFilterOperator
+  suchWert: String
+  terminDauer: Int
+  terminInTagen: Int
+  terminOrt: String
+  terminUhrzeit: String
+  titel: String
+  upsertArt: String
+  upsertWerte: [AutomationWertInput!]
+  vorlageId: ID
+  zielSchritt: Int
+  zustaendigUserId: ID
+}
+
+type AutomationWert {
+  feld: String!
+  wert: String!
+}
+
+input AutomationWertInput {
+  feld: String!
+  wert: String!
+}
+
+type AutomationZeitplan {
+  monatstag: Int
+  rhythmus: AutomationRhythmus!
+  uhrzeit: String!
+  wochentag: Int
+}
+
+input AutomationZeitplanInput {
+  monatstag: Int
+  rhythmus: AutomationRhythmus!
+  uhrzeit: String!
+  wochentag: Int
+}
+
+type AvvAnnahme {
+  angenommenAm: DateTime!
+  angenommenVon: String!
+  auftraggeber: String!
+  fassung: String!
+  id: ID!
+  ipGekuerzt: String
+}
+
+type AvvStand {
+  aktuell: Boolean!
+  annahme: AvvAnnahme
+  auftraggeber: String!
+  geprueft: Boolean!
+}
+
+type Begleitbeleg {
+  angebot: Quote!
+  angebotId: ID!
+  art: BegleitbelegArt!
+  auftragsbestaetigung: Begleitbeleg
+  auftragsbestaetigungId: ID
+  bearbeiter: User
+  bearbeiterId: ID
+  closingText: String
+  company: Company
+  companyId: ID
+  contact: Contact
+  contactId: ID
+  createdAt: DateTime!
+  createdById: ID
+  currency: String!
+  deal: Deal
+  dealId: ID
+  id: ID!
+  introText: String
+  issuedOn: String!
+  kontaktName: String
+  lieferadresse: String
+  liefertermin: String
+  number: String!
+  positionen: [BegleitbelegPosition!]!
+  recipientAddress: String
+  recipientVatId: String
+  smallBusiness: Boolean!
+  status: BegleitbelegStatus!
+  storniertAm: DateTime
+  stornoGrund: String
+  stornoVon: Begleitbeleg
+  stornoVonId: ID
+  taxExemption: TaxExemption
+  taxExemptionNote: String
+  totals: QuoteTotals
+  workspaceId: ID!
+}
+
+enum BegleitbelegArt {
+  AUFTRAGSBESTAETIGUNG
+  LIEFERSCHEIN
+}
+
+input BegleitbelegFilterInput {
+  angebotId: ID
+  art: BegleitbelegArt
+  companyId: ID
+  dealId: ID
+}
+
+type BegleitbelegPosition {
+  angebotsPositionId: ID
+  articleNumber: String
+  belegId: ID!
+  description: String
+  discountPercent: Float!
+  id: ID!
+  name: String!
+  position: Int!
+  quantity: Float!
+  restOffen: Float
+  taxRatePercent: Int!
+  unit: String!
+  unitPriceCents: Int!
+}
+
+enum BegleitbelegStatus {
+  GESTELLT
+  STORNIERT
+}
+
+type Benachrichtigung {
+  akte: String
+  art: String!
+  auszug: String
+  erstelltAm: DateTime!
+  gelesen: Boolean!
+  id: ID!
+  pfad: String
+  sichtbar: Boolean!
+  von: String!
+  wo: String!
+}
+
+type Bereichsprotokoll {
+  aenderungenMonate: Int!
+  eintraege: [BereichsprotokollEintrag!]!
+  sicherheitMonate: Int!
+  weitere: Boolean!
+}
+
+type BereichsprotokollEintrag {
+  art: String!
+  einzelheiten: String
+  geraet: String
+  id: ID!
+  objekt: String
+  objektId: ID
+  quelle: String!
+  wer: String
+  zeit: DateTime!
+  zusammenfassung: String
+}
+
+input BereichsprotokollFilter {
+  bis: DateTime
+  limit: Int
+  objekt: String
+  offset: Int
+  personId: ID
+  quelle: String
+  von: DateTime
+}
+
+type BetriebAenderung {
+  aktion: String!
+  art: String!
+  bereich: String!
+  wann: DateTime!
+}
+
+type BetriebBereich {
+  angebote: Int!
+  angelegt: DateTime!
+  firmen: Int!
+  geschaefte: Int!
+  id: ID!
+  inhaber: String
+  kontakte: Int!
+  laeuftBis: DateTime
+  mitglieder: Int!
+  name: String!
+  plan: BillingPlan
+  rechnungen: Int!
+  speicherBytes: Float!
+  status: SubscriptionStatus
+  testphaseBis: DateTime
+  zuletztAktiv: DateTime
+}
+
+type BetriebKonto {
+  angelegt: DateTime!
+  bereichNamen: [String!]!
+  bereiche: Int!
+  bestaetigt: Boolean!
+  email: String!
+  id: ID!
+  name: String!
+  zuletztAktiv: DateTime
+  zweiFaktor: Boolean!
+}
+
+type BetriebKontoDetail {
+  aenderungen: [BetriebAenderung!]!
+  angelegt: DateTime!
+  anmeldungen: [DateTime!]!
+  anmeldungen30: Int!
+  bestaetigt: Boolean!
+  email: String!
+  id: ID!
+  name: String!
+  nutzung: [BetriebNutzung!]!
+  tage: [BetriebTag!]!
+  zuletztGesehen: DateTime
+  zweiFaktor: Boolean!
+}
+
+type BetriebNutzung {
+  angesehen: Int!
+  bereich: String!
+  geaendert: Int!
+  tage: Int!
+  zuletzt: String!
+}
+
+type BetriebTag {
+  anzahl: Int!
+  tag: String!
+}
+
+type BetriebZahlen {
+  aktivDieseWoche: Int!
+  arbeitsbereiche: Int!
+  bestaetigt: Int!
+  inTestphase: Int!
+  konten: Int!
+  mitZweiFaktor: Int!
+  neuDieseWoche: Int!
+  offeneEinladungen: Int!
+  zahlend: Int!
+}
+
+type BetriebsHinweis {
+  bis: DateTime
+  id: ID
+  text: String!
+  von: DateTime!
+  wartung: Boolean!
+}
+
+type BetriebsUebersicht {
+  bereiche: [BetriebBereich!]!
+  konten: [BetriebKonto!]!
+  zahlen: BetriebZahlen!
+}
+
+type BetriebsZustand {
+  datenbankMs: Int!
+  datenbankOk: Boolean!
+  gestartetAm: DateTime!
+  kalender: Int!
+  kalenderMitFehler: Int!
+  laeufe: [GeplanterLauf!]!
+  mailVersand: String!
+  oauthWiderrufen: Int!
+  offeneMigrationen: [String!]!
+  postfaecher: Int!
+  postfaecherMitFehler: Int!
+  protokollAenderungenMonate: Int!
+  protokollSicherheitMonate: Int!
+  sicherung: SicherungsZustand!
+  speicherFreiBytes: Float
+  speicherGesamtBytes: Float
+  version: String!
+}
+
+enum BillingInterval {
+  MONTH
+  YEAR
+}
+
+enum BillingPlan {
+  PROFESSIONAL
+  STARTER
+  TRIAL
+}
+
+input BuchhaltungEinstellungenInput {
+  automatisch: Boolean
+  zahlungenAbgleichen: Boolean
+}
+
+type BuchhaltungUebertragung {
+  anbieter: String!
+  bezahltGemeldet: Boolean!
+  createdAt: DateTime!
+  externeBelegId: String
+  fehlerArt: String
+  id: ID!
+  invoiceId: ID!
+  letzterFehler: String
+  status: String!
+  uebertragenAm: DateTime
+  updatedAt: DateTime!
+  versuche: Int!
+  zuPruefen: Boolean!
+}
+
+input BuchhaltungVerbindenInput {
+  anbieter: String!
+  automatisch: Boolean
+  schluessel: String!
+}
+
+type BuchhaltungVerbindung {
+  anbieter: String!
+  anmeldungFehler: String
+  anmeldungFehlerAm: DateTime
+  automatisch: Boolean!
+  createdAt: DateTime!
+  fehlerZeigen: Boolean!
+  fehlerhaft: Int!
+  id: ID!
+  kontoName: String
+  nichtUebertragen: Int!
+  wartend: Int!
+  zahlungenAbgleichen: Boolean!
+}
+
+input ColumnMappingInput {
+  column: String!
+  field: String!
+  werte: [WertZuordnungInput!]
+}
+
+type Company {
+  annualRevenue: Float
+  appointments: [Appointment!]!
+  city: String
+  contacts: [Contact!]!
+  country: String
+  createdAt: DateTime!
+  customFields: CustomFieldValues!
+  deals: [Deal!]!
+  domain: String
+  email: String
+  employeeCount: Int
+  herkunft: String
+  id: ID!
+  industry: String
+  invoiceEmail: String
+  kontaktAufgaben: [Task!]!
+  kontaktNotizen: [Note!]!
+  kontaktTermine: [Appointment!]!
+  linkedin: String
+  logo: String
+  logoQuelle: String
+  name: String!
+  notes: [Note!]!
+  owner: User
+  ownerId: ID
+  parentCompany: Company
+  parentCompanyId: ID
+  phone: String
+  postalCode: String
+  registergericht: String
+  registernummer: String
+  street: String
+  tasks: [Task!]!
+  tochterfirmen: [Company!]!
+  updatedAt: DateTime!
+  ustIdNr: String
+  vertretung: String
+  website: String
+  workspaceId: ID!
+  zweitdomains: [String!]!
+}
+
+type CompanyPage {
+  gruppen: [ListenGruppe!]!
+  hasMore: Boolean!
+  items: [Company!]!
+  summen: [ListenSumme!]!
+  totalCount: Int!
+}
+
+input ConnectMailboxInput {
+  bezeichnung: String
+  folder: String
+  gesendetOrdner: String
+  host: String!
+  mailboxId: ID
+  neu: String
+  password: String!
+  port: Int
+  secure: Boolean
+  smtpHost: String
+  smtpPort: Int
+  smtpSecure: Boolean
+  username: String!
+}
+
+type Contact {
+  appointments: [Appointment!]!
+  beteiligungen: [DealKontakt!]!
+  city: String
+  company: Company
+  companyId: ID
+  country: String
+  createdAt: DateTime!
+  customFields: CustomFieldValues!
+  deals: [Deal!]!
+  email: String
+  firstName: String!
+  herkunft: String
+  id: ID!
+  jobTitle: String
+  lastName: String!
+  linkedin: String
+  notes: [Note!]!
+  owner: User
+  ownerId: ID
+  phone: String
+  postalCode: String
+  street: String
+  tasks: [Task!]!
+  unzustellbarGrund: String
+  unzustellbarSeit: DateTime
+  updatedAt: DateTime!
+  verteiler: [Verteiler!]!
+  weitereEmails: [KontaktEmail!]!
+  weitereTelefone: [KontaktTelefon!]!
+  workspaceId: ID!
+}
+
+type ContactPage {
+  gruppen: [ListenGruppe!]!
+  hasMore: Boolean!
+  items: [Contact!]!
+  totalCount: Int!
+}
+
+input CreateApiKeyInput {
+  expiresAt: String
+  name: String!
+  permissions: [String!]!
+  schreibmodus: String
+}
+
+input CreateAppointmentInput {
+  allDay: Boolean
+  attendees: [AppointmentAttendeeInput!]
+  companyId: ID
+  contactId: ID
+  dealId: ID
+  description: String
+  endDate: String!
+  endTime: String!
+  location: String
+  ownerId: ID
+  privat: Boolean
+  recurrence: String
+  remindMinutesBefore: Int
+  startDate: String!
+  startTime: String!
+  title: String!
+  videoLink: String
+}
+
+input CreateCompanyInput {
+  annualRevenue: Float
+  city: String
+  country: String
+  customFields: CustomFieldValues
+  domain: String
+  email: String
+  employeeCount: Int
+  herkunft: String
+  industry: String
+  invoiceEmail: String
+  linkedin: String
+  name: String!
+  ownerId: ID
+  parentCompanyId: ID
+  phone: String
+  postalCode: String
+  registergericht: String
+  registernummer: String
+  street: String
+  ustIdNr: String
+  vertretung: String
+  website: String
+  zweitdomains: [String!]
+}
+
+input CreateContactInput {
+  city: String
+  companyId: ID
+  country: String
+  customFields: CustomFieldValues
+  email: String
+  firstName: String!
+  herkunft: String
+  jobTitle: String
+  lastName: String!
+  linkedin: String
+  ownerId: ID
+  phone: String
+  postalCode: String
+  street: String
+  weitereEmails: [KontaktEmailInput!]
+  weitereTelefone: [KontaktTelefonInput!]
+}
+
+input CreateCustomFieldGroupInput {
+  eingeklappt: Boolean
+  entity: CustomFieldEntity!
+  name: String!
+}
+
+input CreateCustomFieldInput {
+  beschreibung: String
+  datumsformat: String
+  eindeutig: Boolean
+  entity: CustomFieldEntity!
+  farben: [CustomFieldOptionFarbeInput!]
+  gegenfeldLabel: String
+  gruppeId: ID
+  label: String!
+  mehrere: Boolean
+  nachkommastellen: Int
+  options: [String!]
+  pflichtAbPhase: String
+  required: Boolean
+  standardwert: String
+  type: CustomFieldType!
+  waehrung: String
+  zahlformat: String
+  zielEntity: CustomFieldEntity
+}
+
+input CreateDealInput {
+  amount: Float
+  closeDate: String
+  companyId: ID
+  currency: String
+  customFields: CustomFieldValues
+  herkunft: String
+  lostReason: String
+  name: String!
+  ownerId: ID
+  pipelineId: ID
+  primaryContactId: ID
+  probability: Int
+  stage: DealStage
+}
+
+input CreateInvoiceInputDto {
+  buyerReference: String
+  closingText: String
+  companyId: ID
+  contactId: ID
+  dealId: ID
+  introText: String
+  paymentTermDays: Int
+  recipientAddress: String
+  recipientVatId: String
+  serviceDate: String
+  taxExemption: TaxExemption
+  taxExemptionNote: String
+}
+
+input CreateInvoiceSeriesInput {
+  endOn: String
+  interval: String!
+  invoiceId: ID!
+  startOn: String!
+}
+
+input CreateNoteInput {
+  body: String!
+  companyId: ID
+  contactId: ID
+  dealId: ID
+}
+
+input CreateProductInput {
+  articleNumber: String
+  description: String
+  name: String!
+  taxRatePercent: Int!
+  unit: String
+  unitPriceCents: Int!
+}
+
+input CreateQuoteInput {
+  closingText: String
+  companyId: ID
+  contactId: ID
+  dealId: ID
+  introText: String
+  recipientVatId: String
+  smallBusiness: Boolean
+  taxExemption: TaxExemption
+  taxExemptionNote: String
+  validUntil: String
+}
+
+input CreateRoleInput {
+  description: String
+  feldrechte: [FeldrechtInput!]
+  name: String!
+  permissions: [String!]!
+  sichtbarkeit: SichtbarkeitInput
+}
+
+input CreateSavedViewInput {
+  columns: SavedViewColumns
+  customFilters: SavedViewFilters
+  darstellung: String
+  datumFeld: String
+  entity: CustomFieldEntity!
+  filterVerknuepfung: String
+  filters: CustomFieldValues
+  gruppenFeld: String
+  gruppierung: String
+  name: String!
+  privat: Boolean
+  search: String
+  sortDirection: String
+  sortField: String
+}
+
+input CreateTaskInput {
+  assigneeId: ID
+  companyId: ID
+  contactId: ID
+  customFields: CustomFieldValues
+  dealId: ID
+  description: String
+  dueDate: String
+  dueTime: String
+  title: String!
+}
+
+input CreateWebhookInput {
+  events: [String!]!
+  url: String!
+}
+
+type CreatedApiKey {
+  apiKey: ApiKey!
+  token: String!
+}
+
+type CreatedWebhook {
+  secret: String!
+  webhook: Webhook!
+}
+
+type CsvInspection {
+  columns: [String!]!
+  kopfzeile: Int!
+  rowCount: Int!
+  sampleRow: [String!]!
+  spaltenWerte: [CsvSpaltenWerte!]!
+  vorschau: [[String!]!]!
+}
+
+type CsvSpaltenWerte {
+  mehr: Boolean!
+  spalte: String!
+  werte: [String!]!
+}
+
+type CustomField {
+  archivedAt: DateTime
+  beschreibung: String
+  createdAt: DateTime!
+  datumsformat: String
+  eindeutig: Boolean!
+  entity: CustomFieldEntity!
+  farben: [CustomFieldOptionFarbe!]!
+  gegenfeldId: ID
+  gegenseite: Boolean!
+  gruppeId: ID
+  id: ID!
+  key: String!
+  label: String!
+  mehrere: Boolean!
+  nachkommastellen: Int
+  options: [String!]!
+  pflichtAbPhase: String
+  position: Int!
+  required: Boolean!
+  standardwert: String
+  type: CustomFieldType!
+  updatedAt: DateTime!
+  waehrung: String
+  workspaceId: ID!
+  zahlformat: String
+  zielEntity: CustomFieldEntity
+}
+
+enum CustomFieldEntity {
+  COMPANY
+  CONTACT
+  DEAL
+  TASK
+}
+
+input CustomFieldFilterInput {
+  gruppe: Int
+  key: String!
+  operator: CustomFieldFilterOperator!
+  value: String
+}
+
+enum CustomFieldFilterOperator {
+  CONTAINS
+  CONTAINS_ANY
+  CONTAINS_NONE
+  EQUALS
+  GREATER_THAN
+  IN_LAST_DAYS
+  IN_NEXT_DAYS
+  IS_EMPTY
+  IS_NOT_EMPTY
+  LESS_THAN
+  NOT_CONTAINS
+  NOT_EQUALS
+  OLDER_THAN_DAYS
+  STARTS_WITH
+}
+
+type CustomFieldGroup {
+  createdAt: DateTime!
+  eingeklappt: Boolean!
+  entity: CustomFieldEntity!
+  id: ID!
+  name: String!
+  position: Int!
+  updatedAt: DateTime!
+  workspaceId: ID!
+}
+
+type CustomFieldOptionFarbe {
+  farbe: String!
+  option: String!
+}
+
+input CustomFieldOptionFarbeInput {
+  farbe: String!
+  option: String!
+}
+
+enum CustomFieldType {
+  ADDRESS
+  BOOLEAN
+  CURRENCY
+  DATE
+  EMAIL
+  LINKS
+  MULTI_SELECT
+  NUMBER
+  PHONE
+  RATING
+  RELATION
+  SELECT
+  TEXT
+  URL
+}
+
+"""
+A flat object of custom field values: text, numbers, true/false, a list of texts, or null.
+"""
+scalar CustomFieldValues
+
+type Dashboard {
+  createdById: ID
+  darfAendern: Boolean!
+  id: ID!
+  kacheln: [Kachel!]!
+  name: String!
+  privat: Boolean!
+}
+
+input DashboardAendernInput {
+  name: String
+  privat: Boolean
+}
+
+input DashboardAnlegenInput {
+  name: String!
+  privat: Boolean! = false
+  vonUebersicht: Boolean! = false
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Deal {
+  amount: Float
+  appointments: [Appointment!]!
+  beteiligte: [DealKontakt!]!
+  beteiligtenTermine: [Appointment!]!
+  closeDate: String
+  company: Company
+  companyId: ID
+  createdAt: DateTime!
+  currency: String!
+  customFields: CustomFieldValues!
+  herkunft: String
+  id: ID!
+  letzteAktivitaet: DateTime
+  lostReason: String
+  name: String!
+  notes: [Note!]!
+  owner: User
+  ownerId: ID
+  pipelineId: ID
+  primaryContact: Contact
+  primaryContactId: ID
+  probability: Int
+  stage: DealStage!
+  tasks: [Task!]!
+  updatedAt: DateTime!
+  workspaceId: ID!
+}
+
+type DealForecast {
+  betraegeVerborgen: Boolean!
+  months: [ForecastMonth!]!
+  openAmount: Float!
+  weightedAmount: Float!
+}
+
+type DealKontakt {
+  contact: Contact
+  contactId: ID!
+  createdAt: DateTime!
+  dealId: ID!
+  id: ID!
+  rolle: String
+}
+
+type DealPage {
+  gruppen: [ListenGruppe!]!
+  hasMore: Boolean!
+  items: [Deal!]!
+  summen: [ListenSumme!]!
+  totalCount: Int!
+}
+
+enum DealStage {
+  LEAD
+  LOST
+  NEGOTIATION
+  PROPOSAL
+  QUALIFIED
+  WON
+}
+
+type DealStageSetting {
+  ausgeblendet: Boolean!
+  defaultLabel: String!
+  farbe: String
+  label: String!
+  probability: Int!
+  stage: DealStage!
+}
+
+input DealStageSettingInput {
+  ausgeblendet: Boolean
+  farbe: String
+  label: String
+  probability: Int
+  stage: DealStage!
+}
+
+input DeleteWorkspaceInput {
+  confirmationName: String!
+  password: String!
+}
+
+type DigestPreview {
+  body: String!
+  subject: String!
+}
+
+type DpaBlockInfo {
+  items: [String!]
+  kind: String!
+  text: String
+  variable: String
+}
+
+type DpaDocumentInfo {
+  annexes: [DpaSectionInfo!]!
+  processorName: String
+  reviewed: Boolean!
+  sections: [DpaSectionInfo!]!
+  title: String!
+}
+
+type DpaSectionInfo {
+  blocks: [DpaBlockInfo!]!
+  label: String!
+  title: String!
+}
+
+type Dublette {
+  detail: String
+  id: ID!
+  name: String!
+}
+
+enum DublettenArt {
+  FIRMA
+  KONTAKT
+}
+
+enum DunningLevel {
+  DUE
+  FINAL
+  FIRST
+  NONE
+  REMINDER
+}
+
+type EinladungsVorschlag {
+  anzahl: Int!
+  email: String!
+  name: String
+}
+
+input EmailAendernInput {
+  neueEmail: String!
+  passwort: String!
+}
+
+input EmpfaengerAuswahlInput {
+  ansichtId: ID
+  kontaktIds: [ID!]
+  verteilerId: ID
+}
+
+type EntitlementView {
+  billingConfigured: Boolean!
+  canWrite: Boolean!
+  cancelAtPeriodEnd: Boolean!
+  currentPeriodEnd: DateTime
+  plan: BillingPlan!
+  readOnly: Boolean!
+  seats: Int!
+  status: SubscriptionStatus!
+  trialDaysLeft: Int
+  usedSeats: Int!
+}
+
+type ErsteSchritte {
+  angebot: Boolean!
+  briefkopf: Boolean!
+  geschaeft: Boolean!
+  kontakte: Boolean!
+  postfach: Boolean!
+  team: Boolean!
+  zweiFaktor: Boolean!
+}
+
+type Favorit {
+  art: FavoritArt!
+  createdAt: DateTime!
+  datensatzId: ID!
+  titel: String!
+}
+
+enum FavoritArt {
+  FIRMA
+  GESCHAEFT
+  KONTAKT
+}
+
+type FeldFuellgrad {
+  gefuellt: Int!
+  gesamt: Int!
+  key: String!
+}
+
+type Feldrecht {
+  feld: String!
+  recht: String!
+}
+
+input FeldrechtInput {
+  feld: String!
+  recht: String!
+}
+
+enum FilterVerknuepfung {
+  ODER
+  UND
+}
+
+type ForecastMonth {
+  dealCount: Int!
+  month: String!
+  totalAmount: Float!
+  weightedAmount: Float!
+}
+
+type FreigabeEintrag {
+  createdAt: DateTime!
+  erteiltVon: String
+  id: ID!
+  name: String!
+  stufe: String!
+  userId: ID!
+}
+
+type FreigabeStand {
+  darfVerwalten: Boolean!
+  freigaben: [FreigabeEintrag!]!
+  verantwortlichId: ID
+}
+
+input FreigebenInput {
+  art: String!
+  datensatzId: ID!
+  stufe: String!
+  userId: ID!
+}
+
+type GefundenerKalenderView {
+  name: String!
+  url: String!
+}
+
+type GegenfeldEintrag {
+  id: ID!
+  titel: String!
+}
+
+type GegenfeldWert {
+  eintraege: [GegenfeldEintrag!]!
+  feldId: ID!
+  nichtSichtbar: Int!
+  quelle: CustomFieldEntity!
+}
+
+enum Genus {
+  MAENNLICH
+  SAECHLICH
+  WEIBLICH
+}
+
+type GeplanterLauf {
+  fehlerInFolge: Int!
+  intervallSek: Int!
+  laeufe: Int!
+  letzteDauerMs: Int
+  letzterErfolg: DateTime
+  letzterFehler: String
+  letzterFehlerAm: DateTime
+  letzterStart: DateTime
+  name: String!
+  zustand: String!
+}
+
+type Herkunft {
+  erstelltAm: DateTime
+  erstelltVon: String
+  geaendertAm: DateTime
+  geaendertVon: String
+  quelle: String
+}
+
+enum ImportEntity {
+  COMPANY
+  CONTACT
+  DEAL
+  NOTE
+  PRODUCT
+  TASK
+}
+
+input ImportInput {
+  csv: String!
+  dryRun: Boolean! = true
+  entity: ImportEntity!
+  kopfzeile: Int! = 0
+  korrekturen: [ZeilenKorrekturInput!]
+  mapping: [ColumnMappingInput!]!
+}
+
+type ImportOption {
+  label: String!
+  wert: String!
+}
+
+type ImportRejection {
+  reason: String!
+  row: Int!
+  zellen: [String!]!
+}
+
+type ImportReport {
+  created: Int!
+  dryRun: Boolean!
+  rejected: Int!
+  rejections: [ImportRejection!]!
+  updated: Int!
+}
+
+type ImportableField {
+  label: String!
+  name: ID!
+  optionen: [ImportOption!]
+  required: Boolean!
+}
+
+type ImpressumFeld {
+  aktuell: String
+  feld: String!
+  grund: String
+  label: String!
+  uebernehmbar: Boolean!
+  wert: String!
+}
+
+input ImpressumUebernahmeInput {
+  companyId: ID!
+  werte: [ImpressumWertInput!]!
+}
+
+type ImpressumVorschau {
+  felder: [ImpressumFeld!]!
+  quelle: String!
+}
+
+input ImpressumWertInput {
+  feld: String!
+  wert: String!
+}
+
+input InspectCsvInput {
+  csv: String!
+  kopfzeile: Int! = 0
+}
+
+type Invitation {
+  acceptedAt: DateTime
+  createdAt: DateTime!
+  email: String!
+  expiresAt: DateTime!
+  id: ID!
+  invitedById: ID!
+  role: MembershipRole!
+  workspaceId: ID!
+}
+
+type InvitationCreated {
+  delivered: Boolean!
+  invitation: Invitation!
+  inviteUrl: String!
+}
+
+input InviteMemberInput {
+  email: String!
+  role: MembershipRole = MEMBER
+}
+
+type Invoice {
+  buchhaltung: BuchhaltungUebertragung
+  buyerReference: String
+  cancelledAt: DateTime
+  closingText: String
+  company: Company
+  companyId: ID
+  consumer: Boolean!
+  contact: Contact
+  contactId: ID
+  correctsInvoiceId: ID
+  createdAt: DateTime!
+  currency: String!
+  deal: Deal
+  dealId: ID
+  dueOn: String
+  id: ID!
+  introText: String
+  issuedAt: DateTime
+  issuedOn: String!
+  lines: [InvoiceLine!]!
+  number: String
+  paidAt: DateTime
+  paymentTermDays: Int!
+  quote: Quote
+  quoteId: ID
+  recipientAddress: String
+  recipientVatId: String
+  seriesId: ID
+  serviceDate: String
+  smallBusiness: Boolean!
+  status: InvoiceStatus!
+  taxExemption: TaxExemption
+  taxExemptionNote: String
+  templateSeries: InvoiceSeries
+  totals: QuoteTotals!
+  updatedAt: DateTime!
+  workspaceId: ID!
+  xrechnungLuecken: [String!]!
+  zugferdLuecken: [String!]!
+}
+
+type InvoiceGap {
+  field: String!
+  label: String!
+}
+
+type InvoiceLine {
+  articleNumber: String
+  description: String
+  discountPercent: Float!
+  id: ID!
+  invoiceId: ID!
+  name: String!
+  position: Int!
+  quantity: Float!
+  taxRatePercent: Int!
+  unit: String!
+  unitPriceCents: Int!
+}
+
+input InvoiceLineInputDto {
+  articleNumber: String
+  description: String
+  discountPercent: Float
+  name: String!
+  quantity: Float!
+  taxRatePercent: Int!
+  unit: String!
+  unitPriceCents: Int!
+}
+
+type InvoiceReminder {
+  createdAt: DateTime!
+  daysOverdue: Int!
+  id: ID!
+  interestCents: Int!
+  invoiceId: ID!
+  lateFeeCents: Int!
+  level: DunningLevel!
+  sentOn: String!
+  sentTo: String
+  workspaceId: ID!
+}
+
+type InvoiceSeries {
+  active: Boolean!
+  createdAt: DateTime!
+  endOn: String
+  id: ID!
+  interval: String!
+  lastInvoiceId: ID
+  nextRunOn: String!
+  sourceInvoice: Invoice!
+  sourceInvoiceId: ID!
+}
+
+enum InvoiceStatus {
+  CANCELLED
+  DRAFT
+  ISSUED
+  PAID
+}
+
+type Kachel {
+  gruppe: String
+  id: String!
+  liste: String
+  mass: String
+  nurMeine: Boolean!
+  objekt: String
+  pipelineId: ID
+  status: String
+  titel: String
+  typ: String!
+  zeitraum: String
+}
+
+type KachelBalken {
+  anzahl: Int!
+  farbe: String
+  label: String!
+  schluessel: String!
+  wert: Float
+}
+
+type KachelEintrag {
+  id: ID!
+  link: String!
+  titel: String!
+  zusatz: String
+}
+
+type KachelErgebnis {
+  anzahl: Int
+  balken: [KachelBalken!]!
+  betraegeVerborgen: Boolean!
+  eintraege: [KachelEintrag!]!
+  gesperrt: Boolean!
+  hinweis: String
+  wert: Float
+}
+
+input KachelInput {
+  gruppe: String
+  id: String!
+  liste: String
+  mass: String
+  nurMeine: Boolean
+  objekt: String
+  pipelineId: ID
+  status: String
+  titel: String
+  typ: String!
+  zeitraum: String
+}
+
+type KalenderVerbindenErgebnis {
+  kalender: [GefundenerKalenderView!]!
+  verbindung: KalenderVerbindung!
+}
+
+input KalenderVerbindenInput {
+  benutzer: String!
+  passwort: String!
+  serverUrl: String!
+}
+
+type KalenderVerbindung {
+  anbieter: String!
+  benutzer: String!
+  createdAt: DateTime!
+  fehlerArt: String
+  fehlerSeit: DateTime
+  fehlerZeigen: Boolean!
+  fehlversuche: Int!
+  id: ID!
+  kalenderName: String
+  kalenderUrl: String
+  letzterFehler: String
+  letzterSyncAm: DateTime
+  serverUrl: String!
+  sichtbarkeit: String!
+}
+
+type Kampagne {
+  absenderId: ID
+  beendetAm: DateTime
+  betreff: String!
+  createdAt: DateTime!
+  erstelltVon: ID!
+  fehler: Int!
+  geplant: Int!
+  gesendet: Int!
+  gestartetAm: DateTime
+  id: ID!
+  name: String!
+  status: String!
+  text: String!
+  thema: String!
+  uebersprungen: Int!
+}
+
+input KampagneAendernInput {
+  betreff: String
+  name: String
+  text: String
+  thema: String
+}
+
+input KampagneInput {
+  betreff: String!
+  name: String!
+  text: String!
+  thema: String
+}
+
+type KampagnenEmpfaenger {
+  contactId: ID
+  email: String
+  firma: String!
+  gesendetAm: DateTime
+  grund: String
+  id: ID!
+  nachname: String!
+  status: String!
+  vorname: String!
+}
+
+type KampagnenVorschau {
+  an: String!
+  betreff: String!
+  text: String!
+}
+
+input KiBezugInput {
+  art: String!
+  id: ID!
+}
+
+type KiChatAntwort {
+  antwort: String!
+  gekuerzt: Boolean!
+  schritte: [KiChatSchritt!]!
+  vorschlaege: [KiChatVorschlag!]!
+}
+
+input KiChatInput {
+  bezug: KiBezugInput
+  nachrichten: [KiNachrichtInput!]!
+}
+
+type KiChatSchritt {
+  ok: Boolean!
+  titel: String!
+  werkzeug: String!
+}
+
+type KiChatVorschlag {
+  id: ID!
+  zusammenfassung: String!
+}
+
+input KiEinrichtenInput {
+  anbieter: String!
+  modell: String!
+  nutzung: String
+  schluessel: String
+}
+
+type KiEinstellung {
+  anbieter: String!
+  createdAt: DateTime!
+  geprueftAm: DateTime
+  id: ID!
+  modell: String!
+  nutzung: String!
+  updatedAt: DateTime!
+}
+
+input KiEntwurfInput {
+  anweisung: String! = ""
+  art: String!
+  betreff: String
+  bezug: KiBezugInput
+  bisher: String
+  empfaenger: String
+}
+
+input KiNachrichtInput {
+  rolle: String!
+  text: String!
+}
+
+type KiVorschlag {
+  createdAt: DateTime!
+  entschiedenAm: DateTime
+  entschiedenVon: String
+  ergebnisPfad: String
+  fehler: String
+  grund: String
+  id: ID!
+  nachher: String!
+  schluesselName: String!
+  status: String!
+  vorher: String
+  werkzeug: String!
+  zielArt: String
+  zielId: ID
+  zielName: String
+  zielPfad: String
+  zusammenfassung: String!
+}
+
+type KiVorschlagAnnahme {
+  aktuell: String
+  veraltet: Boolean!
+  vorschlag: KiVorschlag!
+}
+
+type KontaktEmail {
+  art: String!
+  unzustellbarSeit: DateTime
+  wert: String!
+}
+
+input KontaktEmailInput {
+  art: String!
+  wert: String!
+}
+
+type KontaktTelefon {
+  art: String!
+  wert: String!
+}
+
+input KontaktTelefonInput {
+  art: String!
+  wert: String!
+}
+
+type KontaktVorschlag {
+  adresse: String!
+  anzahl: Int!
+  domain: String
+  firmaId: ID
+  firmaVorschlag: String
+  nachname: String!
+  vorname: String!
+  zuletzt: DateTime!
+}
+
+type LegalEntityInfo {
+  city: String
+  companyName: String
+  configured: Boolean!
+  country: String
+  email: String
+  legalForm: String
+  phone: String
+  postalCode: String
+  registerEntry: String
+  representative: String
+  street: String
+  vatId: String
+}
+
+type Letterhead {
+  bankName: String
+  bic: String
+  city: String
+  companyName: String
+  country: String
+  createdAt: DateTime!
+  datevBeraternummer: String
+  datevKontenrahmen: String!
+  datevMandantennummer: String
+  defaultClosingText: String
+  defaultIntroText: String
+  defaultValidityDays: Float!
+  email: String
+  iban: String
+  id: ID!
+  logoDataUrl: String
+  phone: String
+  postalCode: String
+  registerEntry: String
+  representative: String
+  smallBusiness: Boolean!
+  street: String
+  taxNumber: String
+  updatedAt: DateTime!
+  vatId: String
+  website: String
+  workspaceId: ID!
+}
+
+type LetterheadGap {
+  field: String!
+  label: String!
+}
+
+input LieferPositionInput {
+  angebotsPositionId: ID!
+  menge: Float!
+}
+
+input LieferscheinInput {
+  angebotId: ID!
+  auftragsbestaetigungId: ID
+  closingText: String
+  introText: String
+  lieferadresse: String
+  liefertermin: String
+  positionen: [LieferPositionInput!]!
+}
+
+type LieferstandPosition {
+  angebotsPositionId: ID!
+  articleNumber: String
+  bestellt: Float!
+  geliefert: Float!
+  name: String!
+  offen: Float!
+  position: Int!
+  unit: String!
+}
+
+type ListenGruppe {
+  anzahl: Int!
+  label: String
+  nichtSichtbar: Boolean!
+  summen: [ListenSumme!]!
+  wert: String
+}
+
+input ListenGruppeInput {
+  feld: String!
+  wert: String
+}
+
+type ListenSumme {
+  gruppe: String
+  summe: Float!
+}
+
+input ListenZeitraumInput {
+  bis: String!
+  feld: String!
+  von: String!
+}
+
+type MailAnhang {
+  gespeichertId: ID
+  groesse: Int!
+  index: Int!
+  mimeType: String!
+  name: String!
+}
+
+type MailEntwurf {
+  an: [String!]!
+  automationId: ID
+  betreff: String!
+  cc: [String!]!
+  companyId: ID
+  contactId: ID
+  createdAt: DateTime!
+  dealId: ID
+  gesendetAm: DateTime
+  id: ID!
+  kiVorschlagId: ID
+  nachrichtId: ID
+  ownerId: ID!
+  quelle: String!
+  rumpf: String!
+  status: String!
+  updatedAt: DateTime!
+}
+
+input MailEntwurfAnlegenInput {
+  an: [String!]
+  art: String!
+  betreff: String!
+  cc: [String!]
+  id: ID!
+  rumpf: String!
+}
+
+input MailEntwurfFelderInput {
+  an: [String!]!
+  betreff: String!
+  cc: [String!]
+  rumpf: String!
+}
+
+type MailInhaltView {
+  anhaenge: [MailAnhang!]!
+  id: ID!
+  inhalt: String
+  inhaltVerborgen: Boolean!
+  zitat: String
+}
+
+type MailMessage {
+  anhangAnzahl: Int
+  companyId: ID
+  contactId: ID
+  createdAt: DateTime!
+  erledigtAm: DateTime
+  fromAddress: String!
+  fromName: String
+  id: ID!
+  inhaltVerborgen: Boolean
+  mailboxId: ID!
+  messageId: String!
+  outgoing: Boolean!
+  sentAt: DateTime!
+  snippet: String
+  subject: String
+  threadKey: String!
+  toAddresses: String!
+  workspaceId: ID!
+  zugewiesenAnId: ID
+}
+
+type MailSperre {
+  createdAt: DateTime!
+  eintrag: String!
+  id: ID!
+}
+
+type MailTemplate {
+  body: String!
+  createdAt: DateTime!
+  id: ID!
+  name: String!
+  subject: String
+}
+
+input MailTemplateInput {
+  body: String!
+  id: ID
+  name: String!
+  subject: String
+}
+
+type Mailbox {
+  active: Boolean!
+  aliase: [String!]!
+  anhaengeAutomatisch: Boolean!
+  anhaengeBisMb: Int!
+  art: String!
+  ausschlussFreemail: Boolean!
+  ausschlussGmailKategorien: Boolean!
+  ausschlussGruppen: Boolean!
+  ausschlussIntern: Boolean!
+  ausschlussMassenpost: Boolean!
+  bezeichnung: String
+  createdAt: DateTime!
+  darfVerwalten: Boolean!
+  fehlerArt: String
+  fehlerSeit: DateTime
+  fehlerZeigen: Boolean!
+  fehlversuche: Int!
+  folder: String!
+  gesendetOrdner: String
+  getrennt: Boolean!
+  haupt: Boolean!
+  host: String!
+  id: ID!
+  istGmail: Boolean!
+  lastError: String
+  lastSyncedAt: DateTime
+  messageCount: Int!
+  mitglieder: [ID!]!
+  oauthAnbieter: String
+  port: Int!
+  secure: Boolean!
+  sichtbarkeit: String!
+  smtpHost: String
+  smtpPort: Int
+  smtpSecure: Boolean!
+  updatedAt: DateTime!
+  userId: ID!
+  username: String!
+  workspaceId: ID!
+}
+
+type MailboxSyncResult {
+  matched: Int!
+  stored: Int!
+  unfiled: Int!
+}
+
+type MassenErgebnis {
+  created: Int!
+  rejected: Int!
+  rows: [MassenZeile!]!
+  updated: Int!
+}
+
+type MassenZeile {
+  action: String
+  error: String
+  id: ID
+  index: Int!
+}
+
+type MemberRemoved {
+  reassignedTasks: Int!
+  removed: Boolean!
+}
+
+type Membership {
+  createdAt: DateTime!
+  erwaehnungMail: Boolean!
+  id: ID!
+  lastDigestOn: String
+  role: MembershipRole!
+  roleId: ID
+  roleRef: Role
+  taskDigest: Boolean!
+  user: User!
+  userId: ID!
+  workspace: Workspace!
+  workspaceId: ID!
+}
+
+enum MembershipRole {
+  ADMIN
+  MEMBER
+  OWNER
+}
+
+type Mutation {
+  acceptInvitation(input: AcceptInvitationInput!): Membership!
+  addMailSperre(input: AddMailSperreInput!): MailSperre!
+  andereSitzungenBeenden: Int!
+  ankuendigungBeenden(id: ID!): Boolean!
+  ankuendigungSetzen(input: AnkuendigungInput!): Ankuendigung!
+  anmeldungEinloesen(token: String!, totpCode: String): AuthPayload!
+  anmeldungStarten(anbieter: String!, angemeldetBleiben: Boolean): String!
+  anmeldungTrennen(anbieter: String!): Boolean!
+  anmeldungVerknuepfenStarten(anbieter: String!, passwort: String): String!
+  archiveCustomField(id: ID!): CustomField!
+  assignRole(roleId: ID!, userId: ID!): Membership!
+  auftragsbestaetigungStellen(input: AuftragsbestaetigungInput!): Begleitbeleg!
+  automationEingangErneuern(id: ID!, mitSignatur: Boolean! = false): AutomationEingang!
+  automationLaufAbbrechen(ausfuehrungId: ID!): Boolean!
+  automationLaufWiederholen(ausfuehrungId: ID!): AutomationAusfuehrung!
+  automationStarten(id: ID!, zielId: ID!): AutomationAusfuehrung!
+  automationTesten(beispiel: String, id: ID!, zielId: ID): AutomationAusfuehrung!
+  avvAnnehmen: AvvAnnahme!
+  beginTwoFactorSetup: TwoFactorSetup!
+  begleitbelegAlsAnhang(id: ID!): Attachment!
+  begleitbelegStornieren(grund: String, id: ID!): Begleitbeleg!
+  beispieldatenEntfernen: Int!
+  beispieldatenLaden: Int!
+  benachrichtigungGelesen(id: ID): Int!
+  branchenvorlageAnwenden(vorlage: String!): Int!
+  buchhaltungEinstellen(input: BuchhaltungEinstellungenInput!): BuchhaltungVerbindung!
+  buchhaltungTrennen: Boolean!
+  buchhaltungVerbinden(input: BuchhaltungVerbindenInput!): BuchhaltungVerbindung!
+  cancelAppointment(id: ID!, scope: AppointmentScope): Appointment!
+  cancelInvoice(id: ID!): Invoice!
+  confirmTwoFactorSetup(code: String!): [String!]!
+  connectMailbox(input: ConnectMailboxInput!): Mailbox!
+  createApiKey(input: CreateApiKeyInput!): CreatedApiKey!
+  createAppointment(input: CreateAppointmentInput!): Appointment!
+  createAutomation(input: AutomationInput!): Automation!
+  createBillingPortalSession: String!
+  createCheckoutSession(interval: BillingInterval!, plan: BillingPlan!, seats: Int!): String!
+  createCompanies(inputs: [CreateCompanyInput!]!): MassenErgebnis!
+  createCompany(input: CreateCompanyInput!): Company!
+  createContact(input: CreateContactInput!): Contact!
+  createContacts(inputs: [CreateContactInput!]!): MassenErgebnis!
+  createCustomField(input: CreateCustomFieldInput!): CustomField!
+  createCustomFieldGroup(input: CreateCustomFieldGroupInput!): CustomFieldGroup!
+  createDeal(input: CreateDealInput!): Deal!
+  createDeals(inputs: [CreateDealInput!]!): MassenErgebnis!
+  createInvoice(input: CreateInvoiceInputDto!): Invoice!
+  createInvoiceFromQuote(quoteId: ID!): Invoice!
+  createInvoiceSeries(input: CreateInvoiceSeriesInput!): InvoiceSeries!
+  createNote(input: CreateNoteInput!): Note!
+  createPipeline(name: String!): Pipeline!
+  createProduct(input: CreateProductInput!): Product!
+  createQuote(input: CreateQuoteInput!): Quote!
+  createQuoteLink(id: ID!): Quote!
+  createRole(input: CreateRoleInput!): Role!
+  createSavedView(input: CreateSavedViewInput!): SavedView!
+  createTask(input: CreateTaskInput!): Task!
+  createWebhook(input: CreateWebhookInput!): CreatedWebhook!
+  dashboardAendern(id: ID!, input: DashboardAendernInput!): Dashboard!
+  dashboardAnlegen(input: DashboardAnlegenInput!): Dashboard!
+  dashboardKachelnSpeichern(id: ID!, kacheln: [KachelInput!]!): Dashboard!
+  dashboardLoeschen(id: ID!): Boolean!
+  dealKontaktEntfernen(id: ID!): Boolean!
+  dealKontaktHinzufuegen(contactId: ID!, dealId: ID!, rolle: String): DealKontakt!
+  dealKontaktRolle(id: ID!, rolle: String): DealKontakt!
+  dealKontaktZumHauptkontakt(id: ID!): Deal!
+  decideQuote(accepted: Boolean!, id: ID!): Quote!
+  deleteAppointment(id: ID!, scope: AppointmentScope): Boolean!
+  deleteAttachment(id: ID!): Boolean!
+  deleteAutomation(id: ID!): Boolean!
+  deleteCompany(id: ID!): Boolean!
+  deleteContact(id: ID!): Boolean!
+  deleteCustomFieldGroup(id: ID!): Boolean!
+  deleteDeal(id: ID!): Boolean!
+  deleteInvoice(id: ID!): Boolean!
+  deleteMailTemplate(id: ID!): Boolean!
+  deleteNote(id: ID!): Boolean!
+  deletePipeline(id: ID!, verschiebenNach: ID): Boolean!
+  deleteQuote(id: ID!): Boolean!
+  deleteRole(id: ID!): Boolean!
+  deleteSavedView(id: ID!): Boolean!
+  deleteTask(id: ID!): Boolean!
+  deleteWebhook(id: ID!): Boolean!
+  deleteWorkspace(input: DeleteWorkspaceInput!): Boolean!
+  disableCalendarFeed: Boolean!
+  disableTwoFactor(code: String!): Boolean!
+  disconnectMailbox(behalten: Boolean, mailboxId: ID): Boolean!
+  duplicateQuote(id: ID!): Quote!
+  emailAendernAnfragen(input: EmailAendernInput!): Boolean!
+  emailAendernBestaetigen(token: String!): String!
+  enableCalendarFeed(renew: Boolean): String!
+  endInvoiceSeries(id: ID!): Boolean!
+  endgueltigLoeschen(art: PapierkorbArt!, id: ID!): Boolean!
+  favoritUmschalten(art: FavoritArt!, datensatzId: ID!): Boolean!
+  firmenlogoEntfernen(companyId: ID!): Company!
+  firmenlogoLaden(companyId: ID!): Company!
+  freigabeEntziehen(id: ID!): Boolean!
+  freigeben(input: FreigebenInput!): FreigabeStand!
+  importRecords(input: ImportInput!): ImportReport!
+  impressumLesen(companyId: ID!): ImpressumVorschau!
+  impressumUebernehmen(input: ImpressumUebernahmeInput!): Company!
+  inspectCsv(input: InspectCsvInput!): CsvInspection!
+  inviteMember(input: InviteMemberInput!): InvitationCreated!
+  issueInvoice(id: ID!): Invoice!
+  kalenderAbgleichen: KalenderVerbindung!
+  kalenderSichtbarkeitSetzen(sichtbarkeit: String!): KalenderVerbindung!
+  kalenderTrennen: Boolean!
+  kalenderVerbinden(input: KalenderVerbindenInput!): KalenderVerbindenErgebnis!
+  kalenderWaehlen(url: String!): KalenderVerbindung!
+  kampagneAbbrechen(id: ID!): Kampagne!
+  kampagneAendern(id: ID!, input: KampagneAendernInput!): Kampagne!
+  kampagneAnlegen(input: KampagneInput!): Kampagne!
+  kampagneLoeschen(id: ID!): Boolean!
+  kampagneStarten(id: ID!): Kampagne!
+  kampagneTestmail(id: ID!): String!
+  kampagnenEmpfaengerFestlegen(auswahl: EmpfaengerAuswahlInput!, id: ID!): Kampagne!
+  kiChat(input: KiChatInput!): KiChatAntwort!
+  kiEinrichten(input: KiEinrichtenInput!): KiEinstellung!
+  kiEntfernen: Boolean!
+  kiEntwurf(input: KiEntwurfInput!): String!
+  kiNutzungSetzen(nutzung: String!): KiEinstellung!
+  kiVorschlagAnnehmen(id: ID!, trotzdem: Boolean): KiVorschlagAnnahme!
+  kiVorschlagVerwerfen(grund: String, id: ID!): KiVorschlag!
+  kontoLoeschen(passwort: String!): Boolean!
+  lieferscheinStellen(input: LieferscheinInput!): Begleitbeleg!
+
+  """
+  Eine Eintrittskarte für den Ereignisstrom /live, eine Minute gültig und nur einmal einlösbar.
+  """
+  liveTicket: String!
+  mailAnhangSpeichern(index: Int!, nachrichtId: ID!): MailInhaltView!
+  mailEntwurfAendern(id: ID!, input: MailEntwurfFelderInput!): MailEntwurf!
+  mailEntwurfAnlegen(input: MailEntwurfAnlegenInput!): MailEntwurf!
+  mailEntwurfSenden(id: ID!, input: MailEntwurfFelderInput!): MailEntwurf!
+  mailEntwurfVerwerfen(id: ID!): MailEntwurf!
+  markInvoicePaid(id: ID!, paidOn: String): Invoice!
+  markQuoteSent(id: ID!): Quote!
+  moveDealToStage(id: ID!, stage: DealStage!): Deal!
+  oauthStarten(anbieter: String!, postfachArt: String, zweck: String!): String!
+  offeneAnBuchhaltung: Int!
+  passwortAendern(input: PasswortAendernInput!): Boolean!
+  passwortLinkSenden: Boolean!
+  postfachErledigt(erledigt: Boolean!, mailboxId: ID!, threadKey: String!): Boolean!
+  postfachZuweisen(mailboxId: ID!, threadKey: String!, userId: ID): Boolean!
+  previewRetention(workspaceOnly: Boolean = true): RetentionPreview!
+  profilAendern(input: ProfilInput!): User!
+  rechnungAnBuchhaltung(invoiceId: ID!): BuchhaltungUebertragung!
+  refresh(input: RefreshInput): AuthPayload!
+  registrierungStarten(anbieter: String!, arbeitsbereich: String!): String!
+  reinstateAppointment(id: ID!): Appointment!
+  removeLetterheadLogo: Letterhead!
+  removeMailSperre(id: ID!): Boolean!
+  removeMember(input: RemoveMemberInput!): MemberRemoved!
+  renamePipeline(id: ID!, name: String!): Pipeline!
+  renameWorkspace(name: String!): Workspace!
+  requestPasswordReset(input: RequestPasswordResetInput!): Boolean!
+  resendEmailVerification: Boolean!
+  resetPassword(input: ResetPasswordInput!): Boolean!
+  restoreCustomField(id: ID!): CustomField!
+  revokeApiKey(id: ID!): ApiKey!
+  revokeInvitation(id: String!): Boolean!
+  revokeQuoteLink(id: ID!): Quote!
+  sammelLoeschen(art: PapierkorbArt!, ids: [ID!]!): Int!
+  sammelPhase(ids: [ID!]!, stage: DealStage!): Int!
+  sammelVerantwortlich(art: PapierkorbArt!, ids: [ID!]!, ownerId: ID): Int!
+  saveMailTemplate(input: MailTemplateInput!): MailTemplate!
+  saveWebForm(input: WebFormInput!): WebForm!
+  sendInvoiceReminder(invoiceId: ID!): InvoiceReminder!
+  sendMail(input: SendMailInput!): MailMessage!
+  setApiKeySchreibmodus(id: ID!, schreibmodus: String!): ApiKey!
+  setAttendeeStatus(attendeeId: ID!, status: AttendeeStatus!): AppointmentAttendee!
+  setAutomationAktiv(aktiv: Boolean!, id: ID!): Automation!
+  setBaseInterestRate(percent: Float): Workspace!
+  setDefaultSavedView(entity: CustomFieldEntity!, id: ID): Boolean!
+  setEinladungsDomains(domains: [String!]!): Workspace!
+  setErwaehnungMail(enabled: Boolean!): Membership!
+  setHauptpostfach(mailboxId: ID!): Mailbox!
+  setInvoiceLines(input: SetInvoiceLinesInput!): Invoice!
+  setLeerlauf(minuten: Int): Workspace!
+  setMailSichtbarkeit(mailboxId: ID, sichtbarkeit: String!): Mailbox!
+  setPapierkorbTage(tage: Int!): Workspace!
+  setPostfachEinstellungen(input: PostfachEinstellungenInput!, mailboxId: ID): Mailbox!
+  setPostfachMitglieder(mailboxId: ID!, userIds: [ID!]!): Mailbox!
+  setQuoteLines(input: SetQuoteLinesInput!): Quote!
+  setQuoteTexts(input: SetQuoteTextsInput!): Quote!
+  setTaskCompleted(completed: Boolean!, id: ID!): Task!
+  setTaskDigest(enabled: Boolean!): Membership!
+  setTaskStatus(id: ID!, status: String!): Task!
+  setWebhookActive(active: Boolean!, id: ID!): Webhook!
+  setZweiFaktorPflicht(an: Boolean!): Workspace!
+  setzeNotizZiele(input: NotizZieleInput!): Note!
+  setzeObjektBezeichnung(input: ObjektBezeichnungInput!): [ObjektBezeichnung!]!
+  setzeObjektBezeichnungZurueck(art: ObjektArt): [ObjektBezeichnung!]!
+  signIn(input: SignInInput!): AuthPayload!
+  signOut(input: RefreshInput): Boolean!
+  signUp(input: SignUpInput!): AuthPayload!
+  sitzungBeenden(id: ID!): Boolean!
+  switchWorkspace(workspaceId: ID!): AuthPayload!
+  syncMailbox(mailboxId: ID): MailboxSyncResult!
+  terminEinladungSenden(id: ID!): Appointment!
+  testWebhook(id: ID!): Webhook!
+  uebersichtSpeichern(kacheln: [KachelInput!]!): [Kachel!]!
+  uebersichtZuruecksetzen: [Kachel!]!
+  updateAppointment(input: UpdateAppointmentInput!): Appointment!
+  updateAutomation(id: ID!, input: AutomationInput!): Automation!
+  updateCompanies(inputs: [UpdateCompanyInput!]!): MassenErgebnis!
+  updateCompany(input: UpdateCompanyInput!): Company!
+  updateContact(input: UpdateContactInput!): Contact!
+  updateContacts(inputs: [UpdateContactInput!]!): MassenErgebnis!
+  updateCustomField(input: UpdateCustomFieldInput!): CustomField!
+  updateCustomFieldGroup(input: UpdateCustomFieldGroupInput!): CustomFieldGroup!
+  updateDeal(input: UpdateDealInput!): Deal!
+  updateDealStages(input: [DealStageSettingInput!]!, pipelineId: ID): [DealStageSetting!]!
+  updateDeals(inputs: [UpdateDealInput!]!): MassenErgebnis!
+  updateInvoice(input: UpdateInvoiceInputDto!): Invoice!
+  updateLetterhead(input: UpdateLetterheadInput!): Letterhead!
+  updateNote(input: UpdateNoteInput!): Note!
+  updateProduct(input: UpdateProductInput!): Product!
+  updateQuote(input: UpdateQuoteInput!): Quote!
+  updateRole(input: UpdateRoleInput!): Role!
+  updateSavedView(input: UpdateSavedViewInput!): SavedView!
+  updateTask(input: UpdateTaskInput!): Task!
+  upsertCompanies(inputs: [UpsertCompanyInput!]!): MassenErgebnis!
+  upsertContacts(inputs: [UpsertContactInput!]!): MassenErgebnis!
+  upsertDeals(inputs: [UpsertDealInput!]!): MassenErgebnis!
+  verifyEmail(input: VerifyEmailInput!): Boolean!
+  verteilerAendern(id: ID!, input: VerteilerInput!): Verteiler!
+  verteilerAnlegen(input: VerteilerInput!): Verteiler!
+  verteilerLoeschen(id: ID!): Boolean!
+  verteilerMitgliederEntfernen(id: ID!, kontaktIds: [ID!]!): Verteiler!
+  verteilerMitgliederHinzufuegen(id: ID!, kontaktIds: [ID!]!): Verteiler!
+  wiederherstellen(art: PapierkorbArt!, id: ID!): Boolean!
+  zusammenfuehren(art: DublettenArt!, behaltenId: ID!, wegId: ID!): Boolean!
+  zusammenfuehrenMehrere(art: DublettenArt!, behaltenId: ID!, wegIds: [ID!]!): ZusammenfuehrenErgebnis!
+  zweiFaktorZuruecksetzen(userId: ID!): Boolean!
+}
+
+type MyPermissions {
+  everything: Boolean!
+  feldrechte: [Feldrecht!]!
+  permissions: [String!]!
+}
+
+type Note {
+  authorId: ID!
+  authorName: String!
+  bearbeitetAm: DateTime
+  bearbeitetVon: String
+  bearbeitetVonId: ID
+  body: String!
+  company: Company
+  companyId: ID
+  contact: Contact
+  contactId: ID
+  createdAt: DateTime!
+  deal: Deal
+  dealId: ID
+  id: ID!
+  workspaceId: ID!
+}
+
+input NotizZieleInput {
+  companyId: ID
+  contactId: ID
+  dealId: ID
+  id: ID!
+}
+
+enum ObjektArt {
+  ANGEBOT
+  AUFGABE
+  FIRMA
+  GESCHAEFT
+  KONTAKT
+}
+
+type ObjektBezeichnung {
+  art: ObjektArt!
+  einzahl: String!
+  genus: Genus!
+  istStandard: Boolean!
+  mehrzahl: String!
+  standardEinzahl: String!
+  standardMehrzahl: String!
+}
+
+input ObjektBezeichnungInput {
+  art: ObjektArt!
+  einzahl: String!
+  genus: Genus!
+  mehrzahl: String!
+}
+
+type OpenItem {
+  daysOverdue: Int!
+  inDefault: Boolean!
+  interestCents: Int!
+  invoice: Invoice!
+  lateFeeCents: Int!
+  level: DunningLevel!
+  nextStep: DunningLevel
+  nextStepOn: String
+  recipientEmail: String
+}
+
+enum PapierkorbArt {
+  AUFGABE
+  FIRMA
+  GESCHAEFT
+  KONTAKT
+}
+
+type PapierkorbEintrag {
+  art: PapierkorbArt!
+  endgueltigAm: DateTime!
+  geloeschtAm: DateTime!
+  geloeschtVon: String
+  id: ID!
+  name: String!
+}
+
+input PasswortAendernInput {
+  aktuell: String!
+  neu: String!
+}
+
+type Pipeline {
+  anzahlGeschaefte: Int!
+  createdAt: DateTime!
+  id: ID!
+  name: String!
+  phasen: [DealStageSetting!]!
+  position: Int!
+}
+
+type PipelineStageSummary {
+  dealCount: Int!
+  stage: DealStage!
+  totalAmount: Float!
+}
+
+type PlanView {
+  maxSeats: Int
+  monthlyPricePerSeat: Int!
+  name: String!
+  plan: BillingPlan!
+  purchasable: Boolean!
+  yearlyPricePerSeat: Int!
+}
+
+type PlzOrt {
+  bundesland: String
+  ort: String!
+}
+
+input PostfachEinstellungenInput {
+  aliase: [String!]
+  anhaengeAutomatisch: Boolean
+  anhaengeBisMb: Int
+  ausschlussFreemail: Boolean
+  ausschlussGmailKategorien: Boolean
+  ausschlussGruppen: Boolean
+  ausschlussIntern: Boolean
+  ausschlussMassenpost: Boolean
+  bezeichnung: String
+}
+
+type PostfachGespraechView {
+  anzahl: Int!
+  ausgehend: Boolean!
+  ausschnitt: String
+  betreff: String
+  companyId: ID
+  contactId: ID
+  nachrichtId: ID!
+  offen: Boolean!
+  threadKey: String!
+  vonAdresse: String!
+  vonName: String
+  zugewiesenAnId: ID
+  zuletzt: DateTime!
+}
+
+type PrivacyFactsInfo {
+  billing: Boolean!
+  errorReporting: Boolean!
+  hosting: String
+  mailboxes: Boolean!
+  outgoingMail: Boolean!
+  privacyContact: String
+  protokollAenderungenMonate: Int!
+  protokollSicherheitMonate: Int!
+  retentionDays: Float!
+  retentionEnabled: Boolean!
+  reviewed: Boolean!
+  supervisoryAuthority: String
+}
+
+type Product {
+  active: Boolean!
+  articleNumber: String
+  createdAt: DateTime!
+  description: String
+  id: ID!
+  name: String!
+  taxRatePercent: Int!
+  unit: String!
+  unitPriceCents: Int!
+  updatedAt: DateTime!
+  workspaceId: ID!
+}
+
+input ProfilInput {
+  durchwahl: String
+  firstName: String!
+  funktion: String
+  lastName: String!
+  mailSignatur: String
+}
+
+type Query {
+  abmeldungen(suche: String): [AbmeldungEintrag!]!
+  absenderPruefung(frisch: Boolean): AbsenderPruefung
+  ankuendigungen: [Ankuendigung!]!
+  anmeldeAnbieter: [String!]!
+  anmeldeVerknuepfungen: [AnmeldeVerknuepfung!]!
+  anzahlRuhendeGeschaefte(nurMeine: Boolean! = false, tage: Int! = 14): Int!
+  apiKeys: [ApiKey!]!
+  appointment(id: ID!): Appointment!
+  appointmentConflicts(endDate: String!, endTime: String!, exceptId: ID, ownerId: ID, startDate: String!, startTime: String!): [AppointmentConflict!]!
+  appointments(from: String!, includeCancelled: Boolean, ownerId: ID, to: String!): [Appointment!]!
+  attachments(companyId: ID, contactId: ID, dealId: ID, invoiceId: ID, noteId: ID, quoteId: ID, taskId: ID): [Attachment!]!
+  auditLog(entityId: ID, limit: Int): [AuditLogEntry!]!
+  auswertung(bis: String!, ownerId: ID, pipelineId: ID, von: String!): Auswertung!
+  automationKnoepfe(art: String!): [AutomationKnopf!]!
+  automationProtokoll(automationId: ID!): [AutomationAusfuehrung!]!
+  automationen: [Automation!]!
+  avvStand: AvvStand!
+  begleitbeleg(id: ID!): Begleitbeleg!
+  begleitbelege(filter: BegleitbelegFilterInput): [Begleitbeleg!]!
+  beispieldaten: Int!
+  benachrichtigungen(limit: Int): [Benachrichtigung!]!
+  bereichsprotokoll(filter: BereichsprotokollFilter): Bereichsprotokoll!
+  bereichsprotokollCsv(filter: BereichsprotokollFilter): String!
+  betriebKonto(id: ID!): BetriebKontoDetail!
+  betriebsHinweis: BetriebsHinweis
+  betriebsUebersicht: BetriebsUebersicht!
+  betriebsZustand: BetriebsZustand!
+  billingPlans: [PlanView!]!
+  buchhaltungVerbindung: BuchhaltungVerbindung
+  calendarFeedUrl: String
+  companies(country: String, customFilters: [CustomFieldFilterInput!], filterVerknuepfung: FilterVerknuepfung, gruppe: ListenGruppeInput, gruppierung: String, industry: String, limit: Int = 25, offset: Int = 0, ownerId: ID, search: String, sortDirection: SortDirection, sortField: String, zeitraum: ListenZeitraumInput): CompanyPage!
+  company(id: ID!): Company!
+  companyIndustries: [String!]!
+  companyMessages(companyId: ID!): [MailMessage!]!
+  contact(id: ID!): Contact!
+  contactMessages(contactId: ID!): [MailMessage!]!
+  contacts(companyId: ID, customFilters: [CustomFieldFilterInput!], filterVerknuepfung: FilterVerknuepfung, gruppe: ListenGruppeInput, gruppierung: String, limit: Int = 25, offset: Int = 0, ownerId: ID, search: String, sortDirection: SortDirection, sortField: String, zeitraum: ListenZeitraumInput): ContactPage!
+  customFieldGroups(entity: CustomFieldEntity): [CustomFieldGroup!]!
+  customFields(entity: CustomFieldEntity): [CustomField!]!
+  dashboard(id: ID!): Dashboard!
+  dashboards: [Dashboard!]!
+  dataProcessingAgreement: DpaDocumentInfo!
+  datevLuecken: [String!]!
+  deal(id: ID!): Deal!
+  dealForecast(months: Int): DealForecast!
+  dealMessages(dealId: ID!): [MailMessage!]!
+  dealRollen: [String!]!
+  dealStages(pipelineId: ID): [DealStageSetting!]!
+  deals(closeBefore: String, companyId: ID, customFilters: [CustomFieldFilterInput!], filterVerknuepfung: FilterVerknuepfung, gruppe: ListenGruppeInput, gruppierung: String, limit: Int = 25, minAmount: Float, offset: Int = 0, openOnly: Boolean, ownerId: ID, pipelineId: ID, ruhendTage: Int, search: String, sortDirection: SortDirection, sortField: String, stage: DealStage, zeitraum: ListenZeitraumInput): DealPage!
+  einladungsVorschlaege: [EinladungsVorschlag!]!
+  entitlement: EntitlementView!
+  ersteSchritte: ErsteSchritte!
+  exportWorkspaceData: String!
+  feldFuellgrad(entity: CustomFieldEntity!): [FeldFuellgrad!]!
+  freigabeStand(art: String!, datensatzId: ID!): FreigabeStand!
+  gegenfeldWerte(entity: CustomFieldEntity!, id: ID!): [GegenfeldWert!]!
+  herkunft(entityId: ID!, entityType: String!): Herkunft!
+  ichBinBetreiber: Boolean!
+  importableFields(entity: ImportEntity!): [ImportableField!]!
+  invoice(id: ID!): Invoice!
+  invoiceGaps(id: ID!): [InvoiceGap!]!
+  invoiceNumberGaps: [String!]!
+  invoiceReminders(invoiceId: ID!): [InvoiceReminder!]!
+  invoiceSeriesList: [InvoiceSeries!]!
+  invoices: [Invoice!]!
+  invoicesForQuote(quoteId: ID!): [Invoice!]!
+  kachelWerte(kachel: KachelInput!): KachelErgebnis!
+  kachelnWerte(kacheln: [KachelInput!]!): [KachelErgebnis!]!
+  kalenderListe: [GefundenerKalenderView!]!
+  kalenderVerbindung: KalenderVerbindung
+  kampagne(id: ID!): Kampagne!
+  kampagnen: [Kampagne!]!
+  kampagnenEmpfaenger(id: ID!, status: String): [KampagnenEmpfaenger!]!
+  kampagnenThemen: [String!]!
+  kampagnenVorschau(id: ID!): KampagnenVorschau!
+  kiEinstellung: KiEinstellung
+  kiVorschlaege(status: [String!]): [KiVorschlag!]!
+  kiVorschlaegeFuer(art: String!, id: ID!): [KiVorschlag!]!
+  kontaktVorschlaege: [KontaktVorschlag!]!
+  legalEntity: LegalEntityInfo!
+  letterhead: Letterhead!
+  letterheadGaps: [LetterheadGap!]!
+  lieferstand(angebotId: ID!): [LieferstandPosition!]!
+  mailEntwuerfe(auchErledigte: Boolean): [MailEntwurf!]!
+  mailInhalte(ids: [ID!]!): [MailInhaltView!]!
+  mailSperren: [MailSperre!]!
+  mailSuche(limit: Int, text: String!): [MailMessage!]!
+  mailTemplates: [MailTemplate!]!
+  me: User!
+  meinSicherheitsverlauf: [SicherheitsEreignis!]!
+  meineFavoriten: [Favorit!]!
+  meineSitzungen: [Sitzung!]!
+  meineUebersicht: [Kachel!]!
+  moeglicheFirmenDubletten(ausser: ID, domain: String, name: String!): [Dublette!]!
+  moeglicheKontaktDubletten(ausser: ID, email: String, nachname: String!, vorname: String!): [Dublette!]!
+  myMailbox: Mailbox
+  myOpenTasks(limit: Int): [Task!]!
+  myPermissions: MyPermissions!
+  myRole: MembershipRole!
+  myTaskDigest: DigestPreview
+  myWorkspaces: [Membership!]!
+  notizSuche(limit: Int, text: String!): [Note!]!
+  oauthAnbieter: [String!]!
+  objektBezeichnungen: [ObjektBezeichnung!]!
+  offeneKiVorschlaege: Int!
+  offeneMailEntwuerfe: Int!
+  openItems: [OpenItem!]!
+  papierkorb: [PapierkorbEintrag!]!
+  papierkorbTage: Int!
+  pendingInvitations: [Invitation!]!
+  pipeline(pipelineId: ID): [PipelineStageSummary!]!
+  pipelines: [Pipeline!]!
+  plzOrte(land: String, plz: String!): [PlzOrt!]!
+  postfachGespraech(mailboxId: ID!, threadKey: String!): [MailMessage!]!
+  postfachGespraeche(filter: String, limit: Int, mailboxId: ID!): [PostfachGespraechView!]!
+  postfaecher: [Mailbox!]!
+  privacyFacts: PrivacyFactsInfo!
+  products(includeInactive: Boolean = false): [Product!]!
+  quote(id: ID!): Quote!
+  quotes(companyId: ID, dealId: ID, status: QuoteStatus): [Quote!]!
+  reminderPreview(invoiceId: ID!): ReminderPreview!
+  roles: [Role!]!
+  savedViews(entity: CustomFieldEntity!): [SavedView!]!
+  sicherheit: SicherheitInfo!
+  sicherheitsprotokoll: [SicherheitsEreignis!]!
+  suche(limit: Int! = 10, text: String!): [SuchTreffer!]!
+  task(id: ID!): Task!
+  tasks(assigneeId: ID, companyId: ID, completed: Boolean, contactId: ID, customFilters: [CustomFieldFilterInput!], dealId: ID, filterVerknuepfung: FilterVerknuepfung, gruppe: ListenGruppeInput, gruppierung: String, limit: Int = 25, offset: Int = 0, overdue: Boolean, search: String, sortDirection: SortDirection, sortField: String, status: String, zeitraum: ListenZeitraumInput): TaskPage!
+  twoFactorStatus: TwoFactorStatus!
+  ungeleseneBenachrichtigungen: Int!
+  unzustellbareAdressen(adressen: [String!]!): [String!]!
+  verlustgruende: [String!]!
+  verteiler(id: ID!): Verteiler!
+  verteilerListe: [Verteiler!]!
+  verteilerMitglieder(id: ID!): [VerteilerMitglied!]!
+  verweisTitel(ids: [ID!]!, ziel: CustomFieldEntity!): [VerweisTitel!]!
+  webForm: WebForm
+  webhookEvents: [String!]!
+  webhooks: [Webhook!]!
+  werSiehtDas(art: String!, datensatzId: ID!): [ZugriffZeile!]!
+  workspaceMembers: [Membership!]!
+  workspaceSummary: WorkspaceSummary!
+  zusammenfuehrenVorschau(art: DublettenArt!, behaltenId: ID!, wegIds: [ID!]!): ZusammenfuehrenErgebnis!
+  zweiFaktorVerlangt: Boolean!
+}
+
+type Quote {
+  bearbeiter: User
+  bearbeiterId: ID
+  closingText: String
+  company: Company
+  companyId: ID
+  contact: Contact
+  contactId: ID
+  createdAt: DateTime!
+  currency: String!
+  deal: Deal
+  dealId: ID
+  decidedAt: DateTime
+  decidedByName: String
+  decidedOnline: Boolean!
+  id: ID!
+  introText: String
+  issuedOn: String!
+  lines: [QuoteLine!]!
+  number: String!
+  publicLink: String
+  recipientAddress: String
+  recipientVatId: String
+  sentAt: DateTime
+  smallBusiness: Boolean!
+  status: QuoteStatus!
+  taxExemption: TaxExemption
+  taxExemptionNote: String
+  totals: QuoteTotals!
+  updatedAt: DateTime!
+  validUntil: String!
+  workspaceId: ID!
+}
+
+type QuoteLine {
+  articleNumber: String
+  description: String
+  discountPercent: Float!
+  id: ID!
+  name: String!
+  position: Int!
+  productId: ID
+  quantity: Float!
+  quoteId: ID!
+  taxRatePercent: Int!
+  unit: String!
+  unitPriceCents: Int!
+}
+
+input QuoteLineInput {
+  articleNumber: String
+  description: String
+  discountPercent: Float
+  name: String!
+  productId: ID
+  quantity: Float!
+  taxRatePercent: Int!
+  unit: String!
+  unitPriceCents: Int!
+}
+
+input QuoteLineTextInput {
+  description: String
+  id: ID!
+}
+
+enum QuoteStatus {
+  ACCEPTED
+  DECLINED
+  DRAFT
+  SENT
+}
+
+type QuoteTaxGroup {
+  netCents: Int!
+  ratePercent: Int!
+  taxCents: Int!
+}
+
+type QuoteTotals {
+  grossCents: Int!
+  netCents: Int!
+  taxCents: Int!
+  taxGroups: [QuoteTaxGroup!]!
+}
+
+input RefreshInput {
+  letzteEingabe: Float
+  refreshToken: String
+}
+
+type ReminderPreview {
+  body: String!
+  level: DunningLevel!
+  subject: String!
+  to: String
+}
+
+input RemoveMemberInput {
+  nachfolgerId: ID
+  userId: ID!
+}
+
+input RequestPasswordResetInput {
+  email: String!
+}
+
+input ResetPasswordInput {
+  password: String!
+  token: String!
+}
+
+type RetentionPreview {
+  enabled: Boolean!
+  entries: [RetentionPreviewEntry!]!
+  retentionDays: Int!
+  wouldDelete: Int!
+  wouldWarn: Int!
+}
+
+type RetentionPreviewEntry {
+  daysLeft: Int!
+  deleteOn: DateTime!
+  workspaceName: String!
+}
+
+type Role {
+  createdAt: DateTime!
+  description: String
+  everything: Boolean!
+  feldrechte: [Feldrecht!]!
+  id: ID!
+  isSystem: Boolean!
+  memberCount: Float!
+  name: String!
+  permissions: [String!]!
+  sichtbarkeit: RollenSichtbarkeit!
+  templateKey: String
+  updatedAt: DateTime!
+  workspaceId: ID!
+}
+
+type RollenSichtbarkeit {
+  company: String!
+  contact: String!
+  deal: String!
+}
+
+type SavedView {
+  columns: SavedViewColumns!
+  createdAt: DateTime!
+  createdById: ID!
+  customFilters: SavedViewFilters!
+  darstellung: String
+  datumFeld: String
+  entity: CustomFieldEntity!
+  filterVerknuepfung: String
+  filters: CustomFieldValues!
+  gruppenFeld: String
+  gruppierung: String
+  id: ID!
+  isDefault: Boolean!
+  name: String!
+  privat: Boolean!
+  search: String
+  sortDirection: String
+  sortField: String
+  updatedAt: DateTime!
+  workspaceId: ID!
+}
+
+"""The column keys a list shows, in order."""
+scalar SavedViewColumns
+
+"""A list of custom field comparisons: { key, operator, value? } entries."""
+scalar SavedViewFilters
+
+input SendMailInput {
+  attachmentIds: [ID!]
+  bcc: [String!]
+  body: String!
+  cc: [String!]
+  from: String
+  inReplyToId: ID
+  mailboxId: ID
+  subject: String!
+  to: [String!]!
+}
+
+input SetInvoiceLinesInput {
+  invoiceId: ID!
+  lines: [InvoiceLineInputDto!]!
+}
+
+input SetQuoteLinesInput {
+  lines: [QuoteLineInput!]!
+  quoteId: ID!
+}
+
+input SetQuoteTextsInput {
+  closingText: String
+  id: ID!
+  introText: String
+  lines: [QuoteLineTextInput!]
+}
+
+type SicherheitInfo {
+  hosting: String
+  loeschfristAktiv: Boolean!
+  loeschfristTage: Int!
+  massnahmen: [String!]!
+  sicherung: String
+  unterauftragStand: String!
+  unterauftragsverarbeiter: [String!]!
+  vertragGeprueft: Boolean!
+}
+
+type SicherheitsEreignis {
+  art: String!
+  details: String
+  geraet: String
+  handelnd: String
+  id: ID!
+  ipGekuerzt: String
+  person: String
+  wann: DateTime!
+}
+
+type SicherungsZustand {
+  anzahl: Int
+  ausserHaus: String
+  groesseBytes: Float
+  kopien: Int
+  letzteSicherung: DateTime
+  letzterFehler: String
+  letzterFehlerAm: DateTime
+  probeAm: DateTime
+  probeDauerSek: Int
+  probeMeldung: String
+  probeOk: Boolean
+  warnungen: [String!]!
+  zustand: String!
+}
+
+input SichtbarkeitInput {
+  company: String
+  contact: String
+  deal: String
+}
+
+input SignInInput {
+  angemeldetBleiben: Boolean
+  email: String!
+  password: String!
+  totpCode: String
+  workspaceId: String
+}
+
+input SignUpInput {
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+  workspaceName: String!
+}
+
+type Sitzung {
+  angemeldetAm: DateTime!
+  angemeldetBleiben: Boolean!
+  dieses: Boolean!
+  geraet: String
+  id: ID!
+  ipGekuerzt: String
+  zuletztAktiv: DateTime!
+}
+
+enum SortDirection {
+  ASC
+  DESC
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  CANCELED
+  PAST_DUE
+  TRIALING
+}
+
+type SuchTreffer {
+  art: String!
+  firma: Company
+  geschaeft: Deal
+  kontakt: Contact
+  rang: Float!
+}
+
+type Task {
+  assigneeId: ID!
+  assigneeName: String!
+  company: Company
+  companyId: ID
+  completedAt: DateTime
+  contact: Contact
+  contactId: ID
+  createdAt: DateTime!
+  createdById: ID!
+  customFields: CustomFieldValues!
+  deal: Deal
+  dealId: ID
+  description: String
+  dueDate: String
+  dueTime: String
+  id: ID!
+  inArbeitSeit: DateTime
+  isOverdue: Boolean!
+  status: String!
+  title: String!
+  updatedAt: DateTime!
+  workspaceId: ID!
+}
+
+type TaskPage {
+  hasMore: Boolean!
+  items: [Task!]!
+  totalCount: Int!
+}
+
+"""Grund, warum Positionen mit 0 % keine Umsatzsteuer tragen."""
+enum TaxExemption {
+  AUSFUHR
+  INNERGEMEINSCHAFTLICH
+  NULLSATZ
+  REVERSE_CHARGE
+  REVERSE_CHARGE_EU
+  STEUERFREI
+}
+
+type TwoFactorSetup {
+  qrSvg: String!
+  secret: String!
+  url: String!
+}
+
+type TwoFactorStatus {
+  enabled: Boolean!
+  recoveryCodesLeft: Float!
+}
+
+input UpdateAppointmentInput {
+  allDay: Boolean
+  attendees: [AppointmentAttendeeInput!]
+  companyId: ID
+  contactId: ID
+  dealId: ID
+  description: String
+  endDate: String
+  endTime: String
+  id: ID!
+  location: String
+  ownerId: ID
+  privat: Boolean
+  recurrence: String
+  remindMinutesBefore: Int
+  scope: AppointmentScope
+  startDate: String
+  startTime: String
+  title: String
+  videoLink: String
+}
+
+input UpdateCompanyInput {
+  annualRevenue: Float
+  city: String
+  country: String
+  customFields: CustomFieldValues
+  domain: String
+  email: String
+  employeeCount: Int
+  id: ID!
+  industry: String
+  invoiceEmail: String
+  linkedin: String
+  name: String
+  ownerId: ID
+  parentCompanyId: ID
+  phone: String
+  postalCode: String
+  registergericht: String
+  registernummer: String
+  street: String
+  ustIdNr: String
+  vertretung: String
+  website: String
+  zweitdomains: [String!]
+}
+
+input UpdateContactInput {
+  city: String
+  companyId: ID
+  country: String
+  customFields: CustomFieldValues
+  email: String
+  firstName: String
+  id: ID!
+  jobTitle: String
+  lastName: String
+  linkedin: String
+  ownerId: ID
+  phone: String
+  postalCode: String
+  street: String
+  weitereEmails: [KontaktEmailInput!]
+  weitereTelefone: [KontaktTelefonInput!]
+}
+
+input UpdateCustomFieldGroupInput {
+  eingeklappt: Boolean
+  id: ID!
+  name: String
+  position: Int
+}
+
+input UpdateCustomFieldInput {
+  beschreibung: String
+  datumsformat: String
+  eindeutig: Boolean
+  farben: [CustomFieldOptionFarbeInput!]
+  gruppeId: ID
+  id: ID!
+  label: String
+  nachkommastellen: Int
+  options: [String!]
+  pflichtAbPhase: String
+  position: Int
+  required: Boolean
+  standardwert: String
+  waehrung: String
+  zahlformat: String
+}
+
+input UpdateDealInput {
+  amount: Float
+  closeDate: String
+  companyId: ID
+  currency: String
+  customFields: CustomFieldValues
+  id: ID!
+  lostReason: String
+  name: String
+  ownerId: ID
+  pipelineId: ID
+  primaryContactId: ID
+  probability: Int
+  stage: DealStage
+}
+
+input UpdateInvoiceInputDto {
+  buyerReference: String
+  closingText: String
+  companyId: ID
+  contactId: ID
+  dealId: ID
+  id: ID!
+  introText: String
+  paymentTermDays: Int
+  recipientAddress: String
+  recipientVatId: String
+  serviceDate: String
+  taxExemption: TaxExemption
+  taxExemptionNote: String
+}
+
+input UpdateLetterheadInput {
+  bankName: String
+  bic: String
+  city: String
+  companyName: String
+  country: String
+  datevBeraternummer: String
+  datevKontenrahmen: String
+  datevMandantennummer: String
+  defaultClosingText: String
+  defaultIntroText: String
+  defaultValidityDays: Int
+  email: String
+  iban: String
+  phone: String
+  postalCode: String
+  registerEntry: String
+  representative: String
+  smallBusiness: Boolean
+  street: String
+  taxNumber: String
+  vatId: String
+  website: String
+}
+
+input UpdateNoteInput {
+  body: String!
+  id: ID!
+}
+
+input UpdateProductInput {
+  active: Boolean
+  articleNumber: String
+  description: String
+  id: ID!
+  name: String
+  taxRatePercent: Int
+  unit: String
+  unitPriceCents: Int
+}
+
+input UpdateQuoteInput {
+  closingText: String
+  companyId: ID
+  contactId: ID
+  dealId: ID
+  id: ID!
+  introText: String
+  recipientAddress: String
+  recipientVatId: String
+  smallBusiness: Boolean
+  taxExemption: TaxExemption
+  taxExemptionNote: String
+  validUntil: String
+}
+
+input UpdateRoleInput {
+  description: String
+  feldrechte: [FeldrechtInput!]
+  id: ID!
+  name: String
+  permissions: [String!]
+  sichtbarkeit: SichtbarkeitInput
+}
+
+input UpdateSavedViewInput {
+  columns: SavedViewColumns
+  customFilters: SavedViewFilters
+  darstellung: String
+  datumFeld: String
+  filterVerknuepfung: String
+  filters: CustomFieldValues
+  gruppenFeld: String
+  gruppierung: String
+  id: ID!
+  name: String
+  privat: Boolean
+  search: String
+  sortDirection: String
+  sortField: String
+}
+
+input UpdateTaskInput {
+  assigneeId: ID
+  companyId: ID
+  contactId: ID
+  customFields: CustomFieldValues
+  dealId: ID
+  description: String
+  dueDate: String
+  dueTime: String
+  id: ID!
+  title: String
+}
+
+input UpsertCompanyInput {
+  annualRevenue: Float
+  city: String
+  country: String
+  customFields: CustomFieldValues
+  domain: String
+  email: String
+  employeeCount: Int
+  herkunft: String
+  id: ID
+  industry: String
+  invoiceEmail: String
+  linkedin: String
+  name: String!
+  ownerId: ID
+  parentCompanyId: ID
+  phone: String
+  postalCode: String
+  registergericht: String
+  registernummer: String
+  street: String
+  ustIdNr: String
+  vertretung: String
+  website: String
+  zweitdomains: [String!]
+}
+
+input UpsertContactInput {
+  city: String
+  companyId: ID
+  country: String
+  customFields: CustomFieldValues
+  email: String
+  firstName: String!
+  herkunft: String
+  id: ID
+  jobTitle: String
+  lastName: String!
+  linkedin: String
+  ownerId: ID
+  phone: String
+  postalCode: String
+  street: String
+  weitereEmails: [KontaktEmailInput!]
+  weitereTelefone: [KontaktTelefonInput!]
+}
+
+input UpsertDealInput {
+  amount: Float
+  closeDate: String
+  companyId: ID
+  currency: String
+  customFields: CustomFieldValues
+  herkunft: String
+  id: ID
+  lostReason: String
+  name: String!
+  ownerId: ID
+  pipelineId: ID
+  primaryContactId: ID
+  probability: Int
+  stage: DealStage
+}
+
+type User {
+  createdAt: DateTime!
+  durchwahl: String
+  email: String!
+  emailVerifiedAt: DateTime
+  firstName: String!
+  funktion: String
+  id: ID!
+  lastName: String!
+  mailSignatur: String
+  passwortGesetzt: Boolean!
+  updatedAt: DateTime!
+}
+
+input VerifyEmailInput {
+  token: String!
+}
+
+type Verteiler {
+  anzahl: Int!
+  beschreibung: String
+  createdAt: DateTime!
+  createdById: ID
+  id: ID!
+  name: String!
+  updatedAt: DateTime!
+}
+
+input VerteilerInput {
+  beschreibung: String
+  name: String
+}
+
+type VerteilerMitglied {
+  abgemeldet: Boolean!
+  contact: Contact!
+  hinzugefuegtAm: DateTime!
+}
+
+type VerweisTitel {
+  id: ID!
+  sichtbar: Boolean!
+  titel: String
+}
+
+type WebForm {
+  active: Boolean!
+  createDeal: Boolean!
+  createdAt: DateTime!
+  id: ID!
+  intro: String
+  ownerId: ID!
+  privacyUrl: String
+  thankYou: String!
+  title: String!
+}
+
+input WebFormInput {
+  active: Boolean
+  createDeal: Boolean
+  intro: String
+  privacyUrl: String
+  thankYou: String
+  title: String
+}
+
+type Webhook {
+  active: Boolean!
+  createdAt: DateTime!
+  createdById: ID
+  events: [String!]!
+  failureCount: Int!
+  id: ID!
+  lastDeliveredAt: DateTime
+  lastError: String
+  lastStatus: Int
+  url: String!
+}
+
+input WertZuordnungInput {
+  nach: String!
+  von: String!
+}
+
+type Workspace {
+  baseInterestRatePercent: Float
+  createdAt: DateTime!
+  einladungsDomains: [String!]!
+  id: ID!
+  leerlaufMinuten: Int
+  name: String!
+  papierkorbTage: Int!
+  slug: String!
+  updatedAt: DateTime!
+  zweiFaktorPflicht: Boolean!
+}
+
+type WorkspaceSummary {
+  betraegeVerborgen: Boolean!
+  companyCount: Int
+  contactCount: Int
+  openDealCount: Int
+  openPipelineValue: Float
+  openTaskCount: Int
+  overdueTaskCount: Int
+}
+
+input ZeilenKorrekturInput {
+  zeile: Int!
+  zellen: [String!]!
+}
+
+type ZugriffZeile {
+  bearbeitet: Boolean!
+  grund: String!
+  name: String!
+  rolle: String!
+  sieht: Boolean!
+  userId: ID!
+}
+
+type ZusammenfuehrenAnzahl {
+  anzahl: Int!
+  was: String!
+}
+
+type ZusammenfuehrenErgebnis {
+  eigeneFelder: Int!
+  felder: [ZusammenfuehrenFeld!]!
+  umgehaengt: [ZusammenfuehrenAnzahl!]!
+}
+
+type ZusammenfuehrenFeld {
+  feld: String!
+  vonId: ID!
+}

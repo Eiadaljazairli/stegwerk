@@ -1,0 +1,10002 @@
+{
+  "abfragen": [
+    {
+      "name": "absenderPruefung",
+      "argumente": [
+        {
+          "name": "frisch",
+          "typ": "Boolean"
+        }
+      ],
+      "rueckgabe": "AbsenderPruefung"
+    },
+    {
+      "name": "anzahlRuhendeGeschaefte",
+      "argumente": [
+        {
+          "name": "nurMeine",
+          "typ": "Boolean!",
+          "vorgabe": "false"
+        },
+        {
+          "name": "tage",
+          "typ": "Int!",
+          "vorgabe": "14"
+        }
+      ],
+      "rueckgabe": "Int!"
+    },
+    {
+      "name": "appointment",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Appointment!"
+    },
+    {
+      "name": "appointmentConflicts",
+      "argumente": [
+        {
+          "name": "endDate",
+          "typ": "String!"
+        },
+        {
+          "name": "endTime",
+          "typ": "String!"
+        },
+        {
+          "name": "exceptId",
+          "typ": "ID"
+        },
+        {
+          "name": "ownerId",
+          "typ": "ID"
+        },
+        {
+          "name": "startDate",
+          "typ": "String!"
+        },
+        {
+          "name": "startTime",
+          "typ": "String!"
+        }
+      ],
+      "rueckgabe": "[AppointmentConflict!]!"
+    },
+    {
+      "name": "appointments",
+      "argumente": [
+        {
+          "name": "from",
+          "typ": "String!"
+        },
+        {
+          "name": "includeCancelled",
+          "typ": "Boolean"
+        },
+        {
+          "name": "ownerId",
+          "typ": "ID"
+        },
+        {
+          "name": "to",
+          "typ": "String!"
+        }
+      ],
+      "rueckgabe": "[Appointment!]!"
+    },
+    {
+      "name": "attachments",
+      "argumente": [
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "contactId",
+          "typ": "ID"
+        },
+        {
+          "name": "dealId",
+          "typ": "ID"
+        },
+        {
+          "name": "invoiceId",
+          "typ": "ID"
+        },
+        {
+          "name": "noteId",
+          "typ": "ID"
+        },
+        {
+          "name": "quoteId",
+          "typ": "ID"
+        },
+        {
+          "name": "taskId",
+          "typ": "ID"
+        }
+      ],
+      "rueckgabe": "[Attachment!]!"
+    },
+    {
+      "name": "auditLog",
+      "argumente": [
+        {
+          "name": "entityId",
+          "typ": "ID"
+        },
+        {
+          "name": "limit",
+          "typ": "Int"
+        }
+      ],
+      "rueckgabe": "[AuditLogEntry!]!"
+    },
+    {
+      "name": "auswertung",
+      "argumente": [
+        {
+          "name": "bis",
+          "typ": "String!"
+        },
+        {
+          "name": "ownerId",
+          "typ": "ID"
+        },
+        {
+          "name": "pipelineId",
+          "typ": "ID"
+        },
+        {
+          "name": "von",
+          "typ": "String!"
+        }
+      ],
+      "rueckgabe": "Auswertung!"
+    },
+    {
+      "name": "begleitbeleg",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Begleitbeleg!"
+    },
+    {
+      "name": "begleitbelege",
+      "argumente": [
+        {
+          "name": "filter",
+          "typ": "BegleitbelegFilterInput"
+        }
+      ],
+      "rueckgabe": "[Begleitbeleg!]!"
+    },
+    {
+      "name": "beispieldaten",
+      "argumente": [],
+      "rueckgabe": "Int!"
+    },
+    {
+      "name": "benachrichtigungen",
+      "argumente": [
+        {
+          "name": "limit",
+          "typ": "Int"
+        }
+      ],
+      "rueckgabe": "[Benachrichtigung!]!"
+    },
+    {
+      "name": "bereichsprotokoll",
+      "argumente": [
+        {
+          "name": "filter",
+          "typ": "BereichsprotokollFilter"
+        }
+      ],
+      "rueckgabe": "Bereichsprotokoll!"
+    },
+    {
+      "name": "bereichsprotokollCsv",
+      "argumente": [
+        {
+          "name": "filter",
+          "typ": "BereichsprotokollFilter"
+        }
+      ],
+      "rueckgabe": "String!"
+    },
+    {
+      "name": "billingPlans",
+      "argumente": [],
+      "rueckgabe": "[PlanView!]!"
+    },
+    {
+      "name": "companies",
+      "argumente": [
+        {
+          "name": "country",
+          "typ": "String"
+        },
+        {
+          "name": "customFilters",
+          "typ": "[CustomFieldFilterInput!]"
+        },
+        {
+          "name": "filterVerknuepfung",
+          "typ": "FilterVerknuepfung"
+        },
+        {
+          "name": "gruppe",
+          "typ": "ListenGruppeInput"
+        },
+        {
+          "name": "gruppierung",
+          "typ": "String"
+        },
+        {
+          "name": "industry",
+          "typ": "String"
+        },
+        {
+          "name": "limit",
+          "typ": "Int",
+          "vorgabe": "25"
+        },
+        {
+          "name": "offset",
+          "typ": "Int",
+          "vorgabe": "0"
+        },
+        {
+          "name": "ownerId",
+          "typ": "ID"
+        },
+        {
+          "name": "search",
+          "typ": "String"
+        },
+        {
+          "name": "sortDirection",
+          "typ": "SortDirection"
+        },
+        {
+          "name": "sortField",
+          "typ": "String"
+        },
+        {
+          "name": "zeitraum",
+          "typ": "ListenZeitraumInput"
+        }
+      ],
+      "rueckgabe": "CompanyPage!"
+    },
+    {
+      "name": "company",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Company!"
+    },
+    {
+      "name": "companyIndustries",
+      "argumente": [],
+      "rueckgabe": "[String!]!"
+    },
+    {
+      "name": "companyMessages",
+      "argumente": [
+        {
+          "name": "companyId",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "[MailMessage!]!"
+    },
+    {
+      "name": "contact",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Contact!"
+    },
+    {
+      "name": "contactMessages",
+      "argumente": [
+        {
+          "name": "contactId",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "[MailMessage!]!"
+    },
+    {
+      "name": "contacts",
+      "argumente": [
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "customFilters",
+          "typ": "[CustomFieldFilterInput!]"
+        },
+        {
+          "name": "filterVerknuepfung",
+          "typ": "FilterVerknuepfung"
+        },
+        {
+          "name": "gruppe",
+          "typ": "ListenGruppeInput"
+        },
+        {
+          "name": "gruppierung",
+          "typ": "String"
+        },
+        {
+          "name": "limit",
+          "typ": "Int",
+          "vorgabe": "25"
+        },
+        {
+          "name": "offset",
+          "typ": "Int",
+          "vorgabe": "0"
+        },
+        {
+          "name": "ownerId",
+          "typ": "ID"
+        },
+        {
+          "name": "search",
+          "typ": "String"
+        },
+        {
+          "name": "sortDirection",
+          "typ": "SortDirection"
+        },
+        {
+          "name": "sortField",
+          "typ": "String"
+        },
+        {
+          "name": "zeitraum",
+          "typ": "ListenZeitraumInput"
+        }
+      ],
+      "rueckgabe": "ContactPage!"
+    },
+    {
+      "name": "customFieldGroups",
+      "argumente": [
+        {
+          "name": "entity",
+          "typ": "CustomFieldEntity"
+        }
+      ],
+      "rueckgabe": "[CustomFieldGroup!]!"
+    },
+    {
+      "name": "customFields",
+      "argumente": [
+        {
+          "name": "entity",
+          "typ": "CustomFieldEntity"
+        }
+      ],
+      "rueckgabe": "[CustomField!]!"
+    },
+    {
+      "name": "dashboard",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Dashboard!"
+    },
+    {
+      "name": "dashboards",
+      "argumente": [],
+      "rueckgabe": "[Dashboard!]!"
+    },
+    {
+      "name": "datevLuecken",
+      "argumente": [],
+      "rueckgabe": "[String!]!"
+    },
+    {
+      "name": "deal",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Deal!"
+    },
+    {
+      "name": "dealForecast",
+      "argumente": [
+        {
+          "name": "months",
+          "typ": "Int"
+        }
+      ],
+      "rueckgabe": "DealForecast!"
+    },
+    {
+      "name": "dealMessages",
+      "argumente": [
+        {
+          "name": "dealId",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "[MailMessage!]!"
+    },
+    {
+      "name": "dealRollen",
+      "argumente": [],
+      "rueckgabe": "[String!]!"
+    },
+    {
+      "name": "dealStages",
+      "argumente": [
+        {
+          "name": "pipelineId",
+          "typ": "ID"
+        }
+      ],
+      "rueckgabe": "[DealStageSetting!]!"
+    },
+    {
+      "name": "deals",
+      "argumente": [
+        {
+          "name": "closeBefore",
+          "typ": "String"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "customFilters",
+          "typ": "[CustomFieldFilterInput!]"
+        },
+        {
+          "name": "filterVerknuepfung",
+          "typ": "FilterVerknuepfung"
+        },
+        {
+          "name": "gruppe",
+          "typ": "ListenGruppeInput"
+        },
+        {
+          "name": "gruppierung",
+          "typ": "String"
+        },
+        {
+          "name": "limit",
+          "typ": "Int",
+          "vorgabe": "25"
+        },
+        {
+          "name": "minAmount",
+          "typ": "Float"
+        },
+        {
+          "name": "offset",
+          "typ": "Int",
+          "vorgabe": "0"
+        },
+        {
+          "name": "openOnly",
+          "typ": "Boolean"
+        },
+        {
+          "name": "ownerId",
+          "typ": "ID"
+        },
+        {
+          "name": "pipelineId",
+          "typ": "ID"
+        },
+        {
+          "name": "ruhendTage",
+          "typ": "Int"
+        },
+        {
+          "name": "search",
+          "typ": "String"
+        },
+        {
+          "name": "sortDirection",
+          "typ": "SortDirection"
+        },
+        {
+          "name": "sortField",
+          "typ": "String"
+        },
+        {
+          "name": "stage",
+          "typ": "DealStage"
+        },
+        {
+          "name": "zeitraum",
+          "typ": "ListenZeitraumInput"
+        }
+      ],
+      "rueckgabe": "DealPage!"
+    },
+    {
+      "name": "einladungsVorschlaege",
+      "argumente": [],
+      "rueckgabe": "[EinladungsVorschlag!]!"
+    },
+    {
+      "name": "entitlement",
+      "argumente": [],
+      "rueckgabe": "EntitlementView!"
+    },
+    {
+      "name": "ersteSchritte",
+      "argumente": [],
+      "rueckgabe": "ErsteSchritte!"
+    },
+    {
+      "name": "feldFuellgrad",
+      "argumente": [
+        {
+          "name": "entity",
+          "typ": "CustomFieldEntity!"
+        }
+      ],
+      "rueckgabe": "[FeldFuellgrad!]!"
+    },
+    {
+      "name": "freigabeStand",
+      "argumente": [
+        {
+          "name": "art",
+          "typ": "String!"
+        },
+        {
+          "name": "datensatzId",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "FreigabeStand!"
+    },
+    {
+      "name": "gegenfeldWerte",
+      "argumente": [
+        {
+          "name": "entity",
+          "typ": "CustomFieldEntity!"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "[GegenfeldWert!]!"
+    },
+    {
+      "name": "herkunft",
+      "argumente": [
+        {
+          "name": "entityId",
+          "typ": "ID!"
+        },
+        {
+          "name": "entityType",
+          "typ": "String!"
+        }
+      ],
+      "rueckgabe": "Herkunft!"
+    },
+    {
+      "name": "importableFields",
+      "argumente": [
+        {
+          "name": "entity",
+          "typ": "ImportEntity!"
+        }
+      ],
+      "rueckgabe": "[ImportableField!]!"
+    },
+    {
+      "name": "invoice",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Invoice!"
+    },
+    {
+      "name": "invoiceGaps",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "[InvoiceGap!]!"
+    },
+    {
+      "name": "invoiceNumberGaps",
+      "argumente": [],
+      "rueckgabe": "[String!]!"
+    },
+    {
+      "name": "invoiceReminders",
+      "argumente": [
+        {
+          "name": "invoiceId",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "[InvoiceReminder!]!"
+    },
+    {
+      "name": "invoiceSeriesList",
+      "argumente": [],
+      "rueckgabe": "[InvoiceSeries!]!"
+    },
+    {
+      "name": "invoices",
+      "argumente": [],
+      "rueckgabe": "[Invoice!]!"
+    },
+    {
+      "name": "invoicesForQuote",
+      "argumente": [
+        {
+          "name": "quoteId",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "[Invoice!]!"
+    },
+    {
+      "name": "kachelWerte",
+      "argumente": [
+        {
+          "name": "kachel",
+          "typ": "KachelInput!"
+        }
+      ],
+      "rueckgabe": "KachelErgebnis!"
+    },
+    {
+      "name": "kachelnWerte",
+      "argumente": [
+        {
+          "name": "kacheln",
+          "typ": "[KachelInput!]!"
+        }
+      ],
+      "rueckgabe": "[KachelErgebnis!]!"
+    },
+    {
+      "name": "kontaktVorschlaege",
+      "argumente": [],
+      "rueckgabe": "[KontaktVorschlag!]!"
+    },
+    {
+      "name": "letterhead",
+      "argumente": [],
+      "rueckgabe": "Letterhead!"
+    },
+    {
+      "name": "letterheadGaps",
+      "argumente": [],
+      "rueckgabe": "[LetterheadGap!]!"
+    },
+    {
+      "name": "lieferstand",
+      "argumente": [
+        {
+          "name": "angebotId",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "[LieferstandPosition!]!"
+    },
+    {
+      "name": "mailInhalte",
+      "argumente": [
+        {
+          "name": "ids",
+          "typ": "[ID!]!"
+        }
+      ],
+      "rueckgabe": "[MailInhaltView!]!"
+    },
+    {
+      "name": "mailSperren",
+      "argumente": [],
+      "rueckgabe": "[MailSperre!]!"
+    },
+    {
+      "name": "mailSuche",
+      "argumente": [
+        {
+          "name": "limit",
+          "typ": "Int"
+        },
+        {
+          "name": "text",
+          "typ": "String!"
+        }
+      ],
+      "rueckgabe": "[MailMessage!]!"
+    },
+    {
+      "name": "mailTemplates",
+      "argumente": [],
+      "rueckgabe": "[MailTemplate!]!"
+    },
+    {
+      "name": "meineFavoriten",
+      "argumente": [],
+      "rueckgabe": "[Favorit!]!"
+    },
+    {
+      "name": "meineUebersicht",
+      "argumente": [],
+      "rueckgabe": "[Kachel!]!"
+    },
+    {
+      "name": "moeglicheFirmenDubletten",
+      "argumente": [
+        {
+          "name": "ausser",
+          "typ": "ID"
+        },
+        {
+          "name": "domain",
+          "typ": "String"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        }
+      ],
+      "rueckgabe": "[Dublette!]!"
+    },
+    {
+      "name": "moeglicheKontaktDubletten",
+      "argumente": [
+        {
+          "name": "ausser",
+          "typ": "ID"
+        },
+        {
+          "name": "email",
+          "typ": "String"
+        },
+        {
+          "name": "nachname",
+          "typ": "String!"
+        },
+        {
+          "name": "vorname",
+          "typ": "String!"
+        }
+      ],
+      "rueckgabe": "[Dublette!]!"
+    },
+    {
+      "name": "myOpenTasks",
+      "argumente": [
+        {
+          "name": "limit",
+          "typ": "Int"
+        }
+      ],
+      "rueckgabe": "[Task!]!"
+    },
+    {
+      "name": "myPermissions",
+      "argumente": [],
+      "rueckgabe": "MyPermissions!"
+    },
+    {
+      "name": "myRole",
+      "argumente": [],
+      "rueckgabe": "MembershipRole!"
+    },
+    {
+      "name": "myTaskDigest",
+      "argumente": [],
+      "rueckgabe": "DigestPreview"
+    },
+    {
+      "name": "myWorkspaces",
+      "argumente": [],
+      "rueckgabe": "[Membership!]!"
+    },
+    {
+      "name": "notizSuche",
+      "argumente": [
+        {
+          "name": "limit",
+          "typ": "Int"
+        },
+        {
+          "name": "text",
+          "typ": "String!"
+        }
+      ],
+      "rueckgabe": "[Note!]!"
+    },
+    {
+      "name": "objektBezeichnungen",
+      "argumente": [],
+      "rueckgabe": "[ObjektBezeichnung!]!"
+    },
+    {
+      "name": "openItems",
+      "argumente": [],
+      "rueckgabe": "[OpenItem!]!"
+    },
+    {
+      "name": "papierkorb",
+      "argumente": [],
+      "rueckgabe": "[PapierkorbEintrag!]!"
+    },
+    {
+      "name": "papierkorbTage",
+      "argumente": [],
+      "rueckgabe": "Int!"
+    },
+    {
+      "name": "pendingInvitations",
+      "argumente": [],
+      "rueckgabe": "[Invitation!]!"
+    },
+    {
+      "name": "pipeline",
+      "argumente": [
+        {
+          "name": "pipelineId",
+          "typ": "ID"
+        }
+      ],
+      "rueckgabe": "[PipelineStageSummary!]!"
+    },
+    {
+      "name": "pipelines",
+      "argumente": [],
+      "rueckgabe": "[Pipeline!]!"
+    },
+    {
+      "name": "plzOrte",
+      "argumente": [
+        {
+          "name": "land",
+          "typ": "String"
+        },
+        {
+          "name": "plz",
+          "typ": "String!"
+        }
+      ],
+      "rueckgabe": "[PlzOrt!]!"
+    },
+    {
+      "name": "products",
+      "argumente": [
+        {
+          "name": "includeInactive",
+          "typ": "Boolean",
+          "vorgabe": "false"
+        }
+      ],
+      "rueckgabe": "[Product!]!"
+    },
+    {
+      "name": "quote",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Quote!"
+    },
+    {
+      "name": "quotes",
+      "argumente": [
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "dealId",
+          "typ": "ID"
+        },
+        {
+          "name": "status",
+          "typ": "QuoteStatus"
+        }
+      ],
+      "rueckgabe": "[Quote!]!"
+    },
+    {
+      "name": "reminderPreview",
+      "argumente": [
+        {
+          "name": "invoiceId",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "ReminderPreview!"
+    },
+    {
+      "name": "roles",
+      "argumente": [],
+      "rueckgabe": "[Role!]!"
+    },
+    {
+      "name": "savedViews",
+      "argumente": [
+        {
+          "name": "entity",
+          "typ": "CustomFieldEntity!"
+        }
+      ],
+      "rueckgabe": "[SavedView!]!"
+    },
+    {
+      "name": "suche",
+      "argumente": [
+        {
+          "name": "limit",
+          "typ": "Int!",
+          "vorgabe": "10"
+        },
+        {
+          "name": "text",
+          "typ": "String!"
+        }
+      ],
+      "rueckgabe": "[SuchTreffer!]!"
+    },
+    {
+      "name": "task",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Task!"
+    },
+    {
+      "name": "tasks",
+      "argumente": [
+        {
+          "name": "assigneeId",
+          "typ": "ID"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "completed",
+          "typ": "Boolean"
+        },
+        {
+          "name": "contactId",
+          "typ": "ID"
+        },
+        {
+          "name": "customFilters",
+          "typ": "[CustomFieldFilterInput!]"
+        },
+        {
+          "name": "dealId",
+          "typ": "ID"
+        },
+        {
+          "name": "filterVerknuepfung",
+          "typ": "FilterVerknuepfung"
+        },
+        {
+          "name": "gruppe",
+          "typ": "ListenGruppeInput"
+        },
+        {
+          "name": "gruppierung",
+          "typ": "String"
+        },
+        {
+          "name": "limit",
+          "typ": "Int",
+          "vorgabe": "25"
+        },
+        {
+          "name": "offset",
+          "typ": "Int",
+          "vorgabe": "0"
+        },
+        {
+          "name": "overdue",
+          "typ": "Boolean"
+        },
+        {
+          "name": "search",
+          "typ": "String"
+        },
+        {
+          "name": "sortDirection",
+          "typ": "SortDirection"
+        },
+        {
+          "name": "sortField",
+          "typ": "String"
+        },
+        {
+          "name": "status",
+          "typ": "String"
+        },
+        {
+          "name": "zeitraum",
+          "typ": "ListenZeitraumInput"
+        }
+      ],
+      "rueckgabe": "TaskPage!"
+    },
+    {
+      "name": "ungeleseneBenachrichtigungen",
+      "argumente": [],
+      "rueckgabe": "Int!"
+    },
+    {
+      "name": "unzustellbareAdressen",
+      "argumente": [
+        {
+          "name": "adressen",
+          "typ": "[String!]!"
+        }
+      ],
+      "rueckgabe": "[String!]!"
+    },
+    {
+      "name": "verlustgruende",
+      "argumente": [],
+      "rueckgabe": "[String!]!"
+    },
+    {
+      "name": "verteiler",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Verteiler!"
+    },
+    {
+      "name": "verteilerListe",
+      "argumente": [],
+      "rueckgabe": "[Verteiler!]!"
+    },
+    {
+      "name": "verteilerMitglieder",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "[VerteilerMitglied!]!"
+    },
+    {
+      "name": "verweisTitel",
+      "argumente": [
+        {
+          "name": "ids",
+          "typ": "[ID!]!"
+        },
+        {
+          "name": "ziel",
+          "typ": "CustomFieldEntity!"
+        }
+      ],
+      "rueckgabe": "[VerweisTitel!]!"
+    },
+    {
+      "name": "webForm",
+      "argumente": [],
+      "rueckgabe": "WebForm"
+    },
+    {
+      "name": "werSiehtDas",
+      "argumente": [
+        {
+          "name": "art",
+          "typ": "String!"
+        },
+        {
+          "name": "datensatzId",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "[ZugriffZeile!]!"
+    },
+    {
+      "name": "workspaceMembers",
+      "argumente": [],
+      "rueckgabe": "[Membership!]!"
+    },
+    {
+      "name": "workspaceSummary",
+      "argumente": [],
+      "rueckgabe": "WorkspaceSummary!"
+    },
+    {
+      "name": "zusammenfuehrenVorschau",
+      "argumente": [
+        {
+          "name": "art",
+          "typ": "DublettenArt!"
+        },
+        {
+          "name": "behaltenId",
+          "typ": "ID!"
+        },
+        {
+          "name": "wegIds",
+          "typ": "[ID!]!"
+        }
+      ],
+      "rueckgabe": "ZusammenfuehrenErgebnis!"
+    }
+  ],
+  "aenderungen": [
+    {
+      "name": "addMailSperre",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "AddMailSperreInput!"
+        }
+      ],
+      "rueckgabe": "MailSperre!"
+    },
+    {
+      "name": "archiveCustomField",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "CustomField!"
+    },
+    {
+      "name": "assignRole",
+      "argumente": [
+        {
+          "name": "roleId",
+          "typ": "ID!"
+        },
+        {
+          "name": "userId",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Membership!"
+    },
+    {
+      "name": "auftragsbestaetigungStellen",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "AuftragsbestaetigungInput!"
+        }
+      ],
+      "rueckgabe": "Begleitbeleg!"
+    },
+    {
+      "name": "begleitbelegStornieren",
+      "argumente": [
+        {
+          "name": "grund",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Begleitbeleg!"
+    },
+    {
+      "name": "benachrichtigungGelesen",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID"
+        }
+      ],
+      "rueckgabe": "Int!"
+    },
+    {
+      "name": "cancelAppointment",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "scope",
+          "typ": "AppointmentScope"
+        }
+      ],
+      "rueckgabe": "Appointment!"
+    },
+    {
+      "name": "cancelInvoice",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Invoice!"
+    },
+    {
+      "name": "createAppointment",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "CreateAppointmentInput!"
+        }
+      ],
+      "rueckgabe": "Appointment!"
+    },
+    {
+      "name": "createCompanies",
+      "argumente": [
+        {
+          "name": "inputs",
+          "typ": "[CreateCompanyInput!]!"
+        }
+      ],
+      "rueckgabe": "MassenErgebnis!"
+    },
+    {
+      "name": "createCompany",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "CreateCompanyInput!"
+        }
+      ],
+      "rueckgabe": "Company!"
+    },
+    {
+      "name": "createContact",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "CreateContactInput!"
+        }
+      ],
+      "rueckgabe": "Contact!"
+    },
+    {
+      "name": "createContacts",
+      "argumente": [
+        {
+          "name": "inputs",
+          "typ": "[CreateContactInput!]!"
+        }
+      ],
+      "rueckgabe": "MassenErgebnis!"
+    },
+    {
+      "name": "createCustomField",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "CreateCustomFieldInput!"
+        }
+      ],
+      "rueckgabe": "CustomField!"
+    },
+    {
+      "name": "createCustomFieldGroup",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "CreateCustomFieldGroupInput!"
+        }
+      ],
+      "rueckgabe": "CustomFieldGroup!"
+    },
+    {
+      "name": "createDeal",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "CreateDealInput!"
+        }
+      ],
+      "rueckgabe": "Deal!"
+    },
+    {
+      "name": "createDeals",
+      "argumente": [
+        {
+          "name": "inputs",
+          "typ": "[CreateDealInput!]!"
+        }
+      ],
+      "rueckgabe": "MassenErgebnis!"
+    },
+    {
+      "name": "createInvoice",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "CreateInvoiceInputDto!"
+        }
+      ],
+      "rueckgabe": "Invoice!"
+    },
+    {
+      "name": "createInvoiceFromQuote",
+      "argumente": [
+        {
+          "name": "quoteId",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Invoice!"
+    },
+    {
+      "name": "createInvoiceSeries",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "CreateInvoiceSeriesInput!"
+        }
+      ],
+      "rueckgabe": "InvoiceSeries!"
+    },
+    {
+      "name": "createNote",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "CreateNoteInput!"
+        }
+      ],
+      "rueckgabe": "Note!"
+    },
+    {
+      "name": "createPipeline",
+      "argumente": [
+        {
+          "name": "name",
+          "typ": "String!"
+        }
+      ],
+      "rueckgabe": "Pipeline!"
+    },
+    {
+      "name": "createProduct",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "CreateProductInput!"
+        }
+      ],
+      "rueckgabe": "Product!"
+    },
+    {
+      "name": "createQuote",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "CreateQuoteInput!"
+        }
+      ],
+      "rueckgabe": "Quote!"
+    },
+    {
+      "name": "createQuoteLink",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Quote!"
+    },
+    {
+      "name": "createRole",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "CreateRoleInput!"
+        }
+      ],
+      "rueckgabe": "Role!"
+    },
+    {
+      "name": "createSavedView",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "CreateSavedViewInput!"
+        }
+      ],
+      "rueckgabe": "SavedView!"
+    },
+    {
+      "name": "createTask",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "CreateTaskInput!"
+        }
+      ],
+      "rueckgabe": "Task!"
+    },
+    {
+      "name": "dashboardAendern",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "input",
+          "typ": "DashboardAendernInput!"
+        }
+      ],
+      "rueckgabe": "Dashboard!"
+    },
+    {
+      "name": "dashboardAnlegen",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "DashboardAnlegenInput!"
+        }
+      ],
+      "rueckgabe": "Dashboard!"
+    },
+    {
+      "name": "dashboardKachelnSpeichern",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "kacheln",
+          "typ": "[KachelInput!]!"
+        }
+      ],
+      "rueckgabe": "Dashboard!"
+    },
+    {
+      "name": "dashboardLoeschen",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "dealKontaktEntfernen",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "dealKontaktHinzufuegen",
+      "argumente": [
+        {
+          "name": "contactId",
+          "typ": "ID!"
+        },
+        {
+          "name": "dealId",
+          "typ": "ID!"
+        },
+        {
+          "name": "rolle",
+          "typ": "String"
+        }
+      ],
+      "rueckgabe": "DealKontakt!"
+    },
+    {
+      "name": "dealKontaktRolle",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "rolle",
+          "typ": "String"
+        }
+      ],
+      "rueckgabe": "DealKontakt!"
+    },
+    {
+      "name": "dealKontaktZumHauptkontakt",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Deal!"
+    },
+    {
+      "name": "decideQuote",
+      "argumente": [
+        {
+          "name": "accepted",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Quote!"
+    },
+    {
+      "name": "deleteAppointment",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "scope",
+          "typ": "AppointmentScope"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "deleteAttachment",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "deleteCompany",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "deleteContact",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "deleteCustomFieldGroup",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "deleteDeal",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "deleteInvoice",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "deleteMailTemplate",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "deleteNote",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "deletePipeline",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "verschiebenNach",
+          "typ": "ID"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "deleteQuote",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "deleteRole",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "deleteSavedView",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "deleteTask",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "duplicateQuote",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Quote!"
+    },
+    {
+      "name": "endInvoiceSeries",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "endgueltigLoeschen",
+      "argumente": [
+        {
+          "name": "art",
+          "typ": "PapierkorbArt!"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "favoritUmschalten",
+      "argumente": [
+        {
+          "name": "art",
+          "typ": "FavoritArt!"
+        },
+        {
+          "name": "datensatzId",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "firmenlogoEntfernen",
+      "argumente": [
+        {
+          "name": "companyId",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Company!"
+    },
+    {
+      "name": "firmenlogoLaden",
+      "argumente": [
+        {
+          "name": "companyId",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Company!"
+    },
+    {
+      "name": "freigabeEntziehen",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "freigeben",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "FreigebenInput!"
+        }
+      ],
+      "rueckgabe": "FreigabeStand!"
+    },
+    {
+      "name": "importRecords",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "ImportInput!"
+        }
+      ],
+      "rueckgabe": "ImportReport!"
+    },
+    {
+      "name": "impressumLesen",
+      "argumente": [
+        {
+          "name": "companyId",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "ImpressumVorschau!"
+    },
+    {
+      "name": "impressumUebernehmen",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "ImpressumUebernahmeInput!"
+        }
+      ],
+      "rueckgabe": "Company!"
+    },
+    {
+      "name": "inspectCsv",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "InspectCsvInput!"
+        }
+      ],
+      "rueckgabe": "CsvInspection!"
+    },
+    {
+      "name": "inviteMember",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "InviteMemberInput!"
+        }
+      ],
+      "rueckgabe": "InvitationCreated!"
+    },
+    {
+      "name": "issueInvoice",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Invoice!"
+    },
+    {
+      "name": "lieferscheinStellen",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "LieferscheinInput!"
+        }
+      ],
+      "rueckgabe": "Begleitbeleg!"
+    },
+    {
+      "name": "mailAnhangSpeichern",
+      "argumente": [
+        {
+          "name": "index",
+          "typ": "Int!"
+        },
+        {
+          "name": "nachrichtId",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "MailInhaltView!"
+    },
+    {
+      "name": "mailEntwurfAnlegen",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "MailEntwurfAnlegenInput!"
+        }
+      ],
+      "rueckgabe": "MailEntwurf!"
+    },
+    {
+      "name": "markInvoicePaid",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "paidOn",
+          "typ": "String"
+        }
+      ],
+      "rueckgabe": "Invoice!"
+    },
+    {
+      "name": "markQuoteSent",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Quote!"
+    },
+    {
+      "name": "moveDealToStage",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "stage",
+          "typ": "DealStage!"
+        }
+      ],
+      "rueckgabe": "Deal!"
+    },
+    {
+      "name": "previewRetention",
+      "argumente": [
+        {
+          "name": "workspaceOnly",
+          "typ": "Boolean",
+          "vorgabe": "true"
+        }
+      ],
+      "rueckgabe": "RetentionPreview!"
+    },
+    {
+      "name": "reinstateAppointment",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Appointment!"
+    },
+    {
+      "name": "removeLetterheadLogo",
+      "argumente": [],
+      "rueckgabe": "Letterhead!"
+    },
+    {
+      "name": "removeMailSperre",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "removeMember",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "RemoveMemberInput!"
+        }
+      ],
+      "rueckgabe": "MemberRemoved!"
+    },
+    {
+      "name": "renamePipeline",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        }
+      ],
+      "rueckgabe": "Pipeline!"
+    },
+    {
+      "name": "renameWorkspace",
+      "argumente": [
+        {
+          "name": "name",
+          "typ": "String!"
+        }
+      ],
+      "rueckgabe": "Workspace!"
+    },
+    {
+      "name": "restoreCustomField",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "CustomField!"
+    },
+    {
+      "name": "revokeInvitation",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "String!"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "revokeQuoteLink",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Quote!"
+    },
+    {
+      "name": "sammelLoeschen",
+      "argumente": [
+        {
+          "name": "art",
+          "typ": "PapierkorbArt!"
+        },
+        {
+          "name": "ids",
+          "typ": "[ID!]!"
+        }
+      ],
+      "rueckgabe": "Int!"
+    },
+    {
+      "name": "sammelPhase",
+      "argumente": [
+        {
+          "name": "ids",
+          "typ": "[ID!]!"
+        },
+        {
+          "name": "stage",
+          "typ": "DealStage!"
+        }
+      ],
+      "rueckgabe": "Int!"
+    },
+    {
+      "name": "sammelVerantwortlich",
+      "argumente": [
+        {
+          "name": "art",
+          "typ": "PapierkorbArt!"
+        },
+        {
+          "name": "ids",
+          "typ": "[ID!]!"
+        },
+        {
+          "name": "ownerId",
+          "typ": "ID"
+        }
+      ],
+      "rueckgabe": "Int!"
+    },
+    {
+      "name": "saveMailTemplate",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "MailTemplateInput!"
+        }
+      ],
+      "rueckgabe": "MailTemplate!"
+    },
+    {
+      "name": "saveWebForm",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "WebFormInput!"
+        }
+      ],
+      "rueckgabe": "WebForm!"
+    },
+    {
+      "name": "sendInvoiceReminder",
+      "argumente": [
+        {
+          "name": "invoiceId",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "InvoiceReminder!"
+    },
+    {
+      "name": "setAttendeeStatus",
+      "argumente": [
+        {
+          "name": "attendeeId",
+          "typ": "ID!"
+        },
+        {
+          "name": "status",
+          "typ": "AttendeeStatus!"
+        }
+      ],
+      "rueckgabe": "AppointmentAttendee!"
+    },
+    {
+      "name": "setBaseInterestRate",
+      "argumente": [
+        {
+          "name": "percent",
+          "typ": "Float"
+        }
+      ],
+      "rueckgabe": "Workspace!"
+    },
+    {
+      "name": "setDefaultSavedView",
+      "argumente": [
+        {
+          "name": "entity",
+          "typ": "CustomFieldEntity!"
+        },
+        {
+          "name": "id",
+          "typ": "ID"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "setInvoiceLines",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "SetInvoiceLinesInput!"
+        }
+      ],
+      "rueckgabe": "Invoice!"
+    },
+    {
+      "name": "setQuoteLines",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "SetQuoteLinesInput!"
+        }
+      ],
+      "rueckgabe": "Quote!"
+    },
+    {
+      "name": "setQuoteTexts",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "SetQuoteTextsInput!"
+        }
+      ],
+      "rueckgabe": "Quote!"
+    },
+    {
+      "name": "setTaskCompleted",
+      "argumente": [
+        {
+          "name": "completed",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Task!"
+    },
+    {
+      "name": "setTaskStatus",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "status",
+          "typ": "String!"
+        }
+      ],
+      "rueckgabe": "Task!"
+    },
+    {
+      "name": "setzeNotizZiele",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "NotizZieleInput!"
+        }
+      ],
+      "rueckgabe": "Note!"
+    },
+    {
+      "name": "setzeObjektBezeichnung",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "ObjektBezeichnungInput!"
+        }
+      ],
+      "rueckgabe": "[ObjektBezeichnung!]!"
+    },
+    {
+      "name": "setzeObjektBezeichnungZurueck",
+      "argumente": [
+        {
+          "name": "art",
+          "typ": "ObjektArt"
+        }
+      ],
+      "rueckgabe": "[ObjektBezeichnung!]!"
+    },
+    {
+      "name": "uebersichtSpeichern",
+      "argumente": [
+        {
+          "name": "kacheln",
+          "typ": "[KachelInput!]!"
+        }
+      ],
+      "rueckgabe": "[Kachel!]!"
+    },
+    {
+      "name": "uebersichtZuruecksetzen",
+      "argumente": [],
+      "rueckgabe": "[Kachel!]!"
+    },
+    {
+      "name": "updateAppointment",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "UpdateAppointmentInput!"
+        }
+      ],
+      "rueckgabe": "Appointment!"
+    },
+    {
+      "name": "updateCompanies",
+      "argumente": [
+        {
+          "name": "inputs",
+          "typ": "[UpdateCompanyInput!]!"
+        }
+      ],
+      "rueckgabe": "MassenErgebnis!"
+    },
+    {
+      "name": "updateCompany",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "UpdateCompanyInput!"
+        }
+      ],
+      "rueckgabe": "Company!"
+    },
+    {
+      "name": "updateContact",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "UpdateContactInput!"
+        }
+      ],
+      "rueckgabe": "Contact!"
+    },
+    {
+      "name": "updateContacts",
+      "argumente": [
+        {
+          "name": "inputs",
+          "typ": "[UpdateContactInput!]!"
+        }
+      ],
+      "rueckgabe": "MassenErgebnis!"
+    },
+    {
+      "name": "updateCustomField",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "UpdateCustomFieldInput!"
+        }
+      ],
+      "rueckgabe": "CustomField!"
+    },
+    {
+      "name": "updateCustomFieldGroup",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "UpdateCustomFieldGroupInput!"
+        }
+      ],
+      "rueckgabe": "CustomFieldGroup!"
+    },
+    {
+      "name": "updateDeal",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "UpdateDealInput!"
+        }
+      ],
+      "rueckgabe": "Deal!"
+    },
+    {
+      "name": "updateDealStages",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "[DealStageSettingInput!]!"
+        },
+        {
+          "name": "pipelineId",
+          "typ": "ID"
+        }
+      ],
+      "rueckgabe": "[DealStageSetting!]!"
+    },
+    {
+      "name": "updateDeals",
+      "argumente": [
+        {
+          "name": "inputs",
+          "typ": "[UpdateDealInput!]!"
+        }
+      ],
+      "rueckgabe": "MassenErgebnis!"
+    },
+    {
+      "name": "updateInvoice",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "UpdateInvoiceInputDto!"
+        }
+      ],
+      "rueckgabe": "Invoice!"
+    },
+    {
+      "name": "updateLetterhead",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "UpdateLetterheadInput!"
+        }
+      ],
+      "rueckgabe": "Letterhead!"
+    },
+    {
+      "name": "updateNote",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "UpdateNoteInput!"
+        }
+      ],
+      "rueckgabe": "Note!"
+    },
+    {
+      "name": "updateProduct",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "UpdateProductInput!"
+        }
+      ],
+      "rueckgabe": "Product!"
+    },
+    {
+      "name": "updateQuote",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "UpdateQuoteInput!"
+        }
+      ],
+      "rueckgabe": "Quote!"
+    },
+    {
+      "name": "updateRole",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "UpdateRoleInput!"
+        }
+      ],
+      "rueckgabe": "Role!"
+    },
+    {
+      "name": "updateSavedView",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "UpdateSavedViewInput!"
+        }
+      ],
+      "rueckgabe": "SavedView!"
+    },
+    {
+      "name": "updateTask",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "UpdateTaskInput!"
+        }
+      ],
+      "rueckgabe": "Task!"
+    },
+    {
+      "name": "upsertCompanies",
+      "argumente": [
+        {
+          "name": "inputs",
+          "typ": "[UpsertCompanyInput!]!"
+        }
+      ],
+      "rueckgabe": "MassenErgebnis!"
+    },
+    {
+      "name": "upsertContacts",
+      "argumente": [
+        {
+          "name": "inputs",
+          "typ": "[UpsertContactInput!]!"
+        }
+      ],
+      "rueckgabe": "MassenErgebnis!"
+    },
+    {
+      "name": "upsertDeals",
+      "argumente": [
+        {
+          "name": "inputs",
+          "typ": "[UpsertDealInput!]!"
+        }
+      ],
+      "rueckgabe": "MassenErgebnis!"
+    },
+    {
+      "name": "verteilerAendern",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "input",
+          "typ": "VerteilerInput!"
+        }
+      ],
+      "rueckgabe": "Verteiler!"
+    },
+    {
+      "name": "verteilerAnlegen",
+      "argumente": [
+        {
+          "name": "input",
+          "typ": "VerteilerInput!"
+        }
+      ],
+      "rueckgabe": "Verteiler!"
+    },
+    {
+      "name": "verteilerLoeschen",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "verteilerMitgliederEntfernen",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "kontaktIds",
+          "typ": "[ID!]!"
+        }
+      ],
+      "rueckgabe": "Verteiler!"
+    },
+    {
+      "name": "verteilerMitgliederHinzufuegen",
+      "argumente": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "kontaktIds",
+          "typ": "[ID!]!"
+        }
+      ],
+      "rueckgabe": "Verteiler!"
+    },
+    {
+      "name": "wiederherstellen",
+      "argumente": [
+        {
+          "name": "art",
+          "typ": "PapierkorbArt!"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "zusammenfuehren",
+      "argumente": [
+        {
+          "name": "art",
+          "typ": "DublettenArt!"
+        },
+        {
+          "name": "behaltenId",
+          "typ": "ID!"
+        },
+        {
+          "name": "wegId",
+          "typ": "ID!"
+        }
+      ],
+      "rueckgabe": "Boolean!"
+    },
+    {
+      "name": "zusammenfuehrenMehrere",
+      "argumente": [
+        {
+          "name": "art",
+          "typ": "DublettenArt!"
+        },
+        {
+          "name": "behaltenId",
+          "typ": "ID!"
+        },
+        {
+          "name": "wegIds",
+          "typ": "[ID!]!"
+        }
+      ],
+      "rueckgabe": "ZusammenfuehrenErgebnis!"
+    }
+  ],
+  "typen": [
+    {
+      "name": "AbsenderPruefung",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "ampel",
+          "typ": "String!"
+        },
+        {
+          "name": "dmarc",
+          "typ": "String!"
+        },
+        {
+          "name": "domain",
+          "typ": "String!"
+        },
+        {
+          "name": "geprueftAm",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "hinweise",
+          "typ": "[String!]!"
+        },
+        {
+          "name": "spf",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "AddMailSperreInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "eintrag",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "Appointment",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "allDay",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "attendeeSummary",
+          "typ": "String!"
+        },
+        {
+          "name": "attendees",
+          "typ": "[AppointmentAttendee!]!"
+        },
+        {
+          "name": "cancelledAt",
+          "typ": "DateTime"
+        },
+        {
+          "name": "company",
+          "typ": "Company"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "contact",
+          "typ": "Contact"
+        },
+        {
+          "name": "contactId",
+          "typ": "ID"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "createdById",
+          "typ": "ID!"
+        },
+        {
+          "name": "deal",
+          "typ": "Deal"
+        },
+        {
+          "name": "dealId",
+          "typ": "ID"
+        },
+        {
+          "name": "description",
+          "typ": "String"
+        },
+        {
+          "name": "eingeladenAm",
+          "typ": "DateTime"
+        },
+        {
+          "name": "endDate",
+          "typ": "String!"
+        },
+        {
+          "name": "endTime",
+          "typ": "String!"
+        },
+        {
+          "name": "endsAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "geschwaerzt",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "location",
+          "typ": "String"
+        },
+        {
+          "name": "minutes",
+          "typ": "Int!"
+        },
+        {
+          "name": "occurrenceOn",
+          "typ": "String"
+        },
+        {
+          "name": "ownerId",
+          "typ": "ID!"
+        },
+        {
+          "name": "ownerName",
+          "typ": "String!"
+        },
+        {
+          "name": "privat",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "quelle",
+          "typ": "String!"
+        },
+        {
+          "name": "recurrence",
+          "typ": "String"
+        },
+        {
+          "name": "recurrenceText",
+          "typ": "String"
+        },
+        {
+          "name": "remindMinutesBefore",
+          "typ": "Int"
+        },
+        {
+          "name": "serieDatum",
+          "typ": "String"
+        },
+        {
+          "name": "serieId",
+          "typ": "ID"
+        },
+        {
+          "name": "seriesId",
+          "typ": "ID!"
+        },
+        {
+          "name": "skippedDates",
+          "typ": "[String!]!"
+        },
+        {
+          "name": "startDate",
+          "typ": "String!"
+        },
+        {
+          "name": "startTime",
+          "typ": "String!"
+        },
+        {
+          "name": "startsAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "title",
+          "typ": "String!"
+        },
+        {
+          "name": "updatedAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "videoLink",
+          "typ": "String"
+        },
+        {
+          "name": "workspaceId",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "AppointmentAttendee",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "appointmentId",
+          "typ": "ID!"
+        },
+        {
+          "name": "contact",
+          "typ": "Contact"
+        },
+        {
+          "name": "contactId",
+          "typ": "ID"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "email",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "status",
+          "typ": "AttendeeStatus!"
+        },
+        {
+          "name": "statusLabel",
+          "typ": "String!"
+        },
+        {
+          "name": "userId",
+          "typ": "ID"
+        },
+        {
+          "name": "workspaceId",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "AppointmentAttendeeInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "contactId",
+          "typ": "ID"
+        },
+        {
+          "name": "email",
+          "typ": "String"
+        },
+        {
+          "name": "name",
+          "typ": "String"
+        },
+        {
+          "name": "status",
+          "typ": "AttendeeStatus"
+        },
+        {
+          "name": "userId",
+          "typ": "ID"
+        }
+      ]
+    },
+    {
+      "name": "AppointmentConflict",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "appointment",
+          "typ": "Appointment!"
+        },
+        {
+          "name": "minutes",
+          "typ": "Int!"
+        }
+      ]
+    },
+    {
+      "name": "AppointmentScope",
+      "art": "aufzaehlung",
+      "werte": [
+        "FOLLOWING",
+        "ONE",
+        "SERIES"
+      ]
+    },
+    {
+      "name": "Attachment",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "contactId",
+          "typ": "ID"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "dealId",
+          "typ": "ID"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "invoiceId",
+          "typ": "ID"
+        },
+        {
+          "name": "mimeType",
+          "typ": "String!"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "noteId",
+          "typ": "ID"
+        },
+        {
+          "name": "quoteId",
+          "typ": "ID"
+        },
+        {
+          "name": "sizeBytes",
+          "typ": "Int!"
+        },
+        {
+          "name": "taskId",
+          "typ": "ID"
+        },
+        {
+          "name": "uploadedBy",
+          "typ": "User"
+        },
+        {
+          "name": "uploadedById",
+          "typ": "ID"
+        },
+        {
+          "name": "workspaceId",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "AttendeeStatus",
+      "art": "aufzaehlung",
+      "werte": [
+        "ACCEPTED",
+        "DECLINED",
+        "NEEDS_ACTION",
+        "TENTATIVE"
+      ]
+    },
+    {
+      "name": "AuditAction",
+      "art": "aufzaehlung",
+      "werte": [
+        "CREATED",
+        "DELETED",
+        "RESTORED",
+        "UPDATED"
+      ]
+    },
+    {
+      "name": "AuditLogEntry",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "action",
+          "typ": "AuditAction!"
+        },
+        {
+          "name": "actorId",
+          "typ": "ID"
+        },
+        {
+          "name": "actorName",
+          "typ": "String!"
+        },
+        {
+          "name": "changes",
+          "typ": "String"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "entityId",
+          "typ": "ID!"
+        },
+        {
+          "name": "entityType",
+          "typ": "String!"
+        },
+        {
+          "name": "herkunft",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "requestId",
+          "typ": "String"
+        },
+        {
+          "name": "summary",
+          "typ": "String"
+        },
+        {
+          "name": "workspaceId",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "AuftragsbestaetigungInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "angebotId",
+          "typ": "ID!"
+        },
+        {
+          "name": "closingText",
+          "typ": "String"
+        },
+        {
+          "name": "introText",
+          "typ": "String"
+        },
+        {
+          "name": "liefertermin",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "Auswertung",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "abschlussquote",
+          "typ": "Float"
+        },
+        {
+          "name": "betraegeVerborgen",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "bis",
+          "typ": "String!"
+        },
+        {
+          "name": "durchschnittTage",
+          "typ": "Float"
+        },
+        {
+          "name": "durchschnittWert",
+          "typ": "Float"
+        },
+        {
+          "name": "gewonnenAnzahl",
+          "typ": "Int!"
+        },
+        {
+          "name": "gewonnenSumme",
+          "typ": "Float!"
+        },
+        {
+          "name": "monate",
+          "typ": "[AuswertungMonat!]!"
+        },
+        {
+          "name": "neueGeschaefte",
+          "typ": "Int!"
+        },
+        {
+          "name": "verkaeufer",
+          "typ": "[AuswertungVerkaeufer!]!"
+        },
+        {
+          "name": "verlorenAnzahl",
+          "typ": "Int!"
+        },
+        {
+          "name": "verlorenSumme",
+          "typ": "Float!"
+        },
+        {
+          "name": "verlustgruende",
+          "typ": "[AuswertungGrund!]!"
+        },
+        {
+          "name": "verweildauer",
+          "typ": "[AuswertungVerweildauer!]!"
+        },
+        {
+          "name": "von",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "AuswertungGrund",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "anzahl",
+          "typ": "Int!"
+        },
+        {
+          "name": "grund",
+          "typ": "String!"
+        },
+        {
+          "name": "summe",
+          "typ": "Float!"
+        }
+      ]
+    },
+    {
+      "name": "AuswertungMonat",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "gewonnenAnzahl",
+          "typ": "Int!"
+        },
+        {
+          "name": "gewonnenSumme",
+          "typ": "Float!"
+        },
+        {
+          "name": "monat",
+          "typ": "String!"
+        },
+        {
+          "name": "verlorenAnzahl",
+          "typ": "Int!"
+        },
+        {
+          "name": "verlorenSumme",
+          "typ": "Float!"
+        }
+      ]
+    },
+    {
+      "name": "AuswertungVerkaeufer",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "gewonnenAnzahl",
+          "typ": "Int!"
+        },
+        {
+          "name": "gewonnenSumme",
+          "typ": "Float!"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "offenAnzahl",
+          "typ": "Int!"
+        },
+        {
+          "name": "offenSumme",
+          "typ": "Float!"
+        },
+        {
+          "name": "ownerId",
+          "typ": "ID"
+        },
+        {
+          "name": "quote",
+          "typ": "Float"
+        },
+        {
+          "name": "verlorenAnzahl",
+          "typ": "Int!"
+        }
+      ]
+    },
+    {
+      "name": "AuswertungVerweildauer",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "anzahl",
+          "typ": "Int!"
+        },
+        {
+          "name": "phase",
+          "typ": "String!"
+        },
+        {
+          "name": "tage",
+          "typ": "Float!"
+        }
+      ]
+    },
+    {
+      "name": "Begleitbeleg",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "angebot",
+          "typ": "Quote!"
+        },
+        {
+          "name": "angebotId",
+          "typ": "ID!"
+        },
+        {
+          "name": "art",
+          "typ": "BegleitbelegArt!"
+        },
+        {
+          "name": "auftragsbestaetigung",
+          "typ": "Begleitbeleg"
+        },
+        {
+          "name": "auftragsbestaetigungId",
+          "typ": "ID"
+        },
+        {
+          "name": "bearbeiter",
+          "typ": "User"
+        },
+        {
+          "name": "bearbeiterId",
+          "typ": "ID"
+        },
+        {
+          "name": "closingText",
+          "typ": "String"
+        },
+        {
+          "name": "company",
+          "typ": "Company"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "contact",
+          "typ": "Contact"
+        },
+        {
+          "name": "contactId",
+          "typ": "ID"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "createdById",
+          "typ": "ID"
+        },
+        {
+          "name": "currency",
+          "typ": "String!"
+        },
+        {
+          "name": "deal",
+          "typ": "Deal"
+        },
+        {
+          "name": "dealId",
+          "typ": "ID"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "introText",
+          "typ": "String"
+        },
+        {
+          "name": "issuedOn",
+          "typ": "String!"
+        },
+        {
+          "name": "kontaktName",
+          "typ": "String"
+        },
+        {
+          "name": "lieferadresse",
+          "typ": "String"
+        },
+        {
+          "name": "liefertermin",
+          "typ": "String"
+        },
+        {
+          "name": "number",
+          "typ": "String!"
+        },
+        {
+          "name": "positionen",
+          "typ": "[BegleitbelegPosition!]!"
+        },
+        {
+          "name": "recipientAddress",
+          "typ": "String"
+        },
+        {
+          "name": "recipientVatId",
+          "typ": "String"
+        },
+        {
+          "name": "smallBusiness",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "status",
+          "typ": "BegleitbelegStatus!"
+        },
+        {
+          "name": "storniertAm",
+          "typ": "DateTime"
+        },
+        {
+          "name": "stornoGrund",
+          "typ": "String"
+        },
+        {
+          "name": "stornoVon",
+          "typ": "Begleitbeleg"
+        },
+        {
+          "name": "stornoVonId",
+          "typ": "ID"
+        },
+        {
+          "name": "taxExemption",
+          "typ": "TaxExemption"
+        },
+        {
+          "name": "taxExemptionNote",
+          "typ": "String"
+        },
+        {
+          "name": "totals",
+          "typ": "QuoteTotals"
+        },
+        {
+          "name": "workspaceId",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "BegleitbelegArt",
+      "art": "aufzaehlung",
+      "werte": [
+        "AUFTRAGSBESTAETIGUNG",
+        "LIEFERSCHEIN"
+      ]
+    },
+    {
+      "name": "BegleitbelegFilterInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "angebotId",
+          "typ": "ID"
+        },
+        {
+          "name": "art",
+          "typ": "BegleitbelegArt"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "dealId",
+          "typ": "ID"
+        }
+      ]
+    },
+    {
+      "name": "BegleitbelegPosition",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "angebotsPositionId",
+          "typ": "ID"
+        },
+        {
+          "name": "articleNumber",
+          "typ": "String"
+        },
+        {
+          "name": "belegId",
+          "typ": "ID!"
+        },
+        {
+          "name": "description",
+          "typ": "String"
+        },
+        {
+          "name": "discountPercent",
+          "typ": "Float!"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "position",
+          "typ": "Int!"
+        },
+        {
+          "name": "quantity",
+          "typ": "Float!"
+        },
+        {
+          "name": "restOffen",
+          "typ": "Float"
+        },
+        {
+          "name": "taxRatePercent",
+          "typ": "Int!"
+        },
+        {
+          "name": "unit",
+          "typ": "String!"
+        },
+        {
+          "name": "unitPriceCents",
+          "typ": "Int!"
+        }
+      ]
+    },
+    {
+      "name": "BegleitbelegStatus",
+      "art": "aufzaehlung",
+      "werte": [
+        "GESTELLT",
+        "STORNIERT"
+      ]
+    },
+    {
+      "name": "Benachrichtigung",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "akte",
+          "typ": "String"
+        },
+        {
+          "name": "art",
+          "typ": "String!"
+        },
+        {
+          "name": "auszug",
+          "typ": "String"
+        },
+        {
+          "name": "erstelltAm",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "gelesen",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "pfad",
+          "typ": "String"
+        },
+        {
+          "name": "sichtbar",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "von",
+          "typ": "String!"
+        },
+        {
+          "name": "wo",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "Bereichsprotokoll",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "aenderungenMonate",
+          "typ": "Int!"
+        },
+        {
+          "name": "eintraege",
+          "typ": "[BereichsprotokollEintrag!]!"
+        },
+        {
+          "name": "sicherheitMonate",
+          "typ": "Int!"
+        },
+        {
+          "name": "weitere",
+          "typ": "Boolean!"
+        }
+      ]
+    },
+    {
+      "name": "BereichsprotokollEintrag",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "art",
+          "typ": "String!"
+        },
+        {
+          "name": "einzelheiten",
+          "typ": "String"
+        },
+        {
+          "name": "geraet",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "objekt",
+          "typ": "String"
+        },
+        {
+          "name": "objektId",
+          "typ": "ID"
+        },
+        {
+          "name": "quelle",
+          "typ": "String!"
+        },
+        {
+          "name": "wer",
+          "typ": "String"
+        },
+        {
+          "name": "zeit",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "zusammenfassung",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "BereichsprotokollFilter",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "bis",
+          "typ": "DateTime"
+        },
+        {
+          "name": "limit",
+          "typ": "Int"
+        },
+        {
+          "name": "objekt",
+          "typ": "String"
+        },
+        {
+          "name": "offset",
+          "typ": "Int"
+        },
+        {
+          "name": "personId",
+          "typ": "ID"
+        },
+        {
+          "name": "quelle",
+          "typ": "String"
+        },
+        {
+          "name": "von",
+          "typ": "DateTime"
+        }
+      ]
+    },
+    {
+      "name": "BillingPlan",
+      "art": "aufzaehlung",
+      "werte": [
+        "PROFESSIONAL",
+        "STARTER",
+        "TRIAL"
+      ]
+    },
+    {
+      "name": "BuchhaltungUebertragung",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "anbieter",
+          "typ": "String!"
+        },
+        {
+          "name": "bezahltGemeldet",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "externeBelegId",
+          "typ": "String"
+        },
+        {
+          "name": "fehlerArt",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "invoiceId",
+          "typ": "ID!"
+        },
+        {
+          "name": "letzterFehler",
+          "typ": "String"
+        },
+        {
+          "name": "status",
+          "typ": "String!"
+        },
+        {
+          "name": "uebertragenAm",
+          "typ": "DateTime"
+        },
+        {
+          "name": "updatedAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "versuche",
+          "typ": "Int!"
+        },
+        {
+          "name": "zuPruefen",
+          "typ": "Boolean!"
+        }
+      ]
+    },
+    {
+      "name": "ColumnMappingInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "column",
+          "typ": "String!"
+        },
+        {
+          "name": "field",
+          "typ": "String!"
+        },
+        {
+          "name": "werte",
+          "typ": "[WertZuordnungInput!]"
+        }
+      ]
+    },
+    {
+      "name": "Company",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "annualRevenue",
+          "typ": "Float"
+        },
+        {
+          "name": "appointments",
+          "typ": "[Appointment!]!"
+        },
+        {
+          "name": "city",
+          "typ": "String"
+        },
+        {
+          "name": "contacts",
+          "typ": "[Contact!]!"
+        },
+        {
+          "name": "country",
+          "typ": "String"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "customFields",
+          "typ": "CustomFieldValues!"
+        },
+        {
+          "name": "deals",
+          "typ": "[Deal!]!"
+        },
+        {
+          "name": "domain",
+          "typ": "String"
+        },
+        {
+          "name": "email",
+          "typ": "String"
+        },
+        {
+          "name": "employeeCount",
+          "typ": "Int"
+        },
+        {
+          "name": "herkunft",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "industry",
+          "typ": "String"
+        },
+        {
+          "name": "invoiceEmail",
+          "typ": "String"
+        },
+        {
+          "name": "kontaktAufgaben",
+          "typ": "[Task!]!"
+        },
+        {
+          "name": "kontaktNotizen",
+          "typ": "[Note!]!"
+        },
+        {
+          "name": "kontaktTermine",
+          "typ": "[Appointment!]!"
+        },
+        {
+          "name": "linkedin",
+          "typ": "String"
+        },
+        {
+          "name": "logo",
+          "typ": "String"
+        },
+        {
+          "name": "logoQuelle",
+          "typ": "String"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "notes",
+          "typ": "[Note!]!"
+        },
+        {
+          "name": "owner",
+          "typ": "User"
+        },
+        {
+          "name": "ownerId",
+          "typ": "ID"
+        },
+        {
+          "name": "parentCompany",
+          "typ": "Company"
+        },
+        {
+          "name": "parentCompanyId",
+          "typ": "ID"
+        },
+        {
+          "name": "phone",
+          "typ": "String"
+        },
+        {
+          "name": "postalCode",
+          "typ": "String"
+        },
+        {
+          "name": "registergericht",
+          "typ": "String"
+        },
+        {
+          "name": "registernummer",
+          "typ": "String"
+        },
+        {
+          "name": "street",
+          "typ": "String"
+        },
+        {
+          "name": "tasks",
+          "typ": "[Task!]!"
+        },
+        {
+          "name": "tochterfirmen",
+          "typ": "[Company!]!"
+        },
+        {
+          "name": "updatedAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "ustIdNr",
+          "typ": "String"
+        },
+        {
+          "name": "vertretung",
+          "typ": "String"
+        },
+        {
+          "name": "website",
+          "typ": "String"
+        },
+        {
+          "name": "workspaceId",
+          "typ": "ID!"
+        },
+        {
+          "name": "zweitdomains",
+          "typ": "[String!]!"
+        }
+      ]
+    },
+    {
+      "name": "CompanyPage",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "gruppen",
+          "typ": "[ListenGruppe!]!"
+        },
+        {
+          "name": "hasMore",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "items",
+          "typ": "[Company!]!"
+        },
+        {
+          "name": "summen",
+          "typ": "[ListenSumme!]!"
+        },
+        {
+          "name": "totalCount",
+          "typ": "Int!"
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "appointments",
+          "typ": "[Appointment!]!"
+        },
+        {
+          "name": "beteiligungen",
+          "typ": "[DealKontakt!]!"
+        },
+        {
+          "name": "city",
+          "typ": "String"
+        },
+        {
+          "name": "company",
+          "typ": "Company"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "country",
+          "typ": "String"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "customFields",
+          "typ": "CustomFieldValues!"
+        },
+        {
+          "name": "deals",
+          "typ": "[Deal!]!"
+        },
+        {
+          "name": "email",
+          "typ": "String"
+        },
+        {
+          "name": "firstName",
+          "typ": "String!"
+        },
+        {
+          "name": "herkunft",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "jobTitle",
+          "typ": "String"
+        },
+        {
+          "name": "lastName",
+          "typ": "String!"
+        },
+        {
+          "name": "linkedin",
+          "typ": "String"
+        },
+        {
+          "name": "notes",
+          "typ": "[Note!]!"
+        },
+        {
+          "name": "owner",
+          "typ": "User"
+        },
+        {
+          "name": "ownerId",
+          "typ": "ID"
+        },
+        {
+          "name": "phone",
+          "typ": "String"
+        },
+        {
+          "name": "postalCode",
+          "typ": "String"
+        },
+        {
+          "name": "street",
+          "typ": "String"
+        },
+        {
+          "name": "tasks",
+          "typ": "[Task!]!"
+        },
+        {
+          "name": "unzustellbarGrund",
+          "typ": "String"
+        },
+        {
+          "name": "unzustellbarSeit",
+          "typ": "DateTime"
+        },
+        {
+          "name": "updatedAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "verteiler",
+          "typ": "[Verteiler!]!"
+        },
+        {
+          "name": "weitereEmails",
+          "typ": "[KontaktEmail!]!"
+        },
+        {
+          "name": "weitereTelefone",
+          "typ": "[KontaktTelefon!]!"
+        },
+        {
+          "name": "workspaceId",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "ContactPage",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "gruppen",
+          "typ": "[ListenGruppe!]!"
+        },
+        {
+          "name": "hasMore",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "items",
+          "typ": "[Contact!]!"
+        },
+        {
+          "name": "totalCount",
+          "typ": "Int!"
+        }
+      ]
+    },
+    {
+      "name": "CreateAppointmentInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "allDay",
+          "typ": "Boolean"
+        },
+        {
+          "name": "attendees",
+          "typ": "[AppointmentAttendeeInput!]"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "contactId",
+          "typ": "ID"
+        },
+        {
+          "name": "dealId",
+          "typ": "ID"
+        },
+        {
+          "name": "description",
+          "typ": "String"
+        },
+        {
+          "name": "endDate",
+          "typ": "String!"
+        },
+        {
+          "name": "endTime",
+          "typ": "String!"
+        },
+        {
+          "name": "location",
+          "typ": "String"
+        },
+        {
+          "name": "ownerId",
+          "typ": "ID"
+        },
+        {
+          "name": "privat",
+          "typ": "Boolean"
+        },
+        {
+          "name": "recurrence",
+          "typ": "String"
+        },
+        {
+          "name": "remindMinutesBefore",
+          "typ": "Int"
+        },
+        {
+          "name": "startDate",
+          "typ": "String!"
+        },
+        {
+          "name": "startTime",
+          "typ": "String!"
+        },
+        {
+          "name": "title",
+          "typ": "String!"
+        },
+        {
+          "name": "videoLink",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "CreateCompanyInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "annualRevenue",
+          "typ": "Float"
+        },
+        {
+          "name": "city",
+          "typ": "String"
+        },
+        {
+          "name": "country",
+          "typ": "String"
+        },
+        {
+          "name": "customFields",
+          "typ": "CustomFieldValues"
+        },
+        {
+          "name": "domain",
+          "typ": "String"
+        },
+        {
+          "name": "email",
+          "typ": "String"
+        },
+        {
+          "name": "employeeCount",
+          "typ": "Int"
+        },
+        {
+          "name": "herkunft",
+          "typ": "String"
+        },
+        {
+          "name": "industry",
+          "typ": "String"
+        },
+        {
+          "name": "invoiceEmail",
+          "typ": "String"
+        },
+        {
+          "name": "linkedin",
+          "typ": "String"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "ownerId",
+          "typ": "ID"
+        },
+        {
+          "name": "parentCompanyId",
+          "typ": "ID"
+        },
+        {
+          "name": "phone",
+          "typ": "String"
+        },
+        {
+          "name": "postalCode",
+          "typ": "String"
+        },
+        {
+          "name": "registergericht",
+          "typ": "String"
+        },
+        {
+          "name": "registernummer",
+          "typ": "String"
+        },
+        {
+          "name": "street",
+          "typ": "String"
+        },
+        {
+          "name": "ustIdNr",
+          "typ": "String"
+        },
+        {
+          "name": "vertretung",
+          "typ": "String"
+        },
+        {
+          "name": "website",
+          "typ": "String"
+        },
+        {
+          "name": "zweitdomains",
+          "typ": "[String!]"
+        }
+      ]
+    },
+    {
+      "name": "CreateContactInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "city",
+          "typ": "String"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "country",
+          "typ": "String"
+        },
+        {
+          "name": "customFields",
+          "typ": "CustomFieldValues"
+        },
+        {
+          "name": "email",
+          "typ": "String"
+        },
+        {
+          "name": "firstName",
+          "typ": "String!"
+        },
+        {
+          "name": "herkunft",
+          "typ": "String"
+        },
+        {
+          "name": "jobTitle",
+          "typ": "String"
+        },
+        {
+          "name": "lastName",
+          "typ": "String!"
+        },
+        {
+          "name": "linkedin",
+          "typ": "String"
+        },
+        {
+          "name": "ownerId",
+          "typ": "ID"
+        },
+        {
+          "name": "phone",
+          "typ": "String"
+        },
+        {
+          "name": "postalCode",
+          "typ": "String"
+        },
+        {
+          "name": "street",
+          "typ": "String"
+        },
+        {
+          "name": "weitereEmails",
+          "typ": "[KontaktEmailInput!]"
+        },
+        {
+          "name": "weitereTelefone",
+          "typ": "[KontaktTelefonInput!]"
+        }
+      ]
+    },
+    {
+      "name": "CreateCustomFieldGroupInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "eingeklappt",
+          "typ": "Boolean"
+        },
+        {
+          "name": "entity",
+          "typ": "CustomFieldEntity!"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "CreateCustomFieldInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "beschreibung",
+          "typ": "String"
+        },
+        {
+          "name": "datumsformat",
+          "typ": "String"
+        },
+        {
+          "name": "eindeutig",
+          "typ": "Boolean"
+        },
+        {
+          "name": "entity",
+          "typ": "CustomFieldEntity!"
+        },
+        {
+          "name": "farben",
+          "typ": "[CustomFieldOptionFarbeInput!]"
+        },
+        {
+          "name": "gegenfeldLabel",
+          "typ": "String"
+        },
+        {
+          "name": "gruppeId",
+          "typ": "ID"
+        },
+        {
+          "name": "label",
+          "typ": "String!"
+        },
+        {
+          "name": "mehrere",
+          "typ": "Boolean"
+        },
+        {
+          "name": "nachkommastellen",
+          "typ": "Int"
+        },
+        {
+          "name": "options",
+          "typ": "[String!]"
+        },
+        {
+          "name": "pflichtAbPhase",
+          "typ": "String"
+        },
+        {
+          "name": "required",
+          "typ": "Boolean"
+        },
+        {
+          "name": "standardwert",
+          "typ": "String"
+        },
+        {
+          "name": "type",
+          "typ": "CustomFieldType!"
+        },
+        {
+          "name": "waehrung",
+          "typ": "String"
+        },
+        {
+          "name": "zahlformat",
+          "typ": "String"
+        },
+        {
+          "name": "zielEntity",
+          "typ": "CustomFieldEntity"
+        }
+      ]
+    },
+    {
+      "name": "CreateDealInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "amount",
+          "typ": "Float"
+        },
+        {
+          "name": "closeDate",
+          "typ": "String"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "currency",
+          "typ": "String"
+        },
+        {
+          "name": "customFields",
+          "typ": "CustomFieldValues"
+        },
+        {
+          "name": "herkunft",
+          "typ": "String"
+        },
+        {
+          "name": "lostReason",
+          "typ": "String"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "ownerId",
+          "typ": "ID"
+        },
+        {
+          "name": "pipelineId",
+          "typ": "ID"
+        },
+        {
+          "name": "primaryContactId",
+          "typ": "ID"
+        },
+        {
+          "name": "probability",
+          "typ": "Int"
+        },
+        {
+          "name": "stage",
+          "typ": "DealStage"
+        }
+      ]
+    },
+    {
+      "name": "CreateInvoiceInputDto",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "buyerReference",
+          "typ": "String"
+        },
+        {
+          "name": "closingText",
+          "typ": "String"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "contactId",
+          "typ": "ID"
+        },
+        {
+          "name": "dealId",
+          "typ": "ID"
+        },
+        {
+          "name": "introText",
+          "typ": "String"
+        },
+        {
+          "name": "paymentTermDays",
+          "typ": "Int"
+        },
+        {
+          "name": "recipientAddress",
+          "typ": "String"
+        },
+        {
+          "name": "recipientVatId",
+          "typ": "String"
+        },
+        {
+          "name": "serviceDate",
+          "typ": "String"
+        },
+        {
+          "name": "taxExemption",
+          "typ": "TaxExemption"
+        },
+        {
+          "name": "taxExemptionNote",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "CreateInvoiceSeriesInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "endOn",
+          "typ": "String"
+        },
+        {
+          "name": "interval",
+          "typ": "String!"
+        },
+        {
+          "name": "invoiceId",
+          "typ": "ID!"
+        },
+        {
+          "name": "startOn",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "CreateNoteInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "body",
+          "typ": "String!"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "contactId",
+          "typ": "ID"
+        },
+        {
+          "name": "dealId",
+          "typ": "ID"
+        }
+      ]
+    },
+    {
+      "name": "CreateProductInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "articleNumber",
+          "typ": "String"
+        },
+        {
+          "name": "description",
+          "typ": "String"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "taxRatePercent",
+          "typ": "Int!"
+        },
+        {
+          "name": "unit",
+          "typ": "String"
+        },
+        {
+          "name": "unitPriceCents",
+          "typ": "Int!"
+        }
+      ]
+    },
+    {
+      "name": "CreateQuoteInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "closingText",
+          "typ": "String"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "contactId",
+          "typ": "ID"
+        },
+        {
+          "name": "dealId",
+          "typ": "ID"
+        },
+        {
+          "name": "introText",
+          "typ": "String"
+        },
+        {
+          "name": "recipientVatId",
+          "typ": "String"
+        },
+        {
+          "name": "smallBusiness",
+          "typ": "Boolean"
+        },
+        {
+          "name": "taxExemption",
+          "typ": "TaxExemption"
+        },
+        {
+          "name": "taxExemptionNote",
+          "typ": "String"
+        },
+        {
+          "name": "validUntil",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "CreateRoleInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "description",
+          "typ": "String"
+        },
+        {
+          "name": "feldrechte",
+          "typ": "[FeldrechtInput!]"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "permissions",
+          "typ": "[String!]!"
+        },
+        {
+          "name": "sichtbarkeit",
+          "typ": "SichtbarkeitInput"
+        }
+      ]
+    },
+    {
+      "name": "CreateSavedViewInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "columns",
+          "typ": "SavedViewColumns"
+        },
+        {
+          "name": "customFilters",
+          "typ": "SavedViewFilters"
+        },
+        {
+          "name": "darstellung",
+          "typ": "String"
+        },
+        {
+          "name": "datumFeld",
+          "typ": "String"
+        },
+        {
+          "name": "entity",
+          "typ": "CustomFieldEntity!"
+        },
+        {
+          "name": "filterVerknuepfung",
+          "typ": "String"
+        },
+        {
+          "name": "filters",
+          "typ": "CustomFieldValues"
+        },
+        {
+          "name": "gruppenFeld",
+          "typ": "String"
+        },
+        {
+          "name": "gruppierung",
+          "typ": "String"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "privat",
+          "typ": "Boolean"
+        },
+        {
+          "name": "search",
+          "typ": "String"
+        },
+        {
+          "name": "sortDirection",
+          "typ": "String"
+        },
+        {
+          "name": "sortField",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "CreateTaskInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "assigneeId",
+          "typ": "ID"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "contactId",
+          "typ": "ID"
+        },
+        {
+          "name": "customFields",
+          "typ": "CustomFieldValues"
+        },
+        {
+          "name": "dealId",
+          "typ": "ID"
+        },
+        {
+          "name": "description",
+          "typ": "String"
+        },
+        {
+          "name": "dueDate",
+          "typ": "String"
+        },
+        {
+          "name": "dueTime",
+          "typ": "String"
+        },
+        {
+          "name": "title",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "CsvInspection",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "columns",
+          "typ": "[String!]!"
+        },
+        {
+          "name": "kopfzeile",
+          "typ": "Int!"
+        },
+        {
+          "name": "rowCount",
+          "typ": "Int!"
+        },
+        {
+          "name": "sampleRow",
+          "typ": "[String!]!"
+        },
+        {
+          "name": "spaltenWerte",
+          "typ": "[CsvSpaltenWerte!]!"
+        },
+        {
+          "name": "vorschau",
+          "typ": "[[String!]!]!"
+        }
+      ]
+    },
+    {
+      "name": "CsvSpaltenWerte",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "mehr",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "spalte",
+          "typ": "String!"
+        },
+        {
+          "name": "werte",
+          "typ": "[String!]!"
+        }
+      ]
+    },
+    {
+      "name": "CustomField",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "archivedAt",
+          "typ": "DateTime"
+        },
+        {
+          "name": "beschreibung",
+          "typ": "String"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "datumsformat",
+          "typ": "String"
+        },
+        {
+          "name": "eindeutig",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "entity",
+          "typ": "CustomFieldEntity!"
+        },
+        {
+          "name": "farben",
+          "typ": "[CustomFieldOptionFarbe!]!"
+        },
+        {
+          "name": "gegenfeldId",
+          "typ": "ID"
+        },
+        {
+          "name": "gegenseite",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "gruppeId",
+          "typ": "ID"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "key",
+          "typ": "String!"
+        },
+        {
+          "name": "label",
+          "typ": "String!"
+        },
+        {
+          "name": "mehrere",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "nachkommastellen",
+          "typ": "Int"
+        },
+        {
+          "name": "options",
+          "typ": "[String!]!"
+        },
+        {
+          "name": "pflichtAbPhase",
+          "typ": "String"
+        },
+        {
+          "name": "position",
+          "typ": "Int!"
+        },
+        {
+          "name": "required",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "standardwert",
+          "typ": "String"
+        },
+        {
+          "name": "type",
+          "typ": "CustomFieldType!"
+        },
+        {
+          "name": "updatedAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "waehrung",
+          "typ": "String"
+        },
+        {
+          "name": "workspaceId",
+          "typ": "ID!"
+        },
+        {
+          "name": "zahlformat",
+          "typ": "String"
+        },
+        {
+          "name": "zielEntity",
+          "typ": "CustomFieldEntity"
+        }
+      ]
+    },
+    {
+      "name": "CustomFieldEntity",
+      "art": "aufzaehlung",
+      "werte": [
+        "COMPANY",
+        "CONTACT",
+        "DEAL",
+        "TASK"
+      ]
+    },
+    {
+      "name": "CustomFieldFilterInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "gruppe",
+          "typ": "Int"
+        },
+        {
+          "name": "key",
+          "typ": "String!"
+        },
+        {
+          "name": "operator",
+          "typ": "CustomFieldFilterOperator!"
+        },
+        {
+          "name": "value",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "CustomFieldFilterOperator",
+      "art": "aufzaehlung",
+      "werte": [
+        "CONTAINS",
+        "CONTAINS_ANY",
+        "CONTAINS_NONE",
+        "EQUALS",
+        "GREATER_THAN",
+        "IN_LAST_DAYS",
+        "IN_NEXT_DAYS",
+        "IS_EMPTY",
+        "IS_NOT_EMPTY",
+        "LESS_THAN",
+        "NOT_CONTAINS",
+        "NOT_EQUALS",
+        "OLDER_THAN_DAYS",
+        "STARTS_WITH"
+      ]
+    },
+    {
+      "name": "CustomFieldGroup",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "eingeklappt",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "entity",
+          "typ": "CustomFieldEntity!"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "position",
+          "typ": "Int!"
+        },
+        {
+          "name": "updatedAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "workspaceId",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "CustomFieldOptionFarbe",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "farbe",
+          "typ": "String!"
+        },
+        {
+          "name": "option",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "CustomFieldOptionFarbeInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "farbe",
+          "typ": "String!"
+        },
+        {
+          "name": "option",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "CustomFieldType",
+      "art": "aufzaehlung",
+      "werte": [
+        "ADDRESS",
+        "BOOLEAN",
+        "CURRENCY",
+        "DATE",
+        "EMAIL",
+        "LINKS",
+        "MULTI_SELECT",
+        "NUMBER",
+        "PHONE",
+        "RATING",
+        "RELATION",
+        "SELECT",
+        "TEXT",
+        "URL"
+      ]
+    },
+    {
+      "name": "CustomFieldValues",
+      "art": "skalar",
+      "beschreibung": "A flat object of custom field values: text, numbers, true/false, a list of texts, or null."
+    },
+    {
+      "name": "Dashboard",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "createdById",
+          "typ": "ID"
+        },
+        {
+          "name": "darfAendern",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "kacheln",
+          "typ": "[Kachel!]!"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "privat",
+          "typ": "Boolean!"
+        }
+      ]
+    },
+    {
+      "name": "DashboardAendernInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "name",
+          "typ": "String"
+        },
+        {
+          "name": "privat",
+          "typ": "Boolean"
+        }
+      ]
+    },
+    {
+      "name": "DashboardAnlegenInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "privat",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "vonUebersicht",
+          "typ": "Boolean!"
+        }
+      ]
+    },
+    {
+      "name": "DateTime",
+      "art": "skalar",
+      "beschreibung": "A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format."
+    },
+    {
+      "name": "Deal",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "amount",
+          "typ": "Float"
+        },
+        {
+          "name": "appointments",
+          "typ": "[Appointment!]!"
+        },
+        {
+          "name": "beteiligte",
+          "typ": "[DealKontakt!]!"
+        },
+        {
+          "name": "beteiligtenTermine",
+          "typ": "[Appointment!]!"
+        },
+        {
+          "name": "closeDate",
+          "typ": "String"
+        },
+        {
+          "name": "company",
+          "typ": "Company"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "currency",
+          "typ": "String!"
+        },
+        {
+          "name": "customFields",
+          "typ": "CustomFieldValues!"
+        },
+        {
+          "name": "herkunft",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "letzteAktivitaet",
+          "typ": "DateTime"
+        },
+        {
+          "name": "lostReason",
+          "typ": "String"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "notes",
+          "typ": "[Note!]!"
+        },
+        {
+          "name": "owner",
+          "typ": "User"
+        },
+        {
+          "name": "ownerId",
+          "typ": "ID"
+        },
+        {
+          "name": "pipelineId",
+          "typ": "ID"
+        },
+        {
+          "name": "primaryContact",
+          "typ": "Contact"
+        },
+        {
+          "name": "primaryContactId",
+          "typ": "ID"
+        },
+        {
+          "name": "probability",
+          "typ": "Int"
+        },
+        {
+          "name": "stage",
+          "typ": "DealStage!"
+        },
+        {
+          "name": "tasks",
+          "typ": "[Task!]!"
+        },
+        {
+          "name": "updatedAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "workspaceId",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "DealForecast",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "betraegeVerborgen",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "months",
+          "typ": "[ForecastMonth!]!"
+        },
+        {
+          "name": "openAmount",
+          "typ": "Float!"
+        },
+        {
+          "name": "weightedAmount",
+          "typ": "Float!"
+        }
+      ]
+    },
+    {
+      "name": "DealKontakt",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "contact",
+          "typ": "Contact"
+        },
+        {
+          "name": "contactId",
+          "typ": "ID!"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "dealId",
+          "typ": "ID!"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "rolle",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "DealPage",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "gruppen",
+          "typ": "[ListenGruppe!]!"
+        },
+        {
+          "name": "hasMore",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "items",
+          "typ": "[Deal!]!"
+        },
+        {
+          "name": "summen",
+          "typ": "[ListenSumme!]!"
+        },
+        {
+          "name": "totalCount",
+          "typ": "Int!"
+        }
+      ]
+    },
+    {
+      "name": "DealStage",
+      "art": "aufzaehlung",
+      "werte": [
+        "LEAD",
+        "LOST",
+        "NEGOTIATION",
+        "PROPOSAL",
+        "QUALIFIED",
+        "WON"
+      ]
+    },
+    {
+      "name": "DealStageSetting",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "ausgeblendet",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "defaultLabel",
+          "typ": "String!"
+        },
+        {
+          "name": "farbe",
+          "typ": "String"
+        },
+        {
+          "name": "label",
+          "typ": "String!"
+        },
+        {
+          "name": "probability",
+          "typ": "Int!"
+        },
+        {
+          "name": "stage",
+          "typ": "DealStage!"
+        }
+      ]
+    },
+    {
+      "name": "DealStageSettingInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "ausgeblendet",
+          "typ": "Boolean"
+        },
+        {
+          "name": "farbe",
+          "typ": "String"
+        },
+        {
+          "name": "label",
+          "typ": "String"
+        },
+        {
+          "name": "probability",
+          "typ": "Int"
+        },
+        {
+          "name": "stage",
+          "typ": "DealStage!"
+        }
+      ]
+    },
+    {
+      "name": "DigestPreview",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "body",
+          "typ": "String!"
+        },
+        {
+          "name": "subject",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "Dublette",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "detail",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "DublettenArt",
+      "art": "aufzaehlung",
+      "werte": [
+        "FIRMA",
+        "KONTAKT"
+      ]
+    },
+    {
+      "name": "DunningLevel",
+      "art": "aufzaehlung",
+      "werte": [
+        "DUE",
+        "FINAL",
+        "FIRST",
+        "NONE",
+        "REMINDER"
+      ]
+    },
+    {
+      "name": "EinladungsVorschlag",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "anzahl",
+          "typ": "Int!"
+        },
+        {
+          "name": "email",
+          "typ": "String!"
+        },
+        {
+          "name": "name",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "EntitlementView",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "billingConfigured",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "canWrite",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "cancelAtPeriodEnd",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "currentPeriodEnd",
+          "typ": "DateTime"
+        },
+        {
+          "name": "plan",
+          "typ": "BillingPlan!"
+        },
+        {
+          "name": "readOnly",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "seats",
+          "typ": "Int!"
+        },
+        {
+          "name": "status",
+          "typ": "SubscriptionStatus!"
+        },
+        {
+          "name": "trialDaysLeft",
+          "typ": "Int"
+        },
+        {
+          "name": "usedSeats",
+          "typ": "Int!"
+        }
+      ]
+    },
+    {
+      "name": "ErsteSchritte",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "angebot",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "briefkopf",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "geschaeft",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "kontakte",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "postfach",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "team",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "zweiFaktor",
+          "typ": "Boolean!"
+        }
+      ]
+    },
+    {
+      "name": "Favorit",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "art",
+          "typ": "FavoritArt!"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "datensatzId",
+          "typ": "ID!"
+        },
+        {
+          "name": "titel",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "FavoritArt",
+      "art": "aufzaehlung",
+      "werte": [
+        "FIRMA",
+        "GESCHAEFT",
+        "KONTAKT"
+      ]
+    },
+    {
+      "name": "FeldFuellgrad",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "gefuellt",
+          "typ": "Int!"
+        },
+        {
+          "name": "gesamt",
+          "typ": "Int!"
+        },
+        {
+          "name": "key",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "Feldrecht",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "feld",
+          "typ": "String!"
+        },
+        {
+          "name": "recht",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "FeldrechtInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "feld",
+          "typ": "String!"
+        },
+        {
+          "name": "recht",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "FilterVerknuepfung",
+      "art": "aufzaehlung",
+      "werte": [
+        "ODER",
+        "UND"
+      ]
+    },
+    {
+      "name": "ForecastMonth",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "dealCount",
+          "typ": "Int!"
+        },
+        {
+          "name": "month",
+          "typ": "String!"
+        },
+        {
+          "name": "totalAmount",
+          "typ": "Float!"
+        },
+        {
+          "name": "weightedAmount",
+          "typ": "Float!"
+        }
+      ]
+    },
+    {
+      "name": "FreigabeEintrag",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "erteiltVon",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "stufe",
+          "typ": "String!"
+        },
+        {
+          "name": "userId",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "FreigabeStand",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "darfVerwalten",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "freigaben",
+          "typ": "[FreigabeEintrag!]!"
+        },
+        {
+          "name": "verantwortlichId",
+          "typ": "ID"
+        }
+      ]
+    },
+    {
+      "name": "FreigebenInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "art",
+          "typ": "String!"
+        },
+        {
+          "name": "datensatzId",
+          "typ": "ID!"
+        },
+        {
+          "name": "stufe",
+          "typ": "String!"
+        },
+        {
+          "name": "userId",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "GegenfeldEintrag",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "titel",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "GegenfeldWert",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "eintraege",
+          "typ": "[GegenfeldEintrag!]!"
+        },
+        {
+          "name": "feldId",
+          "typ": "ID!"
+        },
+        {
+          "name": "nichtSichtbar",
+          "typ": "Int!"
+        },
+        {
+          "name": "quelle",
+          "typ": "CustomFieldEntity!"
+        }
+      ]
+    },
+    {
+      "name": "Genus",
+      "art": "aufzaehlung",
+      "werte": [
+        "MAENNLICH",
+        "SAECHLICH",
+        "WEIBLICH"
+      ]
+    },
+    {
+      "name": "Herkunft",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "erstelltAm",
+          "typ": "DateTime"
+        },
+        {
+          "name": "erstelltVon",
+          "typ": "String"
+        },
+        {
+          "name": "geaendertAm",
+          "typ": "DateTime"
+        },
+        {
+          "name": "geaendertVon",
+          "typ": "String"
+        },
+        {
+          "name": "quelle",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "ImportEntity",
+      "art": "aufzaehlung",
+      "werte": [
+        "COMPANY",
+        "CONTACT",
+        "DEAL",
+        "NOTE",
+        "PRODUCT",
+        "TASK"
+      ]
+    },
+    {
+      "name": "ImportInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "csv",
+          "typ": "String!"
+        },
+        {
+          "name": "dryRun",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "entity",
+          "typ": "ImportEntity!"
+        },
+        {
+          "name": "kopfzeile",
+          "typ": "Int!"
+        },
+        {
+          "name": "korrekturen",
+          "typ": "[ZeilenKorrekturInput!]"
+        },
+        {
+          "name": "mapping",
+          "typ": "[ColumnMappingInput!]!"
+        }
+      ]
+    },
+    {
+      "name": "ImportOption",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "label",
+          "typ": "String!"
+        },
+        {
+          "name": "wert",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "ImportRejection",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "reason",
+          "typ": "String!"
+        },
+        {
+          "name": "row",
+          "typ": "Int!"
+        },
+        {
+          "name": "zellen",
+          "typ": "[String!]!"
+        }
+      ]
+    },
+    {
+      "name": "ImportReport",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "created",
+          "typ": "Int!"
+        },
+        {
+          "name": "dryRun",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "rejected",
+          "typ": "Int!"
+        },
+        {
+          "name": "rejections",
+          "typ": "[ImportRejection!]!"
+        },
+        {
+          "name": "updated",
+          "typ": "Int!"
+        }
+      ]
+    },
+    {
+      "name": "ImportableField",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "label",
+          "typ": "String!"
+        },
+        {
+          "name": "name",
+          "typ": "ID!"
+        },
+        {
+          "name": "optionen",
+          "typ": "[ImportOption!]"
+        },
+        {
+          "name": "required",
+          "typ": "Boolean!"
+        }
+      ]
+    },
+    {
+      "name": "ImpressumFeld",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "aktuell",
+          "typ": "String"
+        },
+        {
+          "name": "feld",
+          "typ": "String!"
+        },
+        {
+          "name": "grund",
+          "typ": "String"
+        },
+        {
+          "name": "label",
+          "typ": "String!"
+        },
+        {
+          "name": "uebernehmbar",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "wert",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "ImpressumUebernahmeInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "companyId",
+          "typ": "ID!"
+        },
+        {
+          "name": "werte",
+          "typ": "[ImpressumWertInput!]!"
+        }
+      ]
+    },
+    {
+      "name": "ImpressumVorschau",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "felder",
+          "typ": "[ImpressumFeld!]!"
+        },
+        {
+          "name": "quelle",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "ImpressumWertInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "feld",
+          "typ": "String!"
+        },
+        {
+          "name": "wert",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "InspectCsvInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "csv",
+          "typ": "String!"
+        },
+        {
+          "name": "kopfzeile",
+          "typ": "Int!"
+        }
+      ]
+    },
+    {
+      "name": "Invitation",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "acceptedAt",
+          "typ": "DateTime"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "email",
+          "typ": "String!"
+        },
+        {
+          "name": "expiresAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "invitedById",
+          "typ": "ID!"
+        },
+        {
+          "name": "role",
+          "typ": "MembershipRole!"
+        },
+        {
+          "name": "workspaceId",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "InvitationCreated",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "delivered",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "invitation",
+          "typ": "Invitation!"
+        },
+        {
+          "name": "inviteUrl",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "InviteMemberInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "email",
+          "typ": "String!"
+        },
+        {
+          "name": "role",
+          "typ": "MembershipRole"
+        }
+      ]
+    },
+    {
+      "name": "Invoice",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "buchhaltung",
+          "typ": "BuchhaltungUebertragung"
+        },
+        {
+          "name": "buyerReference",
+          "typ": "String"
+        },
+        {
+          "name": "cancelledAt",
+          "typ": "DateTime"
+        },
+        {
+          "name": "closingText",
+          "typ": "String"
+        },
+        {
+          "name": "company",
+          "typ": "Company"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "consumer",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "contact",
+          "typ": "Contact"
+        },
+        {
+          "name": "contactId",
+          "typ": "ID"
+        },
+        {
+          "name": "correctsInvoiceId",
+          "typ": "ID"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "currency",
+          "typ": "String!"
+        },
+        {
+          "name": "deal",
+          "typ": "Deal"
+        },
+        {
+          "name": "dealId",
+          "typ": "ID"
+        },
+        {
+          "name": "dueOn",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "introText",
+          "typ": "String"
+        },
+        {
+          "name": "issuedAt",
+          "typ": "DateTime"
+        },
+        {
+          "name": "issuedOn",
+          "typ": "String!"
+        },
+        {
+          "name": "lines",
+          "typ": "[InvoiceLine!]!"
+        },
+        {
+          "name": "number",
+          "typ": "String"
+        },
+        {
+          "name": "paidAt",
+          "typ": "DateTime"
+        },
+        {
+          "name": "paymentTermDays",
+          "typ": "Int!"
+        },
+        {
+          "name": "quote",
+          "typ": "Quote"
+        },
+        {
+          "name": "quoteId",
+          "typ": "ID"
+        },
+        {
+          "name": "recipientAddress",
+          "typ": "String"
+        },
+        {
+          "name": "recipientVatId",
+          "typ": "String"
+        },
+        {
+          "name": "seriesId",
+          "typ": "ID"
+        },
+        {
+          "name": "serviceDate",
+          "typ": "String"
+        },
+        {
+          "name": "smallBusiness",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "status",
+          "typ": "InvoiceStatus!"
+        },
+        {
+          "name": "taxExemption",
+          "typ": "TaxExemption"
+        },
+        {
+          "name": "taxExemptionNote",
+          "typ": "String"
+        },
+        {
+          "name": "templateSeries",
+          "typ": "InvoiceSeries"
+        },
+        {
+          "name": "totals",
+          "typ": "QuoteTotals!"
+        },
+        {
+          "name": "updatedAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "workspaceId",
+          "typ": "ID!"
+        },
+        {
+          "name": "xrechnungLuecken",
+          "typ": "[String!]!"
+        },
+        {
+          "name": "zugferdLuecken",
+          "typ": "[String!]!"
+        }
+      ]
+    },
+    {
+      "name": "InvoiceGap",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "field",
+          "typ": "String!"
+        },
+        {
+          "name": "label",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "InvoiceLine",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "articleNumber",
+          "typ": "String"
+        },
+        {
+          "name": "description",
+          "typ": "String"
+        },
+        {
+          "name": "discountPercent",
+          "typ": "Float!"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "invoiceId",
+          "typ": "ID!"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "position",
+          "typ": "Int!"
+        },
+        {
+          "name": "quantity",
+          "typ": "Float!"
+        },
+        {
+          "name": "taxRatePercent",
+          "typ": "Int!"
+        },
+        {
+          "name": "unit",
+          "typ": "String!"
+        },
+        {
+          "name": "unitPriceCents",
+          "typ": "Int!"
+        }
+      ]
+    },
+    {
+      "name": "InvoiceLineInputDto",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "articleNumber",
+          "typ": "String"
+        },
+        {
+          "name": "description",
+          "typ": "String"
+        },
+        {
+          "name": "discountPercent",
+          "typ": "Float"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "quantity",
+          "typ": "Float!"
+        },
+        {
+          "name": "taxRatePercent",
+          "typ": "Int!"
+        },
+        {
+          "name": "unit",
+          "typ": "String!"
+        },
+        {
+          "name": "unitPriceCents",
+          "typ": "Int!"
+        }
+      ]
+    },
+    {
+      "name": "InvoiceReminder",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "daysOverdue",
+          "typ": "Int!"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "interestCents",
+          "typ": "Int!"
+        },
+        {
+          "name": "invoiceId",
+          "typ": "ID!"
+        },
+        {
+          "name": "lateFeeCents",
+          "typ": "Int!"
+        },
+        {
+          "name": "level",
+          "typ": "DunningLevel!"
+        },
+        {
+          "name": "sentOn",
+          "typ": "String!"
+        },
+        {
+          "name": "sentTo",
+          "typ": "String"
+        },
+        {
+          "name": "workspaceId",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "InvoiceSeries",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "active",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "endOn",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "interval",
+          "typ": "String!"
+        },
+        {
+          "name": "lastInvoiceId",
+          "typ": "ID"
+        },
+        {
+          "name": "nextRunOn",
+          "typ": "String!"
+        },
+        {
+          "name": "sourceInvoice",
+          "typ": "Invoice!"
+        },
+        {
+          "name": "sourceInvoiceId",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "InvoiceStatus",
+      "art": "aufzaehlung",
+      "werte": [
+        "CANCELLED",
+        "DRAFT",
+        "ISSUED",
+        "PAID"
+      ]
+    },
+    {
+      "name": "Kachel",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "gruppe",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "String!"
+        },
+        {
+          "name": "liste",
+          "typ": "String"
+        },
+        {
+          "name": "mass",
+          "typ": "String"
+        },
+        {
+          "name": "nurMeine",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "objekt",
+          "typ": "String"
+        },
+        {
+          "name": "pipelineId",
+          "typ": "ID"
+        },
+        {
+          "name": "status",
+          "typ": "String"
+        },
+        {
+          "name": "titel",
+          "typ": "String"
+        },
+        {
+          "name": "typ",
+          "typ": "String!"
+        },
+        {
+          "name": "zeitraum",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "KachelBalken",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "anzahl",
+          "typ": "Int!"
+        },
+        {
+          "name": "farbe",
+          "typ": "String"
+        },
+        {
+          "name": "label",
+          "typ": "String!"
+        },
+        {
+          "name": "schluessel",
+          "typ": "String!"
+        },
+        {
+          "name": "wert",
+          "typ": "Float"
+        }
+      ]
+    },
+    {
+      "name": "KachelEintrag",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "link",
+          "typ": "String!"
+        },
+        {
+          "name": "titel",
+          "typ": "String!"
+        },
+        {
+          "name": "zusatz",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "KachelErgebnis",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "anzahl",
+          "typ": "Int"
+        },
+        {
+          "name": "balken",
+          "typ": "[KachelBalken!]!"
+        },
+        {
+          "name": "betraegeVerborgen",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "eintraege",
+          "typ": "[KachelEintrag!]!"
+        },
+        {
+          "name": "gesperrt",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "hinweis",
+          "typ": "String"
+        },
+        {
+          "name": "wert",
+          "typ": "Float"
+        }
+      ]
+    },
+    {
+      "name": "KachelInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "gruppe",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "String!"
+        },
+        {
+          "name": "liste",
+          "typ": "String"
+        },
+        {
+          "name": "mass",
+          "typ": "String"
+        },
+        {
+          "name": "nurMeine",
+          "typ": "Boolean"
+        },
+        {
+          "name": "objekt",
+          "typ": "String"
+        },
+        {
+          "name": "pipelineId",
+          "typ": "ID"
+        },
+        {
+          "name": "status",
+          "typ": "String"
+        },
+        {
+          "name": "titel",
+          "typ": "String"
+        },
+        {
+          "name": "typ",
+          "typ": "String!"
+        },
+        {
+          "name": "zeitraum",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "KontaktEmail",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "art",
+          "typ": "String!"
+        },
+        {
+          "name": "unzustellbarSeit",
+          "typ": "DateTime"
+        },
+        {
+          "name": "wert",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "KontaktEmailInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "art",
+          "typ": "String!"
+        },
+        {
+          "name": "wert",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "KontaktTelefon",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "art",
+          "typ": "String!"
+        },
+        {
+          "name": "wert",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "KontaktTelefonInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "art",
+          "typ": "String!"
+        },
+        {
+          "name": "wert",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "KontaktVorschlag",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "adresse",
+          "typ": "String!"
+        },
+        {
+          "name": "anzahl",
+          "typ": "Int!"
+        },
+        {
+          "name": "domain",
+          "typ": "String"
+        },
+        {
+          "name": "firmaId",
+          "typ": "ID"
+        },
+        {
+          "name": "firmaVorschlag",
+          "typ": "String"
+        },
+        {
+          "name": "nachname",
+          "typ": "String!"
+        },
+        {
+          "name": "vorname",
+          "typ": "String!"
+        },
+        {
+          "name": "zuletzt",
+          "typ": "DateTime!"
+        }
+      ]
+    },
+    {
+      "name": "Letterhead",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "bankName",
+          "typ": "String"
+        },
+        {
+          "name": "bic",
+          "typ": "String"
+        },
+        {
+          "name": "city",
+          "typ": "String"
+        },
+        {
+          "name": "companyName",
+          "typ": "String"
+        },
+        {
+          "name": "country",
+          "typ": "String"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "datevBeraternummer",
+          "typ": "String"
+        },
+        {
+          "name": "datevKontenrahmen",
+          "typ": "String!"
+        },
+        {
+          "name": "datevMandantennummer",
+          "typ": "String"
+        },
+        {
+          "name": "defaultClosingText",
+          "typ": "String"
+        },
+        {
+          "name": "defaultIntroText",
+          "typ": "String"
+        },
+        {
+          "name": "defaultValidityDays",
+          "typ": "Float!"
+        },
+        {
+          "name": "email",
+          "typ": "String"
+        },
+        {
+          "name": "iban",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "logoDataUrl",
+          "typ": "String"
+        },
+        {
+          "name": "phone",
+          "typ": "String"
+        },
+        {
+          "name": "postalCode",
+          "typ": "String"
+        },
+        {
+          "name": "registerEntry",
+          "typ": "String"
+        },
+        {
+          "name": "representative",
+          "typ": "String"
+        },
+        {
+          "name": "smallBusiness",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "street",
+          "typ": "String"
+        },
+        {
+          "name": "taxNumber",
+          "typ": "String"
+        },
+        {
+          "name": "updatedAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "vatId",
+          "typ": "String"
+        },
+        {
+          "name": "website",
+          "typ": "String"
+        },
+        {
+          "name": "workspaceId",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "LetterheadGap",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "field",
+          "typ": "String!"
+        },
+        {
+          "name": "label",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "LieferPositionInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "angebotsPositionId",
+          "typ": "ID!"
+        },
+        {
+          "name": "menge",
+          "typ": "Float!"
+        }
+      ]
+    },
+    {
+      "name": "LieferscheinInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "angebotId",
+          "typ": "ID!"
+        },
+        {
+          "name": "auftragsbestaetigungId",
+          "typ": "ID"
+        },
+        {
+          "name": "closingText",
+          "typ": "String"
+        },
+        {
+          "name": "introText",
+          "typ": "String"
+        },
+        {
+          "name": "lieferadresse",
+          "typ": "String"
+        },
+        {
+          "name": "liefertermin",
+          "typ": "String"
+        },
+        {
+          "name": "positionen",
+          "typ": "[LieferPositionInput!]!"
+        }
+      ]
+    },
+    {
+      "name": "LieferstandPosition",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "angebotsPositionId",
+          "typ": "ID!"
+        },
+        {
+          "name": "articleNumber",
+          "typ": "String"
+        },
+        {
+          "name": "bestellt",
+          "typ": "Float!"
+        },
+        {
+          "name": "geliefert",
+          "typ": "Float!"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "offen",
+          "typ": "Float!"
+        },
+        {
+          "name": "position",
+          "typ": "Int!"
+        },
+        {
+          "name": "unit",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "ListenGruppe",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "anzahl",
+          "typ": "Int!"
+        },
+        {
+          "name": "label",
+          "typ": "String"
+        },
+        {
+          "name": "nichtSichtbar",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "summen",
+          "typ": "[ListenSumme!]!"
+        },
+        {
+          "name": "wert",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "ListenGruppeInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "feld",
+          "typ": "String!"
+        },
+        {
+          "name": "wert",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "ListenSumme",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "gruppe",
+          "typ": "String"
+        },
+        {
+          "name": "summe",
+          "typ": "Float!"
+        }
+      ]
+    },
+    {
+      "name": "ListenZeitraumInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "bis",
+          "typ": "String!"
+        },
+        {
+          "name": "feld",
+          "typ": "String!"
+        },
+        {
+          "name": "von",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "MailAnhang",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "gespeichertId",
+          "typ": "ID"
+        },
+        {
+          "name": "groesse",
+          "typ": "Int!"
+        },
+        {
+          "name": "index",
+          "typ": "Int!"
+        },
+        {
+          "name": "mimeType",
+          "typ": "String!"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "MailEntwurf",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "an",
+          "typ": "[String!]!"
+        },
+        {
+          "name": "automationId",
+          "typ": "ID"
+        },
+        {
+          "name": "betreff",
+          "typ": "String!"
+        },
+        {
+          "name": "cc",
+          "typ": "[String!]!"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "contactId",
+          "typ": "ID"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "dealId",
+          "typ": "ID"
+        },
+        {
+          "name": "gesendetAm",
+          "typ": "DateTime"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "kiVorschlagId",
+          "typ": "ID"
+        },
+        {
+          "name": "nachrichtId",
+          "typ": "ID"
+        },
+        {
+          "name": "ownerId",
+          "typ": "ID!"
+        },
+        {
+          "name": "quelle",
+          "typ": "String!"
+        },
+        {
+          "name": "rumpf",
+          "typ": "String!"
+        },
+        {
+          "name": "status",
+          "typ": "String!"
+        },
+        {
+          "name": "updatedAt",
+          "typ": "DateTime!"
+        }
+      ]
+    },
+    {
+      "name": "MailEntwurfAnlegenInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "an",
+          "typ": "[String!]"
+        },
+        {
+          "name": "art",
+          "typ": "String!"
+        },
+        {
+          "name": "betreff",
+          "typ": "String!"
+        },
+        {
+          "name": "cc",
+          "typ": "[String!]"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "rumpf",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "MailInhaltView",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "anhaenge",
+          "typ": "[MailAnhang!]!"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "inhalt",
+          "typ": "String"
+        },
+        {
+          "name": "inhaltVerborgen",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "zitat",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "MailMessage",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "anhangAnzahl",
+          "typ": "Int"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "contactId",
+          "typ": "ID"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "erledigtAm",
+          "typ": "DateTime"
+        },
+        {
+          "name": "fromAddress",
+          "typ": "String!"
+        },
+        {
+          "name": "fromName",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "inhaltVerborgen",
+          "typ": "Boolean"
+        },
+        {
+          "name": "mailboxId",
+          "typ": "ID!"
+        },
+        {
+          "name": "messageId",
+          "typ": "String!"
+        },
+        {
+          "name": "outgoing",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "sentAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "snippet",
+          "typ": "String"
+        },
+        {
+          "name": "subject",
+          "typ": "String"
+        },
+        {
+          "name": "threadKey",
+          "typ": "String!"
+        },
+        {
+          "name": "toAddresses",
+          "typ": "String!"
+        },
+        {
+          "name": "workspaceId",
+          "typ": "ID!"
+        },
+        {
+          "name": "zugewiesenAnId",
+          "typ": "ID"
+        }
+      ]
+    },
+    {
+      "name": "MailSperre",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "eintrag",
+          "typ": "String!"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "MailTemplate",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "body",
+          "typ": "String!"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "subject",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "MailTemplateInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "body",
+          "typ": "String!"
+        },
+        {
+          "name": "id",
+          "typ": "ID"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "subject",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "MassenErgebnis",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "created",
+          "typ": "Int!"
+        },
+        {
+          "name": "rejected",
+          "typ": "Int!"
+        },
+        {
+          "name": "rows",
+          "typ": "[MassenZeile!]!"
+        },
+        {
+          "name": "updated",
+          "typ": "Int!"
+        }
+      ]
+    },
+    {
+      "name": "MassenZeile",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "action",
+          "typ": "String"
+        },
+        {
+          "name": "error",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID"
+        },
+        {
+          "name": "index",
+          "typ": "Int!"
+        }
+      ]
+    },
+    {
+      "name": "MemberRemoved",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "reassignedTasks",
+          "typ": "Int!"
+        },
+        {
+          "name": "removed",
+          "typ": "Boolean!"
+        }
+      ]
+    },
+    {
+      "name": "Membership",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "erwaehnungMail",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "lastDigestOn",
+          "typ": "String"
+        },
+        {
+          "name": "role",
+          "typ": "MembershipRole!"
+        },
+        {
+          "name": "roleId",
+          "typ": "ID"
+        },
+        {
+          "name": "roleRef",
+          "typ": "Role"
+        },
+        {
+          "name": "taskDigest",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "user",
+          "typ": "User!"
+        },
+        {
+          "name": "userId",
+          "typ": "ID!"
+        },
+        {
+          "name": "workspace",
+          "typ": "Workspace!"
+        },
+        {
+          "name": "workspaceId",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "MembershipRole",
+      "art": "aufzaehlung",
+      "werte": [
+        "ADMIN",
+        "MEMBER",
+        "OWNER"
+      ]
+    },
+    {
+      "name": "MyPermissions",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "everything",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "feldrechte",
+          "typ": "[Feldrecht!]!"
+        },
+        {
+          "name": "permissions",
+          "typ": "[String!]!"
+        }
+      ]
+    },
+    {
+      "name": "Note",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "authorId",
+          "typ": "ID!"
+        },
+        {
+          "name": "authorName",
+          "typ": "String!"
+        },
+        {
+          "name": "bearbeitetAm",
+          "typ": "DateTime"
+        },
+        {
+          "name": "bearbeitetVon",
+          "typ": "String"
+        },
+        {
+          "name": "bearbeitetVonId",
+          "typ": "ID"
+        },
+        {
+          "name": "body",
+          "typ": "String!"
+        },
+        {
+          "name": "company",
+          "typ": "Company"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "contact",
+          "typ": "Contact"
+        },
+        {
+          "name": "contactId",
+          "typ": "ID"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "deal",
+          "typ": "Deal"
+        },
+        {
+          "name": "dealId",
+          "typ": "ID"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "workspaceId",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "NotizZieleInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "contactId",
+          "typ": "ID"
+        },
+        {
+          "name": "dealId",
+          "typ": "ID"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "ObjektArt",
+      "art": "aufzaehlung",
+      "werte": [
+        "ANGEBOT",
+        "AUFGABE",
+        "FIRMA",
+        "GESCHAEFT",
+        "KONTAKT"
+      ]
+    },
+    {
+      "name": "ObjektBezeichnung",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "art",
+          "typ": "ObjektArt!"
+        },
+        {
+          "name": "einzahl",
+          "typ": "String!"
+        },
+        {
+          "name": "genus",
+          "typ": "Genus!"
+        },
+        {
+          "name": "istStandard",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "mehrzahl",
+          "typ": "String!"
+        },
+        {
+          "name": "standardEinzahl",
+          "typ": "String!"
+        },
+        {
+          "name": "standardMehrzahl",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "ObjektBezeichnungInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "art",
+          "typ": "ObjektArt!"
+        },
+        {
+          "name": "einzahl",
+          "typ": "String!"
+        },
+        {
+          "name": "genus",
+          "typ": "Genus!"
+        },
+        {
+          "name": "mehrzahl",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "OpenItem",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "daysOverdue",
+          "typ": "Int!"
+        },
+        {
+          "name": "inDefault",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "interestCents",
+          "typ": "Int!"
+        },
+        {
+          "name": "invoice",
+          "typ": "Invoice!"
+        },
+        {
+          "name": "lateFeeCents",
+          "typ": "Int!"
+        },
+        {
+          "name": "level",
+          "typ": "DunningLevel!"
+        },
+        {
+          "name": "nextStep",
+          "typ": "DunningLevel"
+        },
+        {
+          "name": "nextStepOn",
+          "typ": "String"
+        },
+        {
+          "name": "recipientEmail",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "PapierkorbArt",
+      "art": "aufzaehlung",
+      "werte": [
+        "AUFGABE",
+        "FIRMA",
+        "GESCHAEFT",
+        "KONTAKT"
+      ]
+    },
+    {
+      "name": "PapierkorbEintrag",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "art",
+          "typ": "PapierkorbArt!"
+        },
+        {
+          "name": "endgueltigAm",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "geloeschtAm",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "geloeschtVon",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "Pipeline",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "anzahlGeschaefte",
+          "typ": "Int!"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "phasen",
+          "typ": "[DealStageSetting!]!"
+        },
+        {
+          "name": "position",
+          "typ": "Int!"
+        }
+      ]
+    },
+    {
+      "name": "PipelineStageSummary",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "dealCount",
+          "typ": "Int!"
+        },
+        {
+          "name": "stage",
+          "typ": "DealStage!"
+        },
+        {
+          "name": "totalAmount",
+          "typ": "Float!"
+        }
+      ]
+    },
+    {
+      "name": "PlanView",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "maxSeats",
+          "typ": "Int"
+        },
+        {
+          "name": "monthlyPricePerSeat",
+          "typ": "Int!"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "plan",
+          "typ": "BillingPlan!"
+        },
+        {
+          "name": "purchasable",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "yearlyPricePerSeat",
+          "typ": "Int!"
+        }
+      ]
+    },
+    {
+      "name": "PlzOrt",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "bundesland",
+          "typ": "String"
+        },
+        {
+          "name": "ort",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "Product",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "active",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "articleNumber",
+          "typ": "String"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "description",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "taxRatePercent",
+          "typ": "Int!"
+        },
+        {
+          "name": "unit",
+          "typ": "String!"
+        },
+        {
+          "name": "unitPriceCents",
+          "typ": "Int!"
+        },
+        {
+          "name": "updatedAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "workspaceId",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "Quote",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "bearbeiter",
+          "typ": "User"
+        },
+        {
+          "name": "bearbeiterId",
+          "typ": "ID"
+        },
+        {
+          "name": "closingText",
+          "typ": "String"
+        },
+        {
+          "name": "company",
+          "typ": "Company"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "contact",
+          "typ": "Contact"
+        },
+        {
+          "name": "contactId",
+          "typ": "ID"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "currency",
+          "typ": "String!"
+        },
+        {
+          "name": "deal",
+          "typ": "Deal"
+        },
+        {
+          "name": "dealId",
+          "typ": "ID"
+        },
+        {
+          "name": "decidedAt",
+          "typ": "DateTime"
+        },
+        {
+          "name": "decidedByName",
+          "typ": "String"
+        },
+        {
+          "name": "decidedOnline",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "introText",
+          "typ": "String"
+        },
+        {
+          "name": "issuedOn",
+          "typ": "String!"
+        },
+        {
+          "name": "lines",
+          "typ": "[QuoteLine!]!"
+        },
+        {
+          "name": "number",
+          "typ": "String!"
+        },
+        {
+          "name": "publicLink",
+          "typ": "String"
+        },
+        {
+          "name": "recipientAddress",
+          "typ": "String"
+        },
+        {
+          "name": "recipientVatId",
+          "typ": "String"
+        },
+        {
+          "name": "sentAt",
+          "typ": "DateTime"
+        },
+        {
+          "name": "smallBusiness",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "status",
+          "typ": "QuoteStatus!"
+        },
+        {
+          "name": "taxExemption",
+          "typ": "TaxExemption"
+        },
+        {
+          "name": "taxExemptionNote",
+          "typ": "String"
+        },
+        {
+          "name": "totals",
+          "typ": "QuoteTotals!"
+        },
+        {
+          "name": "updatedAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "validUntil",
+          "typ": "String!"
+        },
+        {
+          "name": "workspaceId",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "QuoteLine",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "articleNumber",
+          "typ": "String"
+        },
+        {
+          "name": "description",
+          "typ": "String"
+        },
+        {
+          "name": "discountPercent",
+          "typ": "Float!"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "position",
+          "typ": "Int!"
+        },
+        {
+          "name": "productId",
+          "typ": "ID"
+        },
+        {
+          "name": "quantity",
+          "typ": "Float!"
+        },
+        {
+          "name": "quoteId",
+          "typ": "ID!"
+        },
+        {
+          "name": "taxRatePercent",
+          "typ": "Int!"
+        },
+        {
+          "name": "unit",
+          "typ": "String!"
+        },
+        {
+          "name": "unitPriceCents",
+          "typ": "Int!"
+        }
+      ]
+    },
+    {
+      "name": "QuoteLineInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "articleNumber",
+          "typ": "String"
+        },
+        {
+          "name": "description",
+          "typ": "String"
+        },
+        {
+          "name": "discountPercent",
+          "typ": "Float"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "productId",
+          "typ": "ID"
+        },
+        {
+          "name": "quantity",
+          "typ": "Float!"
+        },
+        {
+          "name": "taxRatePercent",
+          "typ": "Int!"
+        },
+        {
+          "name": "unit",
+          "typ": "String!"
+        },
+        {
+          "name": "unitPriceCents",
+          "typ": "Int!"
+        }
+      ]
+    },
+    {
+      "name": "QuoteLineTextInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "description",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "QuoteStatus",
+      "art": "aufzaehlung",
+      "werte": [
+        "ACCEPTED",
+        "DECLINED",
+        "DRAFT",
+        "SENT"
+      ]
+    },
+    {
+      "name": "QuoteTaxGroup",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "netCents",
+          "typ": "Int!"
+        },
+        {
+          "name": "ratePercent",
+          "typ": "Int!"
+        },
+        {
+          "name": "taxCents",
+          "typ": "Int!"
+        }
+      ]
+    },
+    {
+      "name": "QuoteTotals",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "grossCents",
+          "typ": "Int!"
+        },
+        {
+          "name": "netCents",
+          "typ": "Int!"
+        },
+        {
+          "name": "taxCents",
+          "typ": "Int!"
+        },
+        {
+          "name": "taxGroups",
+          "typ": "[QuoteTaxGroup!]!"
+        }
+      ]
+    },
+    {
+      "name": "ReminderPreview",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "body",
+          "typ": "String!"
+        },
+        {
+          "name": "level",
+          "typ": "DunningLevel!"
+        },
+        {
+          "name": "subject",
+          "typ": "String!"
+        },
+        {
+          "name": "to",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "RemoveMemberInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "nachfolgerId",
+          "typ": "ID"
+        },
+        {
+          "name": "userId",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "RetentionPreview",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "enabled",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "entries",
+          "typ": "[RetentionPreviewEntry!]!"
+        },
+        {
+          "name": "retentionDays",
+          "typ": "Int!"
+        },
+        {
+          "name": "wouldDelete",
+          "typ": "Int!"
+        },
+        {
+          "name": "wouldWarn",
+          "typ": "Int!"
+        }
+      ]
+    },
+    {
+      "name": "RetentionPreviewEntry",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "daysLeft",
+          "typ": "Int!"
+        },
+        {
+          "name": "deleteOn",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "workspaceName",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "Role",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "description",
+          "typ": "String"
+        },
+        {
+          "name": "everything",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "feldrechte",
+          "typ": "[Feldrecht!]!"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "isSystem",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "memberCount",
+          "typ": "Float!"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "permissions",
+          "typ": "[String!]!"
+        },
+        {
+          "name": "sichtbarkeit",
+          "typ": "RollenSichtbarkeit!"
+        },
+        {
+          "name": "templateKey",
+          "typ": "String"
+        },
+        {
+          "name": "updatedAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "workspaceId",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "RollenSichtbarkeit",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "company",
+          "typ": "String!"
+        },
+        {
+          "name": "contact",
+          "typ": "String!"
+        },
+        {
+          "name": "deal",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "SavedView",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "columns",
+          "typ": "SavedViewColumns!"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "createdById",
+          "typ": "ID!"
+        },
+        {
+          "name": "customFilters",
+          "typ": "SavedViewFilters!"
+        },
+        {
+          "name": "darstellung",
+          "typ": "String"
+        },
+        {
+          "name": "datumFeld",
+          "typ": "String"
+        },
+        {
+          "name": "entity",
+          "typ": "CustomFieldEntity!"
+        },
+        {
+          "name": "filterVerknuepfung",
+          "typ": "String"
+        },
+        {
+          "name": "filters",
+          "typ": "CustomFieldValues!"
+        },
+        {
+          "name": "gruppenFeld",
+          "typ": "String"
+        },
+        {
+          "name": "gruppierung",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "isDefault",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "privat",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "search",
+          "typ": "String"
+        },
+        {
+          "name": "sortDirection",
+          "typ": "String"
+        },
+        {
+          "name": "sortField",
+          "typ": "String"
+        },
+        {
+          "name": "updatedAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "workspaceId",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "SavedViewColumns",
+      "art": "skalar",
+      "beschreibung": "The column keys a list shows, in order."
+    },
+    {
+      "name": "SavedViewFilters",
+      "art": "skalar",
+      "beschreibung": "A list of custom field comparisons: { key, operator, value? } entries."
+    },
+    {
+      "name": "SetInvoiceLinesInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "invoiceId",
+          "typ": "ID!"
+        },
+        {
+          "name": "lines",
+          "typ": "[InvoiceLineInputDto!]!"
+        }
+      ]
+    },
+    {
+      "name": "SetQuoteLinesInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "lines",
+          "typ": "[QuoteLineInput!]!"
+        },
+        {
+          "name": "quoteId",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "SetQuoteTextsInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "closingText",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "introText",
+          "typ": "String"
+        },
+        {
+          "name": "lines",
+          "typ": "[QuoteLineTextInput!]"
+        }
+      ]
+    },
+    {
+      "name": "SichtbarkeitInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "company",
+          "typ": "String"
+        },
+        {
+          "name": "contact",
+          "typ": "String"
+        },
+        {
+          "name": "deal",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "SortDirection",
+      "art": "aufzaehlung",
+      "werte": [
+        "ASC",
+        "DESC"
+      ]
+    },
+    {
+      "name": "SubscriptionStatus",
+      "art": "aufzaehlung",
+      "werte": [
+        "ACTIVE",
+        "CANCELED",
+        "PAST_DUE",
+        "TRIALING"
+      ]
+    },
+    {
+      "name": "SuchTreffer",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "art",
+          "typ": "String!"
+        },
+        {
+          "name": "firma",
+          "typ": "Company"
+        },
+        {
+          "name": "geschaeft",
+          "typ": "Deal"
+        },
+        {
+          "name": "kontakt",
+          "typ": "Contact"
+        },
+        {
+          "name": "rang",
+          "typ": "Float!"
+        }
+      ]
+    },
+    {
+      "name": "Task",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "assigneeId",
+          "typ": "ID!"
+        },
+        {
+          "name": "assigneeName",
+          "typ": "String!"
+        },
+        {
+          "name": "company",
+          "typ": "Company"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "completedAt",
+          "typ": "DateTime"
+        },
+        {
+          "name": "contact",
+          "typ": "Contact"
+        },
+        {
+          "name": "contactId",
+          "typ": "ID"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "createdById",
+          "typ": "ID!"
+        },
+        {
+          "name": "customFields",
+          "typ": "CustomFieldValues!"
+        },
+        {
+          "name": "deal",
+          "typ": "Deal"
+        },
+        {
+          "name": "dealId",
+          "typ": "ID"
+        },
+        {
+          "name": "description",
+          "typ": "String"
+        },
+        {
+          "name": "dueDate",
+          "typ": "String"
+        },
+        {
+          "name": "dueTime",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "inArbeitSeit",
+          "typ": "DateTime"
+        },
+        {
+          "name": "isOverdue",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "status",
+          "typ": "String!"
+        },
+        {
+          "name": "title",
+          "typ": "String!"
+        },
+        {
+          "name": "updatedAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "workspaceId",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "TaskPage",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "hasMore",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "items",
+          "typ": "[Task!]!"
+        },
+        {
+          "name": "totalCount",
+          "typ": "Int!"
+        }
+      ]
+    },
+    {
+      "name": "TaxExemption",
+      "art": "aufzaehlung",
+      "werte": [
+        "AUSFUHR",
+        "INNERGEMEINSCHAFTLICH",
+        "NULLSATZ",
+        "REVERSE_CHARGE",
+        "REVERSE_CHARGE_EU",
+        "STEUERFREI"
+      ]
+    },
+    {
+      "name": "UpdateAppointmentInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "allDay",
+          "typ": "Boolean"
+        },
+        {
+          "name": "attendees",
+          "typ": "[AppointmentAttendeeInput!]"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "contactId",
+          "typ": "ID"
+        },
+        {
+          "name": "dealId",
+          "typ": "ID"
+        },
+        {
+          "name": "description",
+          "typ": "String"
+        },
+        {
+          "name": "endDate",
+          "typ": "String"
+        },
+        {
+          "name": "endTime",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "location",
+          "typ": "String"
+        },
+        {
+          "name": "ownerId",
+          "typ": "ID"
+        },
+        {
+          "name": "privat",
+          "typ": "Boolean"
+        },
+        {
+          "name": "recurrence",
+          "typ": "String"
+        },
+        {
+          "name": "remindMinutesBefore",
+          "typ": "Int"
+        },
+        {
+          "name": "scope",
+          "typ": "AppointmentScope"
+        },
+        {
+          "name": "startDate",
+          "typ": "String"
+        },
+        {
+          "name": "startTime",
+          "typ": "String"
+        },
+        {
+          "name": "title",
+          "typ": "String"
+        },
+        {
+          "name": "videoLink",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "UpdateCompanyInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "annualRevenue",
+          "typ": "Float"
+        },
+        {
+          "name": "city",
+          "typ": "String"
+        },
+        {
+          "name": "country",
+          "typ": "String"
+        },
+        {
+          "name": "customFields",
+          "typ": "CustomFieldValues"
+        },
+        {
+          "name": "domain",
+          "typ": "String"
+        },
+        {
+          "name": "email",
+          "typ": "String"
+        },
+        {
+          "name": "employeeCount",
+          "typ": "Int"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "industry",
+          "typ": "String"
+        },
+        {
+          "name": "invoiceEmail",
+          "typ": "String"
+        },
+        {
+          "name": "linkedin",
+          "typ": "String"
+        },
+        {
+          "name": "name",
+          "typ": "String"
+        },
+        {
+          "name": "ownerId",
+          "typ": "ID"
+        },
+        {
+          "name": "parentCompanyId",
+          "typ": "ID"
+        },
+        {
+          "name": "phone",
+          "typ": "String"
+        },
+        {
+          "name": "postalCode",
+          "typ": "String"
+        },
+        {
+          "name": "registergericht",
+          "typ": "String"
+        },
+        {
+          "name": "registernummer",
+          "typ": "String"
+        },
+        {
+          "name": "street",
+          "typ": "String"
+        },
+        {
+          "name": "ustIdNr",
+          "typ": "String"
+        },
+        {
+          "name": "vertretung",
+          "typ": "String"
+        },
+        {
+          "name": "website",
+          "typ": "String"
+        },
+        {
+          "name": "zweitdomains",
+          "typ": "[String!]"
+        }
+      ]
+    },
+    {
+      "name": "UpdateContactInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "city",
+          "typ": "String"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "country",
+          "typ": "String"
+        },
+        {
+          "name": "customFields",
+          "typ": "CustomFieldValues"
+        },
+        {
+          "name": "email",
+          "typ": "String"
+        },
+        {
+          "name": "firstName",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "jobTitle",
+          "typ": "String"
+        },
+        {
+          "name": "lastName",
+          "typ": "String"
+        },
+        {
+          "name": "linkedin",
+          "typ": "String"
+        },
+        {
+          "name": "ownerId",
+          "typ": "ID"
+        },
+        {
+          "name": "phone",
+          "typ": "String"
+        },
+        {
+          "name": "postalCode",
+          "typ": "String"
+        },
+        {
+          "name": "street",
+          "typ": "String"
+        },
+        {
+          "name": "weitereEmails",
+          "typ": "[KontaktEmailInput!]"
+        },
+        {
+          "name": "weitereTelefone",
+          "typ": "[KontaktTelefonInput!]"
+        }
+      ]
+    },
+    {
+      "name": "UpdateCustomFieldGroupInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "eingeklappt",
+          "typ": "Boolean"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "name",
+          "typ": "String"
+        },
+        {
+          "name": "position",
+          "typ": "Int"
+        }
+      ]
+    },
+    {
+      "name": "UpdateCustomFieldInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "beschreibung",
+          "typ": "String"
+        },
+        {
+          "name": "datumsformat",
+          "typ": "String"
+        },
+        {
+          "name": "eindeutig",
+          "typ": "Boolean"
+        },
+        {
+          "name": "farben",
+          "typ": "[CustomFieldOptionFarbeInput!]"
+        },
+        {
+          "name": "gruppeId",
+          "typ": "ID"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "label",
+          "typ": "String"
+        },
+        {
+          "name": "nachkommastellen",
+          "typ": "Int"
+        },
+        {
+          "name": "options",
+          "typ": "[String!]"
+        },
+        {
+          "name": "pflichtAbPhase",
+          "typ": "String"
+        },
+        {
+          "name": "position",
+          "typ": "Int"
+        },
+        {
+          "name": "required",
+          "typ": "Boolean"
+        },
+        {
+          "name": "standardwert",
+          "typ": "String"
+        },
+        {
+          "name": "waehrung",
+          "typ": "String"
+        },
+        {
+          "name": "zahlformat",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "UpdateDealInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "amount",
+          "typ": "Float"
+        },
+        {
+          "name": "closeDate",
+          "typ": "String"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "currency",
+          "typ": "String"
+        },
+        {
+          "name": "customFields",
+          "typ": "CustomFieldValues"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "lostReason",
+          "typ": "String"
+        },
+        {
+          "name": "name",
+          "typ": "String"
+        },
+        {
+          "name": "ownerId",
+          "typ": "ID"
+        },
+        {
+          "name": "pipelineId",
+          "typ": "ID"
+        },
+        {
+          "name": "primaryContactId",
+          "typ": "ID"
+        },
+        {
+          "name": "probability",
+          "typ": "Int"
+        },
+        {
+          "name": "stage",
+          "typ": "DealStage"
+        }
+      ]
+    },
+    {
+      "name": "UpdateInvoiceInputDto",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "buyerReference",
+          "typ": "String"
+        },
+        {
+          "name": "closingText",
+          "typ": "String"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "contactId",
+          "typ": "ID"
+        },
+        {
+          "name": "dealId",
+          "typ": "ID"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "introText",
+          "typ": "String"
+        },
+        {
+          "name": "paymentTermDays",
+          "typ": "Int"
+        },
+        {
+          "name": "recipientAddress",
+          "typ": "String"
+        },
+        {
+          "name": "recipientVatId",
+          "typ": "String"
+        },
+        {
+          "name": "serviceDate",
+          "typ": "String"
+        },
+        {
+          "name": "taxExemption",
+          "typ": "TaxExemption"
+        },
+        {
+          "name": "taxExemptionNote",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "UpdateLetterheadInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "bankName",
+          "typ": "String"
+        },
+        {
+          "name": "bic",
+          "typ": "String"
+        },
+        {
+          "name": "city",
+          "typ": "String"
+        },
+        {
+          "name": "companyName",
+          "typ": "String"
+        },
+        {
+          "name": "country",
+          "typ": "String"
+        },
+        {
+          "name": "datevBeraternummer",
+          "typ": "String"
+        },
+        {
+          "name": "datevKontenrahmen",
+          "typ": "String"
+        },
+        {
+          "name": "datevMandantennummer",
+          "typ": "String"
+        },
+        {
+          "name": "defaultClosingText",
+          "typ": "String"
+        },
+        {
+          "name": "defaultIntroText",
+          "typ": "String"
+        },
+        {
+          "name": "defaultValidityDays",
+          "typ": "Int"
+        },
+        {
+          "name": "email",
+          "typ": "String"
+        },
+        {
+          "name": "iban",
+          "typ": "String"
+        },
+        {
+          "name": "phone",
+          "typ": "String"
+        },
+        {
+          "name": "postalCode",
+          "typ": "String"
+        },
+        {
+          "name": "registerEntry",
+          "typ": "String"
+        },
+        {
+          "name": "representative",
+          "typ": "String"
+        },
+        {
+          "name": "smallBusiness",
+          "typ": "Boolean"
+        },
+        {
+          "name": "street",
+          "typ": "String"
+        },
+        {
+          "name": "taxNumber",
+          "typ": "String"
+        },
+        {
+          "name": "vatId",
+          "typ": "String"
+        },
+        {
+          "name": "website",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "UpdateNoteInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "body",
+          "typ": "String!"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "UpdateProductInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "active",
+          "typ": "Boolean"
+        },
+        {
+          "name": "articleNumber",
+          "typ": "String"
+        },
+        {
+          "name": "description",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "name",
+          "typ": "String"
+        },
+        {
+          "name": "taxRatePercent",
+          "typ": "Int"
+        },
+        {
+          "name": "unit",
+          "typ": "String"
+        },
+        {
+          "name": "unitPriceCents",
+          "typ": "Int"
+        }
+      ]
+    },
+    {
+      "name": "UpdateQuoteInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "closingText",
+          "typ": "String"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "contactId",
+          "typ": "ID"
+        },
+        {
+          "name": "dealId",
+          "typ": "ID"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "introText",
+          "typ": "String"
+        },
+        {
+          "name": "recipientAddress",
+          "typ": "String"
+        },
+        {
+          "name": "recipientVatId",
+          "typ": "String"
+        },
+        {
+          "name": "smallBusiness",
+          "typ": "Boolean"
+        },
+        {
+          "name": "taxExemption",
+          "typ": "TaxExemption"
+        },
+        {
+          "name": "taxExemptionNote",
+          "typ": "String"
+        },
+        {
+          "name": "validUntil",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "UpdateRoleInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "description",
+          "typ": "String"
+        },
+        {
+          "name": "feldrechte",
+          "typ": "[FeldrechtInput!]"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "name",
+          "typ": "String"
+        },
+        {
+          "name": "permissions",
+          "typ": "[String!]"
+        },
+        {
+          "name": "sichtbarkeit",
+          "typ": "SichtbarkeitInput"
+        }
+      ]
+    },
+    {
+      "name": "UpdateSavedViewInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "columns",
+          "typ": "SavedViewColumns"
+        },
+        {
+          "name": "customFilters",
+          "typ": "SavedViewFilters"
+        },
+        {
+          "name": "darstellung",
+          "typ": "String"
+        },
+        {
+          "name": "datumFeld",
+          "typ": "String"
+        },
+        {
+          "name": "filterVerknuepfung",
+          "typ": "String"
+        },
+        {
+          "name": "filters",
+          "typ": "CustomFieldValues"
+        },
+        {
+          "name": "gruppenFeld",
+          "typ": "String"
+        },
+        {
+          "name": "gruppierung",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "name",
+          "typ": "String"
+        },
+        {
+          "name": "privat",
+          "typ": "Boolean"
+        },
+        {
+          "name": "search",
+          "typ": "String"
+        },
+        {
+          "name": "sortDirection",
+          "typ": "String"
+        },
+        {
+          "name": "sortField",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "UpdateTaskInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "assigneeId",
+          "typ": "ID"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "contactId",
+          "typ": "ID"
+        },
+        {
+          "name": "customFields",
+          "typ": "CustomFieldValues"
+        },
+        {
+          "name": "dealId",
+          "typ": "ID"
+        },
+        {
+          "name": "description",
+          "typ": "String"
+        },
+        {
+          "name": "dueDate",
+          "typ": "String"
+        },
+        {
+          "name": "dueTime",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "title",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "UpsertCompanyInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "annualRevenue",
+          "typ": "Float"
+        },
+        {
+          "name": "city",
+          "typ": "String"
+        },
+        {
+          "name": "country",
+          "typ": "String"
+        },
+        {
+          "name": "customFields",
+          "typ": "CustomFieldValues"
+        },
+        {
+          "name": "domain",
+          "typ": "String"
+        },
+        {
+          "name": "email",
+          "typ": "String"
+        },
+        {
+          "name": "employeeCount",
+          "typ": "Int"
+        },
+        {
+          "name": "herkunft",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID"
+        },
+        {
+          "name": "industry",
+          "typ": "String"
+        },
+        {
+          "name": "invoiceEmail",
+          "typ": "String"
+        },
+        {
+          "name": "linkedin",
+          "typ": "String"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "ownerId",
+          "typ": "ID"
+        },
+        {
+          "name": "parentCompanyId",
+          "typ": "ID"
+        },
+        {
+          "name": "phone",
+          "typ": "String"
+        },
+        {
+          "name": "postalCode",
+          "typ": "String"
+        },
+        {
+          "name": "registergericht",
+          "typ": "String"
+        },
+        {
+          "name": "registernummer",
+          "typ": "String"
+        },
+        {
+          "name": "street",
+          "typ": "String"
+        },
+        {
+          "name": "ustIdNr",
+          "typ": "String"
+        },
+        {
+          "name": "vertretung",
+          "typ": "String"
+        },
+        {
+          "name": "website",
+          "typ": "String"
+        },
+        {
+          "name": "zweitdomains",
+          "typ": "[String!]"
+        }
+      ]
+    },
+    {
+      "name": "UpsertContactInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "city",
+          "typ": "String"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "country",
+          "typ": "String"
+        },
+        {
+          "name": "customFields",
+          "typ": "CustomFieldValues"
+        },
+        {
+          "name": "email",
+          "typ": "String"
+        },
+        {
+          "name": "firstName",
+          "typ": "String!"
+        },
+        {
+          "name": "herkunft",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID"
+        },
+        {
+          "name": "jobTitle",
+          "typ": "String"
+        },
+        {
+          "name": "lastName",
+          "typ": "String!"
+        },
+        {
+          "name": "linkedin",
+          "typ": "String"
+        },
+        {
+          "name": "ownerId",
+          "typ": "ID"
+        },
+        {
+          "name": "phone",
+          "typ": "String"
+        },
+        {
+          "name": "postalCode",
+          "typ": "String"
+        },
+        {
+          "name": "street",
+          "typ": "String"
+        },
+        {
+          "name": "weitereEmails",
+          "typ": "[KontaktEmailInput!]"
+        },
+        {
+          "name": "weitereTelefone",
+          "typ": "[KontaktTelefonInput!]"
+        }
+      ]
+    },
+    {
+      "name": "UpsertDealInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "amount",
+          "typ": "Float"
+        },
+        {
+          "name": "closeDate",
+          "typ": "String"
+        },
+        {
+          "name": "companyId",
+          "typ": "ID"
+        },
+        {
+          "name": "currency",
+          "typ": "String"
+        },
+        {
+          "name": "customFields",
+          "typ": "CustomFieldValues"
+        },
+        {
+          "name": "herkunft",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID"
+        },
+        {
+          "name": "lostReason",
+          "typ": "String"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "ownerId",
+          "typ": "ID"
+        },
+        {
+          "name": "pipelineId",
+          "typ": "ID"
+        },
+        {
+          "name": "primaryContactId",
+          "typ": "ID"
+        },
+        {
+          "name": "probability",
+          "typ": "Int"
+        },
+        {
+          "name": "stage",
+          "typ": "DealStage"
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "durchwahl",
+          "typ": "String"
+        },
+        {
+          "name": "email",
+          "typ": "String!"
+        },
+        {
+          "name": "emailVerifiedAt",
+          "typ": "DateTime"
+        },
+        {
+          "name": "firstName",
+          "typ": "String!"
+        },
+        {
+          "name": "funktion",
+          "typ": "String"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "lastName",
+          "typ": "String!"
+        },
+        {
+          "name": "mailSignatur",
+          "typ": "String"
+        },
+        {
+          "name": "passwortGesetzt",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "updatedAt",
+          "typ": "DateTime!"
+        }
+      ]
+    },
+    {
+      "name": "Verteiler",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "anzahl",
+          "typ": "Int!"
+        },
+        {
+          "name": "beschreibung",
+          "typ": "String"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "createdById",
+          "typ": "ID"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "updatedAt",
+          "typ": "DateTime!"
+        }
+      ]
+    },
+    {
+      "name": "VerteilerInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "beschreibung",
+          "typ": "String"
+        },
+        {
+          "name": "name",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "VerteilerMitglied",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "abgemeldet",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "contact",
+          "typ": "Contact!"
+        },
+        {
+          "name": "hinzugefuegtAm",
+          "typ": "DateTime!"
+        }
+      ]
+    },
+    {
+      "name": "VerweisTitel",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "sichtbar",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "titel",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "WebForm",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "active",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "createDeal",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "intro",
+          "typ": "String"
+        },
+        {
+          "name": "ownerId",
+          "typ": "ID!"
+        },
+        {
+          "name": "privacyUrl",
+          "typ": "String"
+        },
+        {
+          "name": "thankYou",
+          "typ": "String!"
+        },
+        {
+          "name": "title",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "WebFormInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "active",
+          "typ": "Boolean"
+        },
+        {
+          "name": "createDeal",
+          "typ": "Boolean"
+        },
+        {
+          "name": "intro",
+          "typ": "String"
+        },
+        {
+          "name": "privacyUrl",
+          "typ": "String"
+        },
+        {
+          "name": "thankYou",
+          "typ": "String"
+        },
+        {
+          "name": "title",
+          "typ": "String"
+        }
+      ]
+    },
+    {
+      "name": "WertZuordnungInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "nach",
+          "typ": "String!"
+        },
+        {
+          "name": "von",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "Workspace",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "baseInterestRatePercent",
+          "typ": "Float"
+        },
+        {
+          "name": "createdAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "einladungsDomains",
+          "typ": "[String!]!"
+        },
+        {
+          "name": "id",
+          "typ": "ID!"
+        },
+        {
+          "name": "leerlaufMinuten",
+          "typ": "Int"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "papierkorbTage",
+          "typ": "Int!"
+        },
+        {
+          "name": "slug",
+          "typ": "String!"
+        },
+        {
+          "name": "updatedAt",
+          "typ": "DateTime!"
+        },
+        {
+          "name": "zweiFaktorPflicht",
+          "typ": "Boolean!"
+        }
+      ]
+    },
+    {
+      "name": "WorkspaceSummary",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "betraegeVerborgen",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "companyCount",
+          "typ": "Int"
+        },
+        {
+          "name": "contactCount",
+          "typ": "Int"
+        },
+        {
+          "name": "openDealCount",
+          "typ": "Int"
+        },
+        {
+          "name": "openPipelineValue",
+          "typ": "Float"
+        },
+        {
+          "name": "openTaskCount",
+          "typ": "Int"
+        },
+        {
+          "name": "overdueTaskCount",
+          "typ": "Int"
+        }
+      ]
+    },
+    {
+      "name": "ZeilenKorrekturInput",
+      "art": "eingabe",
+      "felder": [
+        {
+          "name": "zeile",
+          "typ": "Int!"
+        },
+        {
+          "name": "zellen",
+          "typ": "[String!]!"
+        }
+      ]
+    },
+    {
+      "name": "ZugriffZeile",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "bearbeitet",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "grund",
+          "typ": "String!"
+        },
+        {
+          "name": "name",
+          "typ": "String!"
+        },
+        {
+          "name": "rolle",
+          "typ": "String!"
+        },
+        {
+          "name": "sieht",
+          "typ": "Boolean!"
+        },
+        {
+          "name": "userId",
+          "typ": "ID!"
+        }
+      ]
+    },
+    {
+      "name": "ZusammenfuehrenAnzahl",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "anzahl",
+          "typ": "Int!"
+        },
+        {
+          "name": "was",
+          "typ": "String!"
+        }
+      ]
+    },
+    {
+      "name": "ZusammenfuehrenErgebnis",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "eigeneFelder",
+          "typ": "Int!"
+        },
+        {
+          "name": "felder",
+          "typ": "[ZusammenfuehrenFeld!]!"
+        },
+        {
+          "name": "umgehaengt",
+          "typ": "[ZusammenfuehrenAnzahl!]!"
+        }
+      ]
+    },
+    {
+      "name": "ZusammenfuehrenFeld",
+      "art": "objekt",
+      "felder": [
+        {
+          "name": "feld",
+          "typ": "String!"
+        },
+        {
+          "name": "vonId",
+          "typ": "ID!"
+        }
+      ]
+    }
+  ]
+}

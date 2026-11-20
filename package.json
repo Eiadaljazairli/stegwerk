@@ -1,0 +1,33 @@
+{
+  "name": "stegwerk",
+  "version": "0.1.0",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "description": "Open-source CRM for small and mid-sized businesses in Germany: deals, quotes, GoBD invoices, XRechnung, DATEV.",
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n server,web -c blue,magenta \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:server": "npm --workspace server run dev",
+    "dev:web": "npm --workspace web run dev",
+    "build": "npm --workspace server run build && npm --workspace web run build",
+    "typecheck": "npm --workspace server run typecheck && npm --workspace web run typecheck && npm run check:queries",
+    "test": "npm --workspace server run test && npm --workspace web run test",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "db:backup": "bash scripts/db-backup.sh",
+    "db:restore": "bash scripts/db-restore.sh",
+    "check:queries": "node scripts/validate-queries.cjs"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "overrides": {
+    "@apollo/server": "^5.5.1"
+  }
+}

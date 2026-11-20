@@ -1,0 +1,7 @@
+{
+  "extends": "./tsconfig.json",
+  // Test files and their helpers are compiled by ts-jest when tests run, and
+  // have no business in the production image: they were landing in dist and
+  // shipping to every deployment.
+  "exclude": ["node_modules", "dist", "**/*.spec.ts", "src/testing/**"]
+}

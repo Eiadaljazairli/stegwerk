@@ -1,0 +1,6 @@
+dist
+build
+coverage
+package-lock.json
+web/src/lib/schema-referenz.json
+server/src/crm/plz/plz-de.json

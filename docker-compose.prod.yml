@@ -1,0 +1,130 @@
+
+x-gehaertet: &gehaertet
+  security_opt:
+    - no-new-privileges:true
+  logging:
+    driver: json-file
+    options:
+      max-size: 10m
+      max-file: '3'
+
+services:
+  postgres:
+    <<: *gehaertet
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:?set POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB:?set POSTGRES_DB}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}']
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  migrate:
+    <<: *gehaertet
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+    command: ['node', 'dist/database/migrate.js']
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: 'no'
+
+  api:
+    <<: *gehaertet
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 4000
+      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      JWT_SECRET: ${JWT_SECRET:?set JWT_SECRET}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-15m}
+      REFRESH_TOKEN_DAYS: ${REFRESH_TOKEN_DAYS:-30}
+      WEB_ORIGIN: ${WEB_ORIGIN:?set WEB_ORIGIN}
+      MAIL_ENCRYPTION_KEY: ${MAIL_ENCRYPTION_KEY:-}
+      TOTP_ENCRYPTION_KEY: ${TOTP_ENCRYPTION_KEY:-}
+      MAIL_ENCRYPTION_KEY_ALT: ${MAIL_ENCRYPTION_KEY_ALT:-}
+      TOTP_ENCRYPTION_KEY_ALT: ${TOTP_ENCRYPTION_KEY_ALT:-}
+      OAUTH_REDIRECT_ORIGIN: ${OAUTH_REDIRECT_ORIGIN:-}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-}
+      MICROSOFT_CLIENT_ID: ${MICROSOFT_CLIENT_ID:-}
+      MICROSOFT_CLIENT_SECRET: ${MICROSOFT_CLIENT_SECRET:-}
+      MICROSOFT_TENANT: ${MICROSOFT_TENANT:-common}
+      BETREIBER_EMAILS: ${BETREIBER_EMAILS:-}
+      APP_VERSION: ${APP_VERSION:-}
+      PROTOKOLL_AENDERUNGEN_MONATE: ${PROTOKOLL_AENDERUNGEN_MONATE:-24}
+      PROTOKOLL_SICHERHEIT_MONATE: ${PROTOKOLL_SICHERHEIT_MONATE:-12}
+      WARTUNGSMODUS: ${WARTUNGSMODUS:-false}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      MAIL_FROM: ${MAIL_FROM:-}
+      MAIL_FROM_NAME: ${MAIL_FROM_NAME:-Stegwerk}
+      SENTRY_DSN: ${SENTRY_DSN:-}
+      SENTRY_TRACES_SAMPLE_RATE: ${SENTRY_TRACES_SAMPLE_RATE:-0.1}
+      STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY:-}
+      STRIPE_WEBHOOK_SECRET: ${STRIPE_WEBHOOK_SECRET:-}
+      STRIPE_PRICE_STARTER_MONTH: ${STRIPE_PRICE_STARTER_MONTH:-}
+      STRIPE_PRICE_STARTER_YEAR: ${STRIPE_PRICE_STARTER_YEAR:-}
+      STRIPE_PRICE_PROFESSIONAL_MONTH: ${STRIPE_PRICE_PROFESSIONAL_MONTH:-}
+      STRIPE_PRICE_PROFESSIONAL_YEAR: ${STRIPE_PRICE_PROFESSIONAL_YEAR:-}
+      LEGAL_COMPANY_NAME: ${LEGAL_COMPANY_NAME:-}
+      LEGAL_FORM: ${LEGAL_FORM:-}
+      LEGAL_STREET: ${LEGAL_STREET:-}
+      LEGAL_POSTAL_CODE: ${LEGAL_POSTAL_CODE:-}
+      LEGAL_CITY: ${LEGAL_CITY:-}
+      LEGAL_COUNTRY: ${LEGAL_COUNTRY:-Deutschland}
+      LEGAL_EMAIL: ${LEGAL_EMAIL:-}
+      LEGAL_PHONE: ${LEGAL_PHONE:-}
+      LEGAL_REPRESENTATIVE: ${LEGAL_REPRESENTATIVE:-}
+      LEGAL_REGISTER_ENTRY: ${LEGAL_REGISTER_ENTRY:-}
+      LEGAL_VAT_ID: ${LEGAL_VAT_ID:-}
+      LEGAL_PRIVACY_CONTACT: ${LEGAL_PRIVACY_CONTACT:-}
+      LEGAL_HOSTING: ${LEGAL_HOSTING:-}
+      LEGAL_SUPERVISORY_AUTHORITY: ${LEGAL_SUPERVISORY_AUTHORITY:-}
+      LEGAL_BACKUP_DESCRIPTION: ${LEGAL_BACKUP_DESCRIPTION:-}
+      LEGAL_PRIVACY_REVIEWED: ${LEGAL_PRIVACY_REVIEWED:-}
+      LEGAL_DPA_REVIEWED: ${LEGAL_DPA_REVIEWED:-}
+      SICHERUNG_STAND: /stand
+    volumes:
+      - mail:/app/server/var/mail
+      - ${SICHERUNG_STAND_HOST:-/var/lib/stegwerk/stand}:/stand:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+
+  web:
+    <<: *gehaertet
+    build:
+      context: .
+      dockerfile: web/Dockerfile
+      args:
+        VITE_SENTRY_DSN: ${VITE_SENTRY_DSN:-}
+        VITE_SENTRY_RELEASE: ${VITE_SENTRY_RELEASE:-}
+        VITE_PUBLIC_ORIGIN: ${WEB_ORIGIN:-}
+        APP_VERSION: ${APP_VERSION:-}
+    restart: unless-stopped
+    ports:
+      - '${WEB_PORT:-127.0.0.1:8080}:8080'
+    depends_on:
+      api:
+        condition: service_started
+
+volumes:
+  pgdata:
+  mail:

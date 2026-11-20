@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm --workspace web run typecheck
+      - run: npm run check:queries
+      - run: npm --workspace web run test
+      - run: npm --workspace web run build
+
+  server:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: weitblick
+          POSTGRES_PASSWORD: weitblick
+          POSTGRES_DB: weitblick
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U weitblick -d weitblick"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgres://weitblick:weitblick@localhost:5432/weitblick
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm --workspace server run typecheck
+      - run: npm --workspace server run build
+      - run: npm --workspace server run migration:run
+      - run: npm --workspace server run test -- --runInBand

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="de" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Firmen, Kontakte und Geschäfte an einem Ort. Mit Angeboten, Rechnungen nach § 14 UStG, Kalender und Postfach. Für Vertriebsteams."
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Stegwerk" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:title" content="Stegwerk CRM für Vertriebsteams" />
+    <meta
+      property="og:description"
+      content="Firmen, Kontakte und Geschäfte an einem Ort. Mit Angeboten, Rechnungen nach § 14 UStG, Kalender und Postfach."
+    />
+    <meta property="og:url" content="%STEGWERK_HERKUNFT%/" />
+    <meta property="og:image" content="%STEGWERK_HERKUNFT%/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Stegwerk CRM für Vertriebsteams" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#1b1b1b" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Stegwerk" />
+    <title>Stegwerk</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Stegwerk",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "inLanguage": "de",
+        "description": "CRM für Vertriebsteams: Firmen, Kontakte und Geschäfte, Angebote und Rechnungen nach § 14 UStG mit E-Rechnung, Kalender und Postfach."
+      }
+    </script>
+    <script>
+      (function () {
+        try {
+          var saved = window.localStorage.getItem('stegwerk.theme');
+          if (saved === 'system') {
+            document.documentElement.removeAttribute('data-theme');
+          } else if (saved === 'dark' || saved === 'light') {
+            document.documentElement.setAttribute('data-theme', saved);
+          }
+          if (window.localStorage.getItem('stegwerk.session') !== null) {
+            document.documentElement.setAttribute('data-sitzung', '');
+          }
+        } catch (error) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
