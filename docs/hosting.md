@@ -71,8 +71,8 @@ where it matters.
 
 Two layers, because neither alone is enough.
 
-Hostinger takes a weekly image of the whole machine. That is a floor, not a
-plan: in the worst case a week of work is missing, and what comes back is the
+Many hosting providers take a weekly image of the whole machine. That is a
+floor, not a plan: in the worst case a week of work is missing, and what comes back is the
 whole machine rather than the database.
 
 So the deploy script also installs a nightly `pg_dump` as a systemd timer.
